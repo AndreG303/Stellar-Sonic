@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "passport_demo",
+    "database": "music_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
@@ -20,28 +20,28 @@
   "katesComputer": {
     "username": "root",
     "password": "jellyfish123",
-    "database": "passport_demo",
+    "database": "music_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "andreasComputer": {
     "username": "root",
     "password": "mysqlbootcamp",
-    "database": "passport_demo",
+    "database": "music_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "andrewsComputer": {
     "username": "root",
     "password": "Andyboy1!",
-    "database": "passport_demo",
+    "database": "music_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "JivkosComputer": {
     "username": "root",
     "password": "Password1",
-    "database": "passport_demo",
+    "database": "music_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

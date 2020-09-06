@@ -1,5 +1,6 @@
 var express = require("express");
-
+const session = require("express-session");
+const passport = require("./config/passport");
 var PORT = process.env.PORT || 8080;
 
 var app = express();
@@ -12,6 +13,10 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+  app.use(passport.initialize());
+  app.use(passport.session());
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
@@ -25,7 +30,9 @@ app.set("view engine", "handlebars");
 
 // Routes
 // ===============================================================
-require("./routes/user-api-routes.js")(app);
+// require("./routes/user-api-routes.js")(app);
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 // Start our server so that it can begin listening to client requests.
 // app.listen(PORT, function() {

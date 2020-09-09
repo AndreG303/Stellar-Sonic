@@ -74,6 +74,7 @@ CREATE TABLE endUsers (
   name VARCHAR(100) NULL,
   song VARCHAR(100) NULL,
   age INT NOT NULL,
+  username VARCHAR(100) NOT NULL,
   email VARCHAR (15) NOT NULL,
   playlist_id int,
   FOREIGN KEY (playlist_id)

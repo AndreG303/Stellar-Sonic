@@ -14,7 +14,7 @@ $(document).ready(() => {
       username: usernameInput.val().trim()
     };
 
-    if (!userData.email || !userData.password || !userData.username) {
+    if ((!userData.email && !userData.username)|| !userData.password) {
       return;
     }
 
@@ -26,7 +26,7 @@ $(document).ready(() => {
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function loginUser(email, password) {
+  function loginUser(email, password, username) {
     $.post("/api/login", {
       email: email,
       password: password,

@@ -2,10 +2,11 @@ let db = require("../models");
 
 module.exports = function (app, db) {
     // console.log(db.newUser);
-    const { Op } = db.Sequelize;
+    // const { Op } = db.Sequelize;    - commented these two lines (error newUser-undefined)
 
     // GET route for getting all of the newUsers
     app.get("/api/newUser", function (req, res) {
+        console.log("app.get at user-api-routes")
         db.newUser.findAll().then(result => {
             res.json(result);
         });

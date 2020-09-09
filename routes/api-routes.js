@@ -50,4 +50,56 @@ module.exports = function(app) {
       });
     }
   });
+  
+  
+  
+  
+  /// =========================== added from Jivko
+  
+  app.get("/api/mainlists", (req, res) => {
+    
+    db.MainList.findAll({}).then(function(dbMainList) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbMainList);
+    });
+
+  });
+  
+  //=====================================
+  // GET route for getting all of the posts
+  app.get("/api/posts", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.Post.findAll({}).then(function(dbPost) {
+      // We have access to the posts as an argument inside of the callback function
+      res.json(dbPost);
+    });
+    
+  });
+  
+  // POST route for saving a new post
+  app.post("/api/posts", function(req, res) {
+    // create takes an argument of an object describing the item we want to insert
+// into our table. In this case we just we pass in an object with a text and
+// complete property
+db.Post.create({
+  author: req.body.author,
+  body: req.body.body
+}).then(function(dbPost) {
+  // We have access to the new post as an argument inside of the callback function
+  res.json(dbPost);
+}).catch( function(e) {
+  res.json({ error: "error!"});
+});
+
+});
+
+
 };
+
+
+
+
+
+
+
+///=======================================

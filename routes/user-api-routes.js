@@ -1,7 +1,7 @@
 let db = require("../models");
 
 module.exports = function (app, db) {
-    console.log(db.newUser);
+    // console.log(db.newUser);
     const { Op } = db.Sequelize;
 
     // GET route for getting all of the newUsers

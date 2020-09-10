@@ -226,3 +226,13 @@ $(document).ready(function () {
 });
 
     //==============================================
+
+
+// functions to handle opening and closing of the chatbox
+
+function openForm(){
+  $("#popupChatBox").attr("style", "display:block");
+}
+function closeForm(){
+  $("#popupChatBox").attr("style", "display:none");
+}

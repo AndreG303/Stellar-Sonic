@@ -3,6 +3,12 @@ form.login {
   margin-top: 50px;
 }
 
+#popupChatBox{
+  max-width: 30%;
+  overflow: auto;
+  max-height: 85%;
+}
+
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
   background-color: #555;
@@ -29,7 +35,6 @@ form.login {
 
 /* Add styles to the form container */
 .form-container {
-  max-width: 300px;
   padding: 10px;
   background-color: white;
 }
@@ -42,8 +47,21 @@ form.login {
   border: none;
   background: #f1f1f1;
   resize: none;
-  min-height: 200px;
+  /* min-height: 200px; */
 }
+
+#post-area {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  max-height: 200px;
+  overflow: auto;
+  /* min-height: 200px; */
+}
+
 /* When the textarea gets focus, do something */
 .form-container textarea:focus {
   background-color: #ddd;

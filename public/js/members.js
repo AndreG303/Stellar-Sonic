@@ -232,7 +232,9 @@ $(document).ready(function () {
 
 function openForm(){
   $("#popupChatBox").attr("style", "display:block");
+  $("#chatBtn").attr("style", "display:none");
 }
 function closeForm(){
   $("#popupChatBox").attr("style", "display:none");
+  $("#chatBtn").attr("style", "display:block");
 }

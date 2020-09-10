@@ -16,10 +16,16 @@ $.get("/api/posts", function (data) {
       var row = $("<div>");
       row.addClass("chirp");
       row.append("<p>" + data[i].author + " posted: " + data[i].body + "  " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
-      $("#post-area").prepend(row);
+      $("#post-area").append(row);
     }
   }
 });
+
+function scrollToBottom() {
+  $("#post-area").scrollTop($("#post-area").height());
+  // $("#post-area").scrollTop(200);
+  console.log("inside ScrollToBottom");
+}
 
 
 $("#post-submit").on("click", function (event) {
@@ -38,14 +44,17 @@ $("#post-submit").on("click", function (event) {
       var row = $("<div>");
       row.addClass("post");
       row.append("<p>" + newPost.author + " posted: " + newPost.body + "  " + moment(newPost.created_at).format("h:mma on dddd") + "</p>");
-      $("#post-area").prepend(row);
+      $("#post-area").append(row);
 
     });
 
   // Empty each input box by replacing the value with an empty string
   $("#author").val("");
   $("#post-box").val("");
+  
+  scrollToBottom();
 });
+
 
 //==================shazam API call - 
 var searchString = "a kiss the driver era";
@@ -225,16 +234,16 @@ $(document).ready(function () {
   }
 });
 
-    //==============================================
+//==============================================
 
 
 // functions to handle opening and closing of the chatbox
 
-function openForm(){
+function openForm() {
   $("#popupChatBox").attr("style", "display:block");
   $("#chatBtn").attr("style", "display:none");
 }
-function closeForm(){
+function closeForm() {
   $("#popupChatBox").attr("style", "display:none");
   $("#chatBtn").attr("style", "display:block");
 }

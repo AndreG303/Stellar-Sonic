@@ -6,25 +6,43 @@ User = require("./user");
 
 module.exports = function(sequelize, DataTypes) {
   var Playlists = sequelize.define("Playlists", {
-    play_list_name: { 
-      type: DataTypes.STRING,
-      allowNull:false,
-      validate: {
-        len: [1, 140]
-      }
-    },artist: { 
+    artist: { 
       type: DataTypes.STRING,
       allowNull:false,
       validate: {
         len: [1, 140]
       }
     },
-    name: { 
+    release: { 
       type: DataTypes.STRING,
       allowNull:false,
       validate: {
         len: [1, 140]
       }
+    },
+    genre: { 
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate: {
+        len: [1, 140]
+      }
+    },
+    title: { 
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate: {
+        len: [1, 140]
+      }
+    },
+    year: { 
+      type: DataTypes.INTEGER,
+      allowNull:true,
+      
+    },
+    duration: { 
+      type: DataTypes.DECIMAL(7,2),
+      allowNull:true,
+      
     }
   });
 

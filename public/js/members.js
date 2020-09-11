@@ -1,4 +1,6 @@
-let username; // globally keeps track of the current user that is logged in
+let username; // globally keeps track of the current user that is logged in\
+var userBtn =$(".btn-userBtn")
+
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
@@ -6,6 +8,8 @@ $(document).ready(() => {
     $(".member-name").text(data.username);
     console.log("1st get at members.js");
     username = data.username;
+    userBtn.text(username+"'s list");
+
   });
 });
 
@@ -44,7 +48,7 @@ $("#post-submit").on("click", function (event) {
       var row = $("<div>");
       row.addClass("post");
       row.append("<p>" + newPost.author + " posted: " + newPost.body + "  " + moment(newPost.created_at).format("h:mma on dddd") + "</p>");
-      $("#post-area").append(row);
+      $("#post-area").prepend(row);
 
     });
 
@@ -89,6 +93,19 @@ $(".btn-allMusic").on("click", function (event) {
   });
 });
 
+$(".btn-userBtn").on("click", function (event) {
+  event.preventDefault();
+  $.get("/api/playlists", function (data) {
+    if (data.length !== 0) {
+      for (var i = 0; i < data.length; i++) {
+        var row = $("<div>");
+        row.addClass("playlists");
+        row.append("<p>" + data[i].artist + " release: " + data[i].release + "genre: " + data[i].genre + "title:" + data[i].title + " year" + data[i].year + "</p>");
+        $("#user-music-area").prepend(row);
+      }
+    }
+  });
+});
 // ====================  not used presently ======================can be re used ========================
 $(document).ready(function () {
   // Getting a reference to the input field where user adds a new todo

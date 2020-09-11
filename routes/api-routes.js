@@ -66,6 +66,14 @@ module.exports = function(app) {
     });
 
   });
+  app.get("/api/playlists", (req, res) => {
+    
+    db.MainList.findAll({}).then(function(dbMainList) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbMainList);
+    });
+
+  });
   
   //=====================================
   // GET route for getting all of the posts

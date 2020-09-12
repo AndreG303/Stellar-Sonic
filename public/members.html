@@ -57,32 +57,31 @@
     <hr>
     <form>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Search for a song</label>
+        <h2>Search for a song</h2>
+       
+        <input type="text" class="form-control" id="input-title" placeholder="please enter the title">
+        <input type="text" class="form-control" id="input-artist" placeholder="artist">
         <button type="button" class="btn btn-searchSong">Search</button>
-        <input type="text" class="form-control" id="input-title"
-          placeholder="please enter the title">
-        <input type="text" class="form-control" id="input-artist"
-          placeholder="artist">
       </div>
     </form>
 
     <div class="user-playlist">
       <div id="user-music-area">
 
-    </div>
+      </div>
 
-    <div id="search-music-area">
+      <div id="search-music-area">
 
-    </div>
+      </div>
 
 
-    <!-- Shoutbox -->
-    <!-- <div id="shoutbox"> -->
+      <!-- Shoutbox -->
+      <!-- <div id="shoutbox"> -->
       <!-- <div class="row"> -->
-        <!-- <div class="col-sm-8 col-sm-offset-2"> -->
-        <!-- <div class="col-sm-8 col-sm-offset-2"> -->
-          <!-- <h2>posts</h2> -->
-          <!-- <hr>
+      <!-- <div class="col-sm-8 col-sm-offset-2"> -->
+      <!-- <div class="col-sm-8 col-sm-offset-2"> -->
+      <!-- <h2>posts</h2> -->
+      <!-- <hr>
           <div id="post-area"></div>
         </div>
       </div>
@@ -95,36 +94,33 @@
         </div>
       </div>
     </div> -->
-    <!-- End of Shoutbox -->
+      <!-- End of Shoutbox -->
 
-<!-- Popup Chat Here -->
-    <button id="chatBtn" class="open-button" onclick="openForm()">Chat</button>
-    <div class="chat-popup" id="popupChatBox">
-      <form class="form-container">
-        <h2>Shoutbox</h2>
-        <div>
-          <!-- <h2>posts</h2> -->
-          <hr>
-          <div id="post-area"></div>
-        </div>
-        <label for="msg"><b>Message</b></label>
-        <textarea name="msg" id="post-box" class="form-control" placeholder="Enter Post Here!" required></textarea>
-        <!-- in the example i found this button has type=submit but I am leaving it out -->
-        <button id="post-submit" class="btn">Send</button> 
-        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      <!-- Popup Chat Here -->
+      <button id="chatBtn" class="open-button">Chat</button>
+      <div class="chat-popup" id="popupChatBox">
+        <form class="form-container">
+          <h2>Shoutbox</h2>
+          <div>
+            <!-- <h2>posts</h2> -->
+            <hr>
+            <div id="post-area"></div>
+          </div>
+          <label for="msg"><b>Message</b></label>
+          <textarea name="msg" id="post-box" class="form-control" placeholder="Enter Post Here!" required></textarea>
+          <!-- in the example i found this button has type=submit but I am leaving it out -->
+          <button id="post-submit" class="btn">Send</button>
+          <button type="button" class="btn cancel" id="closeChatBtn">Close</button>
 
-      </form>
+        </form>
+      </div>
+      <!-- End of Popup Chat -->
+
     </div>
-    <!-- End of Popup Chat -->
-
   </div>
   </div>
-  </div>
-
-    
 
   <!-- test area Jivko -->
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
 

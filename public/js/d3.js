@@ -75,14 +75,20 @@ var svg = d3.select("#musicdata")
     .attr("height", height)
 
 // Read data
-var dataset("SELECT FROM *", function(data) {
 
+$.ajax({
+    url:"/api/test",
+    method:"GET"
+
+})
+.then( data => {
 // Filter a bit the data
-//   data = data.filter(function(d){ return d.value = genre })
+   //data = data.filter(function(d){ return d.value = genre })
+  
 
   // Color palette for genre?
   var color = d3.scaleOrdinal()
-    .domain(["rock", "jazz rap", "hip hop", "salsa", "post-grunge"])
+    .domain(["rock", "jazz rap", "hip hop", "salsa", "post-grunge","ska"])
     .range(d3.schemeAccent);
 
   // Size scale for genres
@@ -107,14 +113,17 @@ var dataset("SELECT FROM *", function(data) {
       .style("opacity", 1)
   }
   var mousemove = function(d) {
+    //$.ajax( ... something ..).then( data => {
+      //  ... tooltip stuff here ...
+    //})
     Tooltip
-      .html('<u>' + d.key + '</u>' + "<br>" + d.value + "genre")
+      .html('<u>' + d.number + '</u>' + "<br>" + d.genre + " ")
       .style("left", (d3.mouse(this)[0]+20) + "px")
       .style("top", (d3.mouse(this)[1]) + "px")
   }
   var mouseleave = function(d) {
-    Tooltip
-      .style("opacity", 0)
+    // Tooltip
+    //   .style("opacity", 0)
   }
 
   // Initialize the circle: all located at the center of the svg area
@@ -124,10 +133,10 @@ var dataset("SELECT FROM *", function(data) {
     .enter()
     .append("circle")
       .attr("class", "node")
-      .attr("r", function(d){ return size(d.value)})
+      .attr("r", function(d){ return size(parseInt(d.number))})
       .attr("cx", width / 2)
       .attr("cy", height / 2)
-      .style("fill", function(d){ return color(d.region)})
+      .style("fill", function(d){ return color(d.genre)})
       .style("fill-opacity", 0.8)
       .attr("stroke", "black")
       .style("stroke-width", 1)
@@ -143,7 +152,7 @@ var dataset("SELECT FROM *", function(data) {
   var simulation = d3.forceSimulation()
       .force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Attraction to the center of the svg area
       .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted one each other of value is > 0
-      .force("collide", d3.forceCollide().strength(.2).radius(function(d){ return (size(d.value)+3) }).iterations(1)) // Force that avoids circle overlapping
+      .force("collide", d3.forceCollide().strength(.2).radius(function(d){ return (size(parseInt(d.number))+3) }).iterations(1)) // Force that avoids circle overlapping
 
   // Apply these forces to the nodes and update their positions.
   // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.

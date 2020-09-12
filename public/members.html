@@ -57,10 +57,11 @@
     <hr>
     <form>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Search for a song</label>
-        <button type="button" class="btn btn-searchSong">Search</button>
+        <h2>Search for a song</h2>
+       
         <input type="text" class="form-control" id="input-title" placeholder="please enter the title">
         <input type="text" class="form-control" id="input-artist" placeholder="artist">
+        <button type="button" class="btn btn-searchSong">Search</button>
       </div>
     </form>
 
@@ -109,6 +110,8 @@
 
       <!-- Popup Chat Here -->
       <button id="chatBtn" class="open-button" onclick="openForm()">Chat</button>
+      <!-- Popup Chat Here -->
+      <button id="chatBtn" class="open-button">Chat</button>
       <div class="chat-popup" id="popupChatBox">
         <form class="form-container">
           <h2>Shoutbox</h2>
@@ -121,7 +124,7 @@
           <textarea name="msg" id="post-box" class="form-control" placeholder="Enter Post Here!" required></textarea>
           <!-- in the example i found this button has type=submit but I am leaving it out -->
           <button id="post-submit" class="btn">Send</button>
-          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+          <button type="button" class="btn cancel" id="closeChatBtn">Close</button>
 
         </form>
       </div>
@@ -131,10 +134,7 @@
   </div>
   </div>
 
-
-
   <!-- test area Jivko -->
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Load d3.js -->
   <script src="https://d3js.org/d3.v4.js"></script>

@@ -127,12 +127,42 @@ module.exports = function (app) {
   });
 
 
+
+
+  // app.get("/html/test", (req, res) =>{
+  //  db.User.findAll({}).then(function (data) {
+  //       // We have access to the posts as an argument inside of the callback function
+  //       // res.json(dbUser);
+  //   // cat.all(function(data) {
+  //     var hbsObject = {
+  //       users: data[0].datavalues,
+  //       layout: "ajax1"
+  //     };
+  //     console.log(hbsObject);
+
+  //     res.render("test1", hbsObject);
+  //   });
+  // })
+  app.get("/html/test", (req, res) => {
+    db.User.findAll({}).then(function (data) {
+      // We have access to the posts as an argument inside of the callback function
+      // res.json(dbUser);
+      // cat.all(function(data) {
+      var hbsObject = {
+        users: data[0],
+        layout: "ajax1"
+      };
+      console.log(hbsObject);
+
+      res.render("usertable", hbsObject);
+    });
+  });
+
+
+
+
+  ///=======================================
+
+ 
+
 };
-
-
-
-
-
-
-
-///=======================================

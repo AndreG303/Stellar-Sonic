@@ -55,20 +55,20 @@ $(document).ready(() => {
     
   });
 
-  setInterval(function(moment, chatScrollToBottom){
-    $.get("/api/posts", function (data) {
-      if (data.length !== 0) {
-        $("#post-area").html('');
-        for (var i = 0; i < data.length; i++) {
-          var row = $("<div>");
-          row.addClass("chirp");
-          row.append("<p>" + data[i].author + " posted: " + data[i].body + "  " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
-          $("#post-area").append(row);
-        }
-      }
-      chatScrollToBottom();
-    });
-  }, 2000, moment, chatScrollToBottom);
+  // setInterval(function(moment, chatScrollToBottom){
+  //   $.get("/api/posts", function (data) {
+  //     if (data.length !== 0) {
+  //       $("#post-area").html('');
+  //       for (var i = 0; i < data.length; i++) {
+  //         var row = $("<div>");
+  //         row.addClass("chirp");
+  //         row.append("<p>" + data[i].author + " posted: " + data[i].body + "  " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+  //         $("#post-area").append(row);
+  //       }
+  //     }
+  //     chatScrollToBottom();
+  //   });
+  // }, 2000, moment, chatScrollToBottom);
 
   $("#chatBtn").on("click", openForm);
   $("#closeChatBtn").on("click", closeForm);
@@ -127,7 +127,7 @@ $(document).ready(() => {
         for (var i = 0; i < data.length; i++) {
           var row = $("<div>");
           row.addClass("mainlists");
-          row.append("<p>" + data[i].artist + " release: " + data[i].release + "genre: " + data[i].genre + "title:" + data[i].title + " year" + data[i].year + "</p>");
+          row.append("<p>" + data[i].artist + " release: " + data[i].release + " genre: " + data[i].genre + " title:" + data[i].title + " year" + data[i].year + '</p><p><button type="button" class="btn btn-addSong">Add to playlist</button></p>');
           $("#main-music-area").prepend(row);
         }
       }
@@ -204,4 +204,83 @@ $(document).ready(() => {
       $("#search-music-area").append(row);
     });
   };
+
+
+
+
+
+
+//===========================add song trigger
+$(function () {
+  $(".btn-addSong").on("click", function (event) {
+    
+    var artist = $(this.data[i].artist) + " release: " + data[i].release + " genre: " + data[i].genre + " title:" + data[i].title + " year" + data[i].year
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    var id = $(this).data("id");
+    var newSleep = $(this).data("newsleep");
+
+    var newSleepState = {
+      sleepy: newSleep
+    };
+
+    // Send the PUT request.
+    $.ajax("/api/cats/" + id, {
+      type: "PUT",
+      data: newSleepState
+    }).then(
+      function () {
+        console.log("changed sleep to", newSleep);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+  $(".create-form").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newCat = {
+      name: $("#ca").val().trim(),
+      sleepy: parseInt($("[name=sleepy]:checked").val().trim())
+    };
+
+    // Send the POST request.
+    $.ajax("/api/cats", {
+      type: "POST",
+      data: newCat
+    })
+      .then(() => {
+        location.reload(); // <-- refresh page
+      })
+
+    // $.ajax("/api/cats", {
+    //   type: "POST",
+    //   data: newCat
+    // }).then(
+    //   function() {
+    //     console.log("created new cat");
+    //     // Reload the page to get the updated list
+    //     location.reload();
+    //   }
+    // );
+  });
+});
+
+//===========================
+
+
+
+
+
+
+
 });

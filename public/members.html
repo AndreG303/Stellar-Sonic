@@ -135,6 +135,29 @@
   </div>
 
   <!-- test area Jivko -->
+
+
+  <div id="content"></div>
+  <script>
+
+      $.ajax({
+          url: "/html/test",
+          method: "GET"
+      })
+      .then( data => {
+          $("#content").html(data);
+      })
+  </script>
+
+
+
+
+
+
+
+
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Load d3.js -->
   <script src="https://d3js.org/d3.v4.js"></script>

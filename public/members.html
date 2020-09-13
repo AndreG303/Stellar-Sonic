@@ -96,6 +96,20 @@
     </div> -->
       <!-- End of Shoutbox -->
 
+      <!-- D3 starts here -->
+      <!-- Create a div where the graph will take place -->
+      <div id="musicdata"></div>
+
+      <style>
+        .node:hover {
+          stroke-width: 5px !important;
+          opacity: 1 !important;
+        }
+      </style>
+      <!-- d3 ends here  -->
+
+      <!-- Popup Chat Here -->
+      <button id="chatBtn" class="open-button" onclick="openForm()">Chat</button>
       <!-- Popup Chat Here -->
       <button id="chatBtn" class="open-button">Chat</button>
       <div class="chat-popup" id="popupChatBox">
@@ -122,7 +136,12 @@
 
   <!-- test area Jivko -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Load d3.js -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <!-- Color palette -->
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
+  <script src="js/d3.js"></script>
 
 </body>
 

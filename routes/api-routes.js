@@ -98,13 +98,14 @@ module.exports = function (app) {
 
   app.get("/api/test", async function (req, res) {
     console.log("Got you")
-    const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(artist) as `artists` FROM playlist_joe101 GROUP BY genre;", {
+    const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(song) as `songs`, GROUP_CONCAT(artist) as `artists` FROM playlist_joe101 GROUP BY genre;", {
       nest: true,
       type: QueryTypes.SELECT,
       raw: true,
       plain: false
     });
     res.json(results);
+    console.log (results);
   })
 
   // SELECT genre FROM playlist_joe101 GROUP BY genre

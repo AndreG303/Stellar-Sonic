@@ -114,7 +114,7 @@ body {
 }
 
 .node:hover {
-  stroke-width: 5px !important;
+  stroke-width: 4px !important;
   opacity: 1 !important;
 }
 
@@ -146,6 +146,11 @@ body {
 }
 
 .member-name1{
+  color: white;
+  align-content: center;
+}
+
+.play{
   color: white;
   align-content: center;
 }

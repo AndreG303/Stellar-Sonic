@@ -1,4 +1,4 @@
-/* DROP DATABASE IF EXISTS music_db;
+/*DROP DATABASE IF EXISTS music_db;
 CREATE database music_db;
 
 USE music_db;
@@ -67,6 +67,34 @@ CREATE TABLE playlist_chris123 (
    PRIMARY KEY (id)
 );
 
+CREATE TABLE playlist_slash (
+  id INT NOT NULL AUTO_INCREMENT ,
+  artist VARCHAR(100) NULL,
+  song VARCHAR(100) NULL,
+  genre VARCHAR(100) NULL,
+  year INT NULL,
+  position int,
+  FOREIGN KEY (position)
+  REFERENCES top5000 (position)
+  ON UPDATE CASCADE
+  ON DELETE CASCADE,
+   PRIMARY KEY (id)
+);
+
+CREATE TABLE playlist_blondie202 (
+  id INT NOT NULL AUTO_INCREMENT ,
+  artist VARCHAR(100) NULL,
+  song VARCHAR(100) NULL,
+  genre VARCHAR(100) NULL,
+  year INT NULL,
+  position int,
+  FOREIGN KEY (position)
+  REFERENCES top5000 (position)
+  ON UPDATE CASCADE
+  ON DELETE CASCADE,
+   PRIMARY KEY (id)
+);
+
 
 
 CREATE TABLE endUsers (
@@ -86,4 +114,5 @@ CREATE TABLE endUsers (
 
 SELECT * FROM endUsers;
 
-SHOW TABLES; */
+SHOW TABLES;
+*/

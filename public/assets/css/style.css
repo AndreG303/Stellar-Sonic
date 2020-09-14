@@ -13,7 +13,9 @@ form.login {
 }
 
 body {
-  background-image: url(https://images.unsplash.com/photo-1549189189-c26639dfc999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80://images.unsplash.com/photo-1549189189-c26639dfc999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80.pexels.com/photos/1341279/pexels-photo-1341279.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1000);
+  background-image: url(https://media.giphy.com/media/PlsjFmJ0iLW9I3C1lw/giphy.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
@@ -97,7 +99,6 @@ body {
   opacity: 1;
 }
 
-
 .tooltip {
   background-color: black;
   padding: 5px;
@@ -108,8 +109,8 @@ body {
   width: 400px;
   text-align: center;
   font-size: 18px;
-  position: relative;
-  display: block;
+  position: absolute;
+  /* display: block; */
 }
 
 .node:hover {
@@ -125,8 +126,10 @@ body {
 .card{
   border-color:#323042;
   margin: 10px;
-  background-color:  #e4decd;
-  box-shadow: 10px 10px #323042;
+  background-color:  transparent;
+  box-shadow: 1px 1px #323042;
+  padding-top:10px;
+  padding-bottom:10px;
 }
 
 .user {
@@ -138,9 +141,14 @@ body {
 }
 
 .member-name{
-  color: #f1f1f1;
+  color: white;
   align-content: center;
+}
 
+.member-name1{
+  color: white;
+  align-content: center;
+}
 /* nav bar styling */
 
 

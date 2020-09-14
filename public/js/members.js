@@ -48,7 +48,7 @@ $(document).ready(() => {
       for (var i = 0; i < data.length; i++) {
         var row = $("<div>");
         row.addClass("chirp");
-        row.append("<p>" + data[i].author + " posted: " + data[i].body + "  " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
+        row.append("<p> [" + moment(data[i].created_at).format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
         $("#post-area").append(row);
       }
     }
@@ -87,7 +87,7 @@ $(document).ready(() => {
       .then(function () {
         var row = $("<div>");
         row.addClass("post");
-        row.append("<p>" + newPost.author + " posted: " + newPost.body + "  " + moment(newPost.created_at).format("h:mma on dddd") + "</p>");
+        row.append("<p> [" + moment(newPost.created_at).format("h:mma") + "] <span id='chatboxUsername' style = 'font-weight: bold;'>" + newPost.author + ":</span> " + newPost.body + "</p>");
         $("#post-area").append(row);
         chatScrollToBottom();
       });

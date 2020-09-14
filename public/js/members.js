@@ -41,34 +41,22 @@ $(document).ready(() => {
 
   });
 
-  // When the page loads, grab and display all of the current  posts
-  $.get("/api/posts", function (data) {
-    if (data.length !== 0) {
-      $("#post-area").html('');
-      for (var i = 0; i < data.length; i++) {
-        var row = $("<div>");
-        row.addClass("chirp");
-        row.append("<p> [" + moment(data[i].created_at).format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
-        $("#post-area").append(row);
-      }
-    }
-    
-  });
+  
 
-  // setInterval(function(moment, chatScrollToBottom){
-  //   $.get("/api/posts", function (data) {
-  //     if (data.length !== 0) {
-  //       $("#post-area").html('');
-  //       for (var i = 0; i < data.length; i++) {
-  //         var row = $("<div>");
-  //         row.addClass("chirp");
-  //         row.append("<p>" + data[i].author + " posted: " + data[i].body + "  " + moment(data[i].created_at).format("h:mma on dddd") + "</p>");
-  //         $("#post-area").append(row);
-  //       }
-  //     }
-  //     chatScrollToBottom();
-  //   });
-  // }, 2000, moment, chatScrollToBottom);
+  setInterval(function(moment, chatScrollToBottom){
+    $.get("/api/posts", function (data) {
+      if (data.length !== 0) {
+        $("#post-area").html('');
+        for (var i = 0; i < data.length; i++) {
+          var row = $("<div>");
+          row.addClass("chirp");
+          row.append("<p> [" + moment(data[i].created_at).format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
+          $("#post-area").append(row);
+        }
+      }
+      chatScrollToBottom();
+    });
+  }, 2000, moment, chatScrollToBottom);
 
   $("#chatBtn").on("click", openForm);
   $("#closeChatBtn").on("click", closeForm);

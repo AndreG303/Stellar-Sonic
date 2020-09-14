@@ -95,7 +95,7 @@ module.exports = function (app) {
     });
 
   });
-
+// SELECT genre FROM playlist_users GROUP BY genre
   app.get("/api/test", async function (req, res) {
     console.log("Got you")
     const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(song) as `songs`, GROUP_CONCAT(artist) as `artists` FROM playlist_joe101 GROUP BY genre;", {
@@ -108,7 +108,31 @@ module.exports = function (app) {
     console.log (results);
   })
 
-  // SELECT genre FROM playlist_joe101 GROUP BY genre
+  app.get("/api/test1", async function (req, res) {
+    console.log("Got you")
+    const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(song) as `songs`, GROUP_CONCAT(artist) as `artists` FROM playlist_andrewdalba GROUP BY genre;", {
+      nest: true,
+      type: QueryTypes.SELECT,
+      raw: true,
+      plain: false
+    });
+    res.json(results);
+    console.log (results);
+  })
+
+  app.get("/api/test2", async function (req, res) {
+    console.log("Got you")
+    const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(song) as `songs`, GROUP_CONCAT(artist) as `artists` FROM playlist_chris123 GROUP BY genre;", {
+      nest: true,
+      type: QueryTypes.SELECT,
+      raw: true,
+      plain: false
+    });
+    res.json(results);
+    console.log (results);
+  })
+
+  
 
   // POST route for saving a new post
   app.post("/api/posts", function (req, res) {

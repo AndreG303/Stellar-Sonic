@@ -1,9 +1,12 @@
+
+
+
 form.signup,
 form.login {
   margin-top: 50px;
 }
 
-#popupChatBox{
+#popupChatBox {
   max-width: 30%;
   overflow: auto;
   max-height: 85%;
@@ -70,13 +73,13 @@ form.login {
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
   width: 100%;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   opacity: 0.8;
 }
 
@@ -86,6 +89,51 @@ form.login {
 }
 
 /* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
+.form-container .btn:hover,
+.open-button:hover {
   opacity: 1;
+}
+
+.tooltip {
+  background-color: black;
+  padding: 5px;
+  border: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  color: white;
+  width: 400px;
+  text-align: center;
+  font-size: 18px;
+  position: relative;
+  display: block;
+}
+
+.node:hover {
+  stroke-width: 5px !important;
+  opacity: 1 !important;
+}
+
+.user-area {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.card{
+  border-color:#323042;
+  margin: 10px;
+  background-color:  #e4decd;
+  box-shadow: 10px 10px #323042;
+}
+
+.user {
+  width:90%;
+}
+
+.users {
+  width: 45%;
+}
+
+.member-name{
+  color: #f1f1f1;
+  align-content: center;
 }

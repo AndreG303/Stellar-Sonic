@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-var width = 400
+var width = 600
 var height = 300
 
 // append the svg object to the body of the page
@@ -7,7 +7,7 @@ var svg = d3.select("#musicdata")
     .append("svg")
     .attr("width", width)
     .attr("height", height)
-    .style("margin-left", "300px")
+    .style("margin-left", "250px")
 
 // Read data
 
@@ -74,8 +74,8 @@ $.ajax({
             .attr("cx", width / 2)
             .attr("cy", height / 2)
             .style("fill", function (d) { return color(d.genre) })
-            .attr("stroke", "black")
-            .style("stroke-width", 2)
+            .attr("stroke", "white")
+            .style("stroke-width", 0.1)
             .on("mouseover", mouseover) // What to do when hovered
             .on("mousemove", mousemove)
             .on("mouseleave", mouseleave)
@@ -119,7 +119,7 @@ $.ajax({
     })
 
 // set the dimensions and margins of the graph
-var width = 400
+var width = 500
 var height = 300
 
 // append the svg object to the body of the page
@@ -142,7 +142,7 @@ $.ajax({
         // Color palette for genre?
         var color = d3.scaleOrdinal()
             .domain(["rock", "jazz rap", "hip hop", "salsa", "post-grunge", "ska"])
-            .range(d3.schemeCategory20);
+            .range(d3.schemeDark2);
 
         // Size scale for genres
         var size = d3.scaleLinear()
@@ -192,8 +192,8 @@ $.ajax({
             .attr("cx", width / 2)
             .attr("cy", height / 2)
             .style("fill", function (d) { return color(d.genre) })
-            .attr("stroke", "black")
-            .style("stroke-width", 2)
+            .attr("stroke", "yellow")
+            .style("stroke-width", 0.1)
             .on("mouseover", mouseover) // What to do when hovered
             .on("mousemove", mousemove)
             .on("mouseleave", mouseleave)
@@ -237,7 +237,7 @@ $.ajax({
     })
 
 // set the dimensions and margins of the graph
-var width = 400
+var width = 500
 var height = 300
 
 // append the svg object to the body of the page
@@ -260,7 +260,7 @@ $.ajax({
         // Color palette for genre?
         var color = d3.scaleOrdinal()
             .domain(["rock", "jazz rap", "hip hop", "salsa", "post-grunge", "ska"])
-            .range(d3.schemeCategory20);
+            .range(d3.schemeCategory10);
 
         // Size scale for genres
         var size = d3.scaleLinear()
@@ -310,8 +310,8 @@ $.ajax({
             .attr("cx", width / 2)
             .attr("cy", height / 2)
             .style("fill", function (d) { return color(d.genre) })
-            .attr("stroke", "black")
-            .style("stroke-width", 2)
+            .attr("stroke","blue")
+            .style("stroke-width", 0.1)
             .on("mouseover", mouseover) // What to do when hovered
             .on("mousemove", mousemove)
             .on("mouseleave", mouseleave)

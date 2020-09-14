@@ -219,13 +219,15 @@ a:hover:after {
   right: -7px;
 }
 
-.slogan {
-  color: white;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  font-size: 50px;
-  margin-top: 15px;
+.brand-name {
+  display: block;
+  margin: auto;
+  width: 55%;
+  margin-top: 100px;
+  
 }
+
+
 
 #chatboxUsername{
   color: red;

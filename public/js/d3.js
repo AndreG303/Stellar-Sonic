@@ -48,7 +48,7 @@ $.ajax({
             //})
 
             Tooltip
-                .html('<u>' + d.genre + '</u>' + "<br>" + "No of songs" + d.number + "<br>" + "SONGS" + "<br>" + d.songs + "<br>" + "ARTISTS" + "<br>" + d.artists)
+                .html('<u>' + d.genre.toUpperCase() + '</u>' + "<br>" + "No of songs" + d.number + "<br>" + "SONGS" + "<br>" + d.songs + "<br>" + "ARTISTS" + "<br>" + d.artists)
                 .style("left", (d3.mouse(this)[0] + 20) + "px")
                 .style("top", (d3.mouse(this)[1]) + "px")
             // .style("z-index", "1")
@@ -59,8 +59,8 @@ $.ajax({
 
         }
         var mouseleave = function (d) {
-            // Tooltip
-            //   .style("opacity", 0)
+            Tooltip
+              .style("opacity", 0)
         }
 
         // Initialize the circle: all located at the center of the svg area
@@ -123,7 +123,7 @@ var width = 400
 var height = 300
 
 // append the svg object to the body of the page
-var svg = d3.select("#musicdata1")
+var svg1 = d3.select("#musicdata1")
     .append("svg")
     .attr("width", width)
     .attr("height", height)
@@ -166,7 +166,7 @@ $.ajax({
             //})
 
             Tooltip
-                .html('<u>' + d.genre + '</u>' + "<br>" + "No of songs" + d.number + "<br>" + "SONGS" + "<br>" + d.songs + "<br>" + "ARTISTS" + "<br>" + d.artists)
+                .html('<u>' + d.genre.toUpperCase() + '</u>' + "<br>" + "No of songs" + d.number + "<br>" + "SONGS" + "<br>" + d.songs + "<br>" + "ARTISTS" + "<br>" + d.artists)
                 .style("left", (d3.mouse(this)[0] + 20) + "px")
                 .style("top", (d3.mouse(this)[1]) + "px")
             // .style("z-index", "1")
@@ -177,12 +177,12 @@ $.ajax({
 
         }
         var mouseleave = function (d) {
-            // Tooltip
-            //   .style("opacity", 0)
+            Tooltip
+              .style("opacity", 0)
         }
 
         // Initialize the circle: all located at the center of the svg area
-        var node = svg.append("g")
+        var node = svg1.append("g")
             .selectAll("circle")
             .data(data)
             .enter()
@@ -241,7 +241,7 @@ var width = 400
 var height = 300
 
 // append the svg object to the body of the page
-var svg = d3.select("#musicdata2")
+var svg2 = d3.select("#musicdata2")
     .append("svg")
     .attr("width", width)
     .attr("height", height)
@@ -284,7 +284,7 @@ $.ajax({
             //})
 
             Tooltip
-                .html('<u>' + d.genre + '</u>' + "<br>" + "No of songs" + d.number + "<br>" + "SONGS" + "<br>" + d.songs + "<br>" + "ARTISTS" + "<br>" + d.artists)
+                .html('<u>' + d.genre.toUpperCase()+ '</u>' + "<br>" + "No of songs" + d.number + "<br>" + "SONGS" + "<br>" + d.songs + "<br>" + "ARTISTS" + "<br>" + d.artists)
                 .style("left", (d3.mouse(this)[0] + 20) + "px")
                 .style("top", (d3.mouse(this)[1]) + "px")
             // .style("z-index", "1")
@@ -295,12 +295,12 @@ $.ajax({
 
         }
         var mouseleave = function (d) {
-            // Tooltip
-            //   .style("opacity", 0)
+            Tooltip
+              .style("opacity", 0)
         }
 
         // Initialize the circle: all located at the center of the svg area
-        var node = svg.append("g")
+        var node = svg2.append("g")
             .selectAll("circle")
             .data(data)
             .enter()

@@ -21,7 +21,6 @@ INSERT INTO playlist_joe101 (artist, song, genre, year) values ("Gorillaz", "Roc
 INSERT INTO playlist_joe101 (artist, song, genre, year) values ("Kanye West", "Street Lights", "hip hop", "2008");
 
 
-
 INSERT INTO playlist_andrewdalba (artist, song, genre, year) values ("Gorillaz", "Rock The House (Explicit)", "hip hop", "2001");
 INSERT INTO playlist_andrewdalba (artist, song, genre, year) values ("Kanye West", "Street Lights", "hip hop", "2008");
 INSERT INTO playlist_andrewdalba (artist, song, genre, year) values ("Led Zeppelin", "Immigrant Song (Album Version)", "blues-rock", "1970");

@@ -6,17 +6,19 @@
 
 
 $(document).ready(() => {
+  var availableTags = [];
   //global variables
   var userBtn = $(".btn-userBtn");
   let username; // globally keeps track of the current user that is logged in
+  var searchString = "";
 
-  const openForm = function(event) {
+  const openForm = function (event) {
     event.preventDefault();
     $("#popupChatBox").attr("style", "display:block");
     $("#chatBtn").attr("style", "display:none");
     chatScrollToBottom();
   }
-  const closeForm = function(event) {
+  const closeForm = function (event) {
     event.preventDefault();
     $("#popupChatBox").attr("style", "display:none");
     $("#chatBtn").attr("style", "display:block");
@@ -43,7 +45,7 @@ $(document).ready(() => {
 
   
 
-  setInterval(function(moment, chatScrollToBottom){
+  setInterval(function (moment, chatScrollToBottom) {
     $.get("/api/posts", function (data) {
       var lastChatLength = window.__lastChatLength;
       if(typeof lastChatLength === 'undefined'){
@@ -96,25 +98,62 @@ $(document).ready(() => {
     $("#post-box").val("");
 
     // scrollToBottom();
-   
+
   });
 
-  //==================shazam API call - will not be used
-  // var searchString = "a kiss the driver era";
-  // var settings = {
-  //   "async": true,
-  //   "crossDomain": true,
-  //   "url": "https://shazam.p.rapidapi.com/auto-complete?locale=en-US&term=" + searchString,
-  //   "method": "GET",
-  //   "headers": {
-  //     "x-rapidapi-host": "shazam.p.rapidapi.com",
-  //     "x-rapidapi-key": "847928476cmsheaaf2b6abd565d9p1758d2jsn129d9533941b"
-  //   }
-  // }
+  //==================shazam API call - get the hints 
+  const searchHints = function (evKey) {
+    searchString=$("#input-title-ja").val();
 
-  // $.ajax(settings).done(function (response) {
-  //   console.log(response);
-  // });
+    if ((searchString === 0) || (searchString.length < 4)) {
+
+      // searchString = searchString += evKey;
+      console.log(evKey);
+      console.log(searchString);
+
+
+    }
+    else if (searchString.length >= 4) {
+      // searchString = searchString += evKey;
+      console.log(evKey);
+      console.log(searchString);
+      // console.log($("#input-title-ja").val());
+      console.log("doing the call");
+
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://shazam.p.rapidapi.com/auto-complete?locale=en-US&term=" + searchString,
+        "method": "GET",
+        "headers": {
+          "x-rapidapi-host": "shazam.p.rapidapi.com",
+          "x-rapidapi-key": "847928476cmsheaaf2b6abd565d9p1758d2jsn129d9533941b"
+        }
+      }
+
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+        for (var i=0; i<response.hints.length;i++){
+          let hints= response.hints[i].term;
+          availableTags.push(hints);
+
+        }
+        console.log(availableTags);
+      });
+    }
+
+  }
+
+  $( function() {
+    
+    $( "#input-title-ja" ).autocomplete({
+      source: availableTags
+    });
+  } );
+
+
+
 
   // all music api get==============================
 
@@ -153,16 +192,16 @@ $(document).ready(() => {
   // theaudioDB free api trigger and function
   $(".btn-searchSong").on("click", function (event) {
     event.preventDefault();
-    const titleInput = $("input#input-title");
-    const singerInput = $("input#input-artist");
+    const titleInput = $("input#input-title-ja");
+    
 
     let title = titleInput.val().trim();
-    let singer = singerInput.val().trim();
+ 
 
     console.log(title);
-    console.log(singer);
+    
 
-    songSearch(title, singer);
+    songSearch1(title);
 
 
     // $.get("/api/mainlists", function (data) {
@@ -177,109 +216,140 @@ $(document).ready(() => {
     // });
   });
 
-  const songSearch = function (title, singer) {
+  // const songSearch = function (title, singer) {
 
-    var settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "https://theaudiodb.p.rapidapi.com/searchtrack.php?t=" + title + "&s=" + singer + "",
-      "method": "GET",
-      "headers": {
-        "x-rapidapi-host": "theaudiodb.p.rapidapi.com",
-        "x-rapidapi-key": "847928476cmsheaaf2b6abd565d9p1758d2jsn129d9533941b"
-      }
-    }
-
-    $.ajax(settings).done(function (response) {
-      console.log(response);
-      var row = $("<div>");
-      row.addClass("search-results");
-      row.append("<p>" + response.track[0].strDescriptionEN + "</p>");
-      $("#search-music-area").prepend(row);
-
-      var row = $("<div>");
-      row.addClass("search-results");
-      row.append("<a href=" + response.track[0].strMusicVid + ">" + response.track[0].strMusicVid + "</a>");
-      $("#search-music-area").append(row);
-    });
-  };
-
-
-
-
-
-
-//===========================add song trigger
-$(function () {
-  $(".btn-addSong").on("click", function (event) {
-    
-    var artist = $(this.data[i].artist) + " release: " + data[i].release + " genre: " + data[i].genre + " title:" + data[i].title + " year" + data[i].year
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    var id = $(this).data("id");
-    var newSleep = $(this).data("newsleep");
-
-    var newSleepState = {
-      sleepy: newSleep
-    };
-
-    // Send the PUT request.
-    $.ajax("/api/cats/" + id, {
-      type: "PUT",
-      data: newSleepState
-    }).then(
-      function () {
-        console.log("changed sleep to", newSleep);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-  $(".create-form").on("submit", function (event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    var newCat = {
-      name: $("#ca").val().trim(),
-      sleepy: parseInt($("[name=sleepy]:checked").val().trim())
-    };
-
-    // Send the POST request.
-    $.ajax("/api/cats", {
-      type: "POST",
-      data: newCat
-    })
-      .then(() => {
-        location.reload(); // <-- refresh page
-      })
-
-    // $.ajax("/api/cats", {
-    //   type: "POST",
-    //   data: newCat
-    // }).then(
-    //   function() {
-    //     console.log("created new cat");
-    //     // Reload the page to get the updated list
-    //     location.reload();
+    // var settings = {
+    //   "async": true,
+    //   "crossDomain": true,
+    //   "url": "https://theaudiodb.p.rapidapi.com/searchtrack.php?t=" + title + "&s=" + singer + "",
+    //   "method": "GET",
+    //   "headers": {
+    //     "x-rapidapi-host": "theaudiodb.p.rapidapi.com",
+    //     "x-rapidapi-key": "847928476cmsheaaf2b6abd565d9p1758d2jsn129d9533941b"
     //   }
-    // );
+    // }
+
+  //   $.ajax(settings).done(function (response) {
+  //     console.log(response);
+  //     var row = $("<div>");
+  //     row.addClass("search-results");
+  //     row.append("<p>" + response.track[0].strDescriptionEN + "</p>");
+  //     $("#search-music-area").prepend(row);
+
+  //     var row = $("<div>");
+  //     row.addClass("search-results");
+  //     row.append("<a href=" + response.track[0].strMusicVid + ">" + response.track[0].strMusicVid + "</a>");
+  //     $("#search-music-area").append(row);
+  //   });
+  // };
+
+
+
+
+
+
+  //===========================add song trigger
+  $(function () {
+    $(".btn-addSong").on("click", function (event) {
+
+      var artist = $(this.data[i].artist) + " release: " + data[i].release + " genre: " + data[i].genre + " title:" + data[i].title + " year" + data[i].year
+
+
+
+
+
+
+
+
+
+      var id = $(this).data("id");
+      var newSleep = $(this).data("newsleep");
+
+      var newSleepState = {
+        sleepy: newSleep
+      };
+
+      // Send the PUT request.
+      $.ajax("/api/cats/" + id, {
+        type: "PUT",
+        data: newSleepState
+      }).then(
+        function () {
+          console.log("changed sleep to", newSleep);
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+    });
+
+    $(".create-form").on("submit", function (event) {
+      // Make sure to preventDefault on a submit event.
+      event.preventDefault();
+
+      var newCat = {
+        name: $("#ca").val().trim(),
+        sleepy: parseInt($("[name=sleepy]:checked").val().trim())
+      };
+
+      // Send the POST request.
+      $.ajax("/api/cats", {
+        type: "POST",
+        data: newCat
+      })
+        .then(() => {
+          location.reload(); // <-- refresh page
+        })
+
+      // $.ajax("/api/cats", {
+      //   type: "POST",
+      //   data: newCat
+      // }).then(
+      //   function() {
+      //     console.log("created new cat");
+      //     // Reload the page to get the updated list
+      //     location.reload();
+      //   }
+      // );
+    });
   });
-});
 
-//===========================
-
+  //===========================
 
 
+  $("#input-title-ja").text("krokodil");
+
+  $("#input-title-ja").keydown(function () {
+    searchHints(event.key);
+
+    $("#input-title-ja").css("background-color", "lightblue");
+  });
+  $("#input-title-ja").keyup(function () {
+    $("#input-title-ja").css("background-color", "lavender");
+  });
 
 
 
+
+
+
+
+  const songSearch1 = function (songString1){
+
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://shazam.p.rapidapi.com/search?locale=en-US&offset=0&limit=5&term="+songString1,
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "shazam.p.rapidapi.com",
+      "x-rapidapi-key": "847928476cmsheaaf2b6abd565d9p1758d2jsn129d9533941b"
+    }
+  }
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+
+  };
 
 });

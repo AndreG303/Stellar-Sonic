@@ -13,13 +13,14 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 140]
       }
     },
-    release: { 
+    coverArt: { 
       type: DataTypes.STRING,
       allowNull:false,
       validate: {
         len: [1, 140]
       }
     },
+
     genre: { 
       type: DataTypes.STRING,
       allowNull:false,
@@ -27,23 +28,28 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 140]
       }
     },
+
     title: { 
       type: DataTypes.STRING,
       allowNull:false,
       validate: {
-        len: [1, 140]
+        len: [1, 190]
       }
     },
     year: { 
       type: DataTypes.INTEGER,
       allowNull:true,
+    },
+    youtubeVideo: { 
+        type: DataTypes.STRING,
+        allowNull:false,
+        validate: {
+          len: [1, 190]
+        }
+      
       
     },
-    duration: { 
-      type: DataTypes.DECIMAL(7,2),
-      allowNull:true,
-      
-    }
+  
   });
 
   Playlists.associate = function(models){

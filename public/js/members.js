@@ -55,7 +55,9 @@ $(document).ready(() => {
         for (var i = 0; i < data.length; i++) {
           var row = $("<div>");
           row.addClass("chirp");
-          row.append("<p> [" + moment(data[i].created_at).format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
+          // moment('01/12/2016', 'DD/MM/YYYY', true).format()
+          console.log(data[i].createdAt);
+          row.append("<p> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
           $("#post-area").append(row);
         }
       }

@@ -108,13 +108,13 @@ body {
   color: white;
   width: 400px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   position: absolute;
   /* display: block; */
 }
 
 .node:hover {
-  stroke-width: 5px !important;
+  stroke-width: 4px !important;
   opacity: 1 !important;
 }
 
@@ -129,7 +129,7 @@ body {
   background-color:  transparent;
   box-shadow: 1px 1px #323042;
   padding-top:10px;
-  padding-bottom:10px;
+  padding-bottom:30px;
 }
 
 .user {
@@ -146,6 +146,11 @@ body {
 }
 
 .member-name1{
+  color: white;
+  align-content: center;
+}
+
+.play{
   color: white;
   align-content: center;
 }
@@ -219,10 +224,25 @@ a:hover:after {
   right: -7px;
 }
 
-.slogan {
-  color: white;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  font-size: 50px;
-  margin-top: 15px;
+.brand-name {
+  display: block;
+  margin: auto;
+  width: 55%;
+  margin-top: 100px;
+  
+}
+
+#musicdata{
+  display:block;
+  position:relative;
+}
+
+#musicdata1{
+  display:block;
+  position:relative;
+}
+
+#musicdata2{
+  display:block;
+  position:relative;
 }

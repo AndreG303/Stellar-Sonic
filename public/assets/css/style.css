@@ -15,6 +15,20 @@ h2 {
   text-align: center;
 }
 
+h4{
+  text-align: center;
+  padding-bottom: 50px;
+  font-size:26px;
+  color:#323042;
+  font-weight: bold;
+}
+.title{
+  color:#8c9cb0;
+  padding-top: 50px;
+  font-weight: bold;
+  font-size:50px;
+  text-align: center;
+}
 .form-control {
   margin: 20px;
 }
@@ -38,7 +52,7 @@ form.login {
 
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
-  background-color: #555;
+  background-color: #323042;
   color: white;
   padding: 16px 20px;
   border: none;
@@ -119,19 +133,21 @@ form.login {
 }
 
 .tooltip {
-  background-color: black;
+  background-color: transparent;
   padding: 5px;
   border: solid;
   border-width: 1px;
   border-radius: 5px;
-  color: white;
+  color: #e3e7ea;
   width: 400px;
   text-align: center;
   font-size: 16px;
   position: absolute;
-  /* display: block; */
 }
 
+svg{
+  padding-bottom:70px;
+}
 .node:hover {
   stroke-width: 4px !important;
   opacity: 1 !important;
@@ -148,7 +164,7 @@ form.login {
   background-color:  transparent;
   box-shadow: 1px 1px #323042;
   padding-top:10px;
-  padding-bottom:30px;
+  padding-bottom:10px;
 }
 
 .user {
@@ -162,7 +178,7 @@ form.login {
 .member-name,
 .member-name1,
 .play{
-  color: white;
+  color: #8c9cb0;
   align-content: center;
 }
 

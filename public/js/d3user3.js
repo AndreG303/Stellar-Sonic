@@ -51,7 +51,7 @@ $.ajax({
 
         // Color palette for genre?
         var color = d3.scaleOrdinal()
-            .domain(["rock", "jazz rap", "hip hop", "salsa", "post-grunge", "ska"])
+            .domain(["rock", "jazz rap", "hip hop", "salsa", "post-grunge", "ska","dance rock","punk","blues-rock"])
             .range(d3.schemeCategory10);
 
         // Size scale for genres

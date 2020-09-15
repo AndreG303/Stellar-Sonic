@@ -45,6 +45,11 @@ $(document).ready(() => {
 
   setInterval(function(moment, chatScrollToBottom){
     $.get("/api/posts", function (data) {
+      var lastChatLength = window.__lastChatLength;
+      if(typeof lastChatLength === 'undefined'){
+        lastChatLength = -1;
+      }
+      if(lastChatLength !== data.length){
       if (data.length !== 0) {
         $("#post-area").html('');
         for (var i = 0; i < data.length; i++) {
@@ -54,7 +59,11 @@ $(document).ready(() => {
           $("#post-area").append(row);
         }
       }
-      chatScrollToBottom();
+      
+     
+        chatScrollToBottom();
+      }
+      window.__lastChatLength = data.length;
     });
   }, 2000, moment, chatScrollToBottom);
 

@@ -1,3 +1,15 @@
+body {
+  background-image: url(https://media.giphy.com/media/PlsjFmJ0iLW9I3C1lw/giphy.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+img {
+  padding-top:15px;
+  padding-bottom:80px;
+}
+
 h2 {
   color: white;
   text-align: center;
@@ -24,12 +36,6 @@ form.login {
   max-height: 85%;
 }
 
-body {
-  background-image: url(https://media.giphy.com/media/PlsjFmJ0iLW9I3C1lw/giphy.gif);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
   background-color: #555;

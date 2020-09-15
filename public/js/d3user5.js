@@ -2,7 +2,7 @@
 
 var wWidth = window.innerWidth;
 
-var width5 = 600
+var width5 = 450
 var height = 500
 
 // // Small devices (landscape phones, 576px and up)
@@ -31,9 +31,9 @@ else if(wWidth < 992){
     width5 = 970 - 50;
  }
  else{
-     width5 = 1170 -50;
+     width5 = 1170 -10;
  }
-
+ width5=width5/2;
 // append the svg object to the body of the page
 var svg4 = d3.select("#musicdata4")
     .append("svg")
@@ -54,8 +54,8 @@ $.ajax({
 
         // Color palette for genre?
         var color = d3.scaleOrdinal()
-            .domain(["rock", "jazz rap", "hip hop", "salsa", "post-grunge", "ska"])
-            .range(d3.schemeCategory20);
+            .domain(["salsa", "jazz rap", "hip hop", "blues-rock","ska","dance-rock","rock","punk","post-grunge"])
+            .range(d3.schemeCategory10);
 
         // Size scale for genres
         var size = d3.scaleLinear()

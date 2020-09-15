@@ -12,6 +12,12 @@ form.login {
   margin-top: 50px;
 }
 
+.login-png {
+  margin: auto;
+  display: block;
+  width: 90%;
+}
+
 #popupChatBox {
   max-width: 30%;
   overflow: auto;
@@ -255,7 +261,7 @@ a:hover:after {
 }
 
 
-@media (min-width: 375px) { 
+@media (max-width: 600px) { 
   .form-control {
     margin: 10px;
   }
@@ -299,5 +305,5 @@ a:hover:after {
   }
 
   @media (min-width: 576px) {
-    
+
   }

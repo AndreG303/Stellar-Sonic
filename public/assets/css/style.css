@@ -108,7 +108,7 @@ body {
   color: white;
   width: 400px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   position: absolute;
   /* display: block; */
 }
@@ -129,7 +129,7 @@ body {
   background-color:  transparent;
   box-shadow: 1px 1px #323042;
   padding-top:10px;
-  padding-bottom:10px;
+  padding-bottom:30px;
 }
 
 .user {
@@ -232,3 +232,17 @@ a:hover:after {
   
 }
 
+#musicdata{
+  display:block;
+  position:relative;
+}
+
+#musicdata1{
+  display:block;
+  position:relative;
+}
+
+#musicdata2{
+  display:block;
+  position:relative;
+}

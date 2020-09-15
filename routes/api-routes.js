@@ -132,7 +132,29 @@ module.exports = function (app) {
     console.log (results);
   })
 
+  app.get("/api/test3", async function (req, res) {
+    console.log("Got you")
+    const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(song) as `songs`, GROUP_CONCAT(artist) as `artists` FROM playlist_slash GROUP BY genre;", {
+      nest: true,
+      type: QueryTypes.SELECT,
+      raw: true,
+      plain: false
+    });
+    res.json(results);
+    console.log (results);
+  })
   
+  app.get("/api/test4", async function (req, res) {
+    console.log("Got you")
+    const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(song) as `songs`, GROUP_CONCAT(artist) as `artists` FROM playlist_blondie202 GROUP BY genre;", {
+      nest: true,
+      type: QueryTypes.SELECT,
+      raw: true,
+      plain: false
+    });
+    res.json(results);
+    console.log (results);
+  })
 
   // POST route for saving a new post
   app.post("/api/posts", function (req, res) {

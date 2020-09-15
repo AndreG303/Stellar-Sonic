@@ -25,15 +25,15 @@ CREATE TABLE playlists (
    PRIMARY KEY (id)
 );
 
-CREATE TABLE playlist_joe101 (
+CREATE TABLE playlist_user (
   id INT NOT NULL AUTO_INCREMENT ,
   artist VARCHAR(100) NULL,
   song VARCHAR(100) NULL,
   genre VARCHAR(100) NULL,
   year INT NULL,
   position int,
-  FOREIGN KEY (position)
-  REFERENCES top5000 (position)
+  FOREIGN KEY (userId)
+  REFERENCES users (id)
   ON UPDATE CASCADE
   ON DELETE CASCADE,
    PRIMARY KEY (id)

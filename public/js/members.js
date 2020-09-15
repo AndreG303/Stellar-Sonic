@@ -43,28 +43,28 @@ $(document).ready(() => {
 
   });
 
-  
+
 
   setInterval(function (moment, chatScrollToBottom) {
     $.get("/api/posts", function (data) {
       var lastChatLength = window.__lastChatLength;
-      if(typeof lastChatLength === 'undefined'){
+      if (typeof lastChatLength === 'undefined') {
         lastChatLength = -1;
       }
-      if(lastChatLength !== data.length){
-      if (data.length !== 0) {
-        $("#post-area").html('');
-        for (var i = 0; i < data.length; i++) {
-          var row = $("<div>");
-          row.addClass("chirp");
-          // moment('01/12/2016', 'DD/MM/YYYY', true).format()
-          console.log(data[i].createdAt);
-          row.append("<p> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
-          $("#post-area").append(row);
+      if (lastChatLength !== data.length) {
+        if (data.length !== 0) {
+          $("#post-area").html('');
+          for (var i = 0; i < data.length; i++) {
+            var row = $("<div>");
+            row.addClass("chirp");
+            // moment('01/12/2016', 'DD/MM/YYYY', true).format()
+            console.log(data[i].createdAt);
+            row.append("<p> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
+            $("#post-area").append(row);
+          }
         }
-      }
-      
-     
+
+
         chatScrollToBottom();
       }
       window.__lastChatLength = data.length;
@@ -103,22 +103,24 @@ $(document).ready(() => {
 
   //==================shazam API call - get the hints 
   const searchHints = function (evKey) {
-    searchString=$("#input-title-ja").val();
+    searchString = $("#input-title-ja").val();
 
-    if ((searchString === 0) || (searchString.length < 4)) {
+    if ((searchString === 0) || (searchString.length < 6)) {
 
       // searchString = searchString += evKey;
       console.log(evKey);
       console.log(searchString);
+      console.log("no call , string is too short");
 
 
     }
-    else if (searchString.length >= 4) {
+    else if ((searchString.length === 6) || (searchString.length === 10) || (searchString.length === 14) || (searchString.length === 20)) {
       // searchString = searchString += evKey;
       console.log(evKey);
       console.log(searchString);
       // console.log($("#input-title-ja").val());
       console.log("doing the call");
+      availableTags.length = 0;
 
 
       var settings = {
@@ -128,14 +130,15 @@ $(document).ready(() => {
         "method": "GET",
         "headers": {
           "x-rapidapi-host": "shazam.p.rapidapi.com",
-          "x-rapidapi-key": "847928476cmsheaaf2b6abd565d9p1758d2jsn129d9533941b"
+          "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
         }
       }
 
       $.ajax(settings).done(function (response) {
+
         console.log(response);
-        for (var i=0; i<response.hints.length;i++){
-          let hints= response.hints[i].term;
+        for (var i = 0; i < response.hints.length; i++) {
+          let hints = response.hints[i].term;
           availableTags.push(hints);
 
         }
@@ -143,14 +146,14 @@ $(document).ready(() => {
       });
     }
 
+    $(function () {
+
+      $("#input-title-ja").autocomplete({
+        source: availableTags
+      });
+    });
   }
 
-  $( function() {
-    
-    $( "#input-title-ja" ).autocomplete({
-      source: availableTags
-    });
-  } );
 
 
 
@@ -193,14 +196,8 @@ $(document).ready(() => {
   $(".btn-searchSong").on("click", function (event) {
     event.preventDefault();
     const titleInput = $("input#input-title-ja");
-    
-
     let title = titleInput.val().trim();
- 
-
     console.log(title);
-    
-
     songSearch1(title);
 
 
@@ -218,16 +215,16 @@ $(document).ready(() => {
 
   // const songSearch = function (title, singer) {
 
-    // var settings = {
-    //   "async": true,
-    //   "crossDomain": true,
-    //   "url": "https://theaudiodb.p.rapidapi.com/searchtrack.php?t=" + title + "&s=" + singer + "",
-    //   "method": "GET",
-    //   "headers": {
-    //     "x-rapidapi-host": "theaudiodb.p.rapidapi.com",
-    //     "x-rapidapi-key": "847928476cmsheaaf2b6abd565d9p1758d2jsn129d9533941b"
-    //   }
-    // }
+  // var settings = {
+  //   "async": true,
+  //   "crossDomain": true,
+  //   "url": "https://theaudiodb.p.rapidapi.com/searchtrack.php?t=" + title + "&s=" + singer + "",
+  //   "method": "GET",
+  //   "headers": {
+  //     "x-rapidapi-host": "theaudiodb.p.rapidapi.com",
+  //     "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
+  //   }
+  // }
 
   //   $.ajax(settings).done(function (response) {
   //     console.log(response);
@@ -333,22 +330,111 @@ $(document).ready(() => {
 
 
 
-  const songSearch1 = function (songString1){
+  const songSearch1 = function (songString1) {
 
-  var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://shazam.p.rapidapi.com/search?locale=en-US&offset=0&limit=5&term="+songString1,
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "shazam.p.rapidapi.com",
-      "x-rapidapi-key": "847928476cmsheaaf2b6abd565d9p1758d2jsn129d9533941b"
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://shazam.p.rapidapi.com/search?locale=en-US&offset=0&limit=5&term=" + songString1,
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "shazam.p.rapidapi.com",
+        "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
+      }
     }
-  }
-  
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+      let shazamSongId = response.tracks.hits[0].track.key
+      checkSong2(shazamSongId);
+      // let newSong = {
+      //   artist: response.artists.hits[0].artist.name,
+      //   song:response.tracks.hits[0].track.title,
+      //   genre:response.artists.hits[0].artist.name,
+      //   year:response.artists.hits[0].artist.name,
+      //   userID: username,
+      //   coverArt:
+      //   youtubeVideo:
+
+
+
+      // }
+    });
+
+  };
+
+
+  const checkSong2 = function (shazamSongId) {
+
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://shazam.p.rapidapi.com/songs/get-details?locale=en-US&key=" + shazamSongId,
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "shazam.p.rapidapi.com",
+        "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
+      }
+    }
+
+
+    $.ajax(settings).done(function (response) {
+      console.log("song details-final");
+      console.log(response);
+
+      let newSong = {
+        artist: response.subtitle,
+        title: response.title,
+        genre: response.genres.primary,
+        year: response.sections[0].metadata[2].text,
+        // userID: username,
+        coverArt: response.sections[0].metapages[1].image,
+        youtubeVideo: response.sections[2].youtubeurl.actions[0].uri
+
+      }
+      console.log(newSong);
+      // creating a box for the newfound song
+      var row3 = $("<div class='search-results-card users'>");
+      var row3a =$('<div class="card-header"></div>');
+      var row3b =$('<h2 class="result-box">searched title</h2></div>');
+      var row3c =$('<div class="card-body" id="search-display1">');
+      var row3d =$("<p> Artist: " + newSong.artist+" title:  " +newSong.title +" year:  "+ newSong.year+"</p>");
+      var row3e =$("<a href=" + newSong.coverArt+ ">" +newSong.coverArt+ "</a>");
+      var row3f =$("<a href=" + newSong.youtubeVideo+ ">" +newSong.youtubeVideo+ "</a>");
+      // var row3e =$(newSong.title);
+
+      var row3g =$('</div></div>');
+    
+      row3.append(row3a);
+      row3a.append(row3b);
+      row3b.append(row3c);
+      row3c.append(row3d);
+      row3d.append(row3e);
+      row3e.append(row3f);
+      row3f.append(row3g);
+      
+      
+      $("#search-music-area").prepend(row3);
+
+      // var row2 = $("<div>");
+      // row2.addClass("search-results card users");
+      // row2.append("<a href=" + response.track[0].strMusicVid + ">" + response.track[0].strMusicVid + "</a>");
+      // $("#search-music-area").append(row);
+
+
+      //      <div class="card search-result-card users"> xxxxx
+      // <div class="card-header">xxxxxx
+      // <h2 class="member-name1">Chris123 Playlist</h2>xxxxxxxxxxxxxx
+      // </div>
+      // <div class="card-body" id="musicdata2"></div>
+      // </div>
+
+
+
+
+      // create a card for the searched song with an option to add to the users playlist
+
+    });
 
   };
 

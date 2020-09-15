@@ -2,48 +2,48 @@
 
 var wWidth = window.innerWidth;
 
-var width4 = 600
+var width5 = 600
 var height = 500
 
 // // Small devices (landscape phones, 576px and up)
 // @media (min-width: 576px) { ... }
 
 if(wWidth < 576){
-    width4 = wWidth - 10;
+    width5 = wWidth - 10;
 }
 
 // // Medium devices (tablets, 768px and up)
 // @media (min-width: 768px) { ... }
 else if(wWidth < 768){
-   width4 = wWidth - 10;
+   width5 = wWidth - 10;
 }
 
 
 // // Large devices (desktops, 992px and up)
 // @media (min-width: 992px) { ... }
 else if(wWidth < 992){
-    width4 = 750 - 10;
+    width5 = 750 - 10;
  }
 // // Extra large devices (large desktops, 1200px and up)
 // @media (min-width: 1200px) { ... }
 
 else if(wWidth < 992){
-    width4 = 970 - 50;
+    width5 = 970 - 50;
  }
  else{
-     width4 = 1170 -50;
+     width5 = 1170 -50;
  }
 
 // append the svg object to the body of the page
-var svg3 = d3.select("#musicdata3")
+var svg4 = d3.select("#musicdata4")
     .append("svg")
-    .attr("width", width4)
+    .attr("width", width5)
     .attr("height", height)
 
 // Read data
 
 $.ajax({
-    url: "/api/test3",
+    url: "/api/test4",
     method: "GET"
 
 })
@@ -63,7 +63,7 @@ $.ajax({
             .range([8, 150])  // circle will be between 8 and 55 px wide
 
         // create a tooltip
-        var Tooltip = d3.select("#musicdata3")
+        var Tooltip = d3.select("#musicdata4")
             .append("div")
             .attr("class", "tooltip")
 
@@ -97,14 +97,14 @@ $.ajax({
         }
 
         // Initialize the circle: all located at the center of the svg area
-        var node = svg3.append("g")
+        var node = svg4.append("g")
             .selectAll("circle")
             .data(data)
             .enter()
             .append("circle")
             .attr("class", "node")
             .attr("r", function (d) { return size(parseInt(d.number)) })
-            .attr("cx", width4 / 2)
+            .attr("cx", width5 / 2)
             .attr("cy", height / 2)
             .style("fill", function (d) { return color(d.genre) })
             .attr("stroke", "#fff200")
@@ -119,7 +119,7 @@ $.ajax({
 
         // Features of the forces applied to the nodes:
         var simulation = d3.forceSimulation()
-            .force("center", d3.forceCenter().x(width4 / 2).y(height / 2)) // Attraction to the center of the svg area
+            .force("center", d3.forceCenter().x(width5 / 2).y(height / 2)) // Attraction to the center of the svg area
             .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted one each other of value is > 0
             .force("collide", d3.forceCollide().strength(.2).radius(function (d) { return (size(parseInt(d.number)) + 3) }).iterations(1)) // Force that avoids circle overlapping
 

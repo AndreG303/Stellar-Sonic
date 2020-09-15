@@ -260,6 +260,16 @@ a:hover:after {
   position:relative;
 }
 
+#musicdata3{
+  display:block;
+  position:relative;
+}
+
+#musicdata4{
+  display:block;
+  position:relative;
+}
+
 
 @media (max-width: 600px) { 
   .form-control {

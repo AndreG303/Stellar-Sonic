@@ -31,6 +31,23 @@ h4{
 }
 .form-control {
   margin: 20px;
+  background-color:#323042;
+}
+.btn-allMusic{
+  background-color:#323042;
+  color:whitesmoke;
+  opacity: 0.8;
+}
+.btn-userBtn{
+  background-color:#323042;
+  color:whitesmoke;
+  opacity: 0.8;
+}
+
+.btn-searchSong{
+  background-color:#323042;
+  color:whitesmoke;
+  opacity: 0.8;
 }
 
 form.signup,

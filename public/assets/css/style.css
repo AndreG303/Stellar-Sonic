@@ -30,7 +30,9 @@ h4{
   text-align: center;
 }
 .form-control {
-  margin: 20px;
+  font-weight: bold;
+  opacity: 0.8;
+  font-size: 18px;
   background-color:#323042;
 }
 .btn-allMusic{
@@ -221,7 +223,7 @@ ul li {
   margin-top: 20px;
 }
 
-a {
+.header-links {
   text-decoration: none;
   color: white !important;
   font-size: 21px;

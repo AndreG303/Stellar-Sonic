@@ -30,7 +30,7 @@
 
   <header>
     <ul class="links">
-      <li><a href="/logout">Logout</a></li>
+      <li><a class = "header-links" href="/logout">Logout</a></li>
     </ul>
   </header>
 
@@ -65,13 +65,22 @@
     <hr>
     <!-- the  search card should show here -->
     <div id="search-music-area"></div>
-    <form>
+    <!-- <form>
       <div class="form-group">
         <h2>Search for a song</h2>
         <input type="text" class="form-control" id="input-title" placeholder="Please enter the title">
         <button type="button" class="btn btn-searchSong">Search</button>
       </div>
-    </form>
+    </form> -->
+    <h2>Search for a song</h2>
+    <div class="input-group mb-3">
+
+      <input type="text" class="form-control" id="input-title" placeholder="Please enter a song title here" aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <div class="input-group-btn">
+        <button class="btn btn-outline-secondary" type="button">Button</button>
+      </div>
+    </div>
+   
 
     <div class="user-playlist">
       <div id="user-music-area">

@@ -69,7 +69,6 @@ module.exports = function (app) {
   /// =========================== added from Jivko
 
   app.get("/api/mainlists", (req, res) => {
-
     db.MainList.findAll({}).then(function (dbMainList) {
       // We have access to the todos as an argument inside of the callback function
       res.json(dbMainList);
@@ -77,7 +76,6 @@ module.exports = function (app) {
 
   });
   app.get("/api/playlists", (req, res) => {
-
     db.MainList.findAll({}).then(function (dbMainList) {
       // We have access to the todos as an argument inside of the callback function
       res.json(dbMainList);
@@ -132,7 +130,29 @@ module.exports = function (app) {
     console.log (results);
   })
 
+  app.get("/api/test3", async function (req, res) {
+    console.log("Got you")
+    const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(song) as `songs`, GROUP_CONCAT(artist) as `artists` FROM playlist_slash GROUP BY genre;", {
+      nest: true,
+      type: QueryTypes.SELECT,
+      raw: true,
+      plain: false
+    });
+    res.json(results);
+    console.log (results);
+  })
   
+  app.get("/api/test4", async function (req, res) {
+    console.log("Got you")
+    const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(song) as `songs`, GROUP_CONCAT(artist) as `artists` FROM playlist_blondie202 GROUP BY genre;", {
+      nest: true,
+      type: QueryTypes.SELECT,
+      raw: true,
+      plain: false
+    });
+    res.json(results);
+    console.log (results);
+  })
 
   // POST route for saving a new post
   app.post("/api/posts", function (req, res) {
@@ -151,33 +171,52 @@ module.exports = function (app) {
 
   });
 
+  // "/api/shazam-add"
+  app.post("/api/shazam-add", function (req, res) {
+    // create takes an argument of an object describing the item we want to insert
+    // into our table. In this case we just we pass in an object with a text and
+    // complete property
+    db.PlaylistsUsers.create({
+      artist: req.body.artist,
+      coverArt: req.body.coverArt,
+      genre: req.body.genre,
+      title: req.body.title,
+      year: req.body.year,
+      youtubeVideo: req.body.youtubeVideo,
+      username:req.body.username,
+      UserId:req.body.userId
+          }).then(function (dbPlaylistsUsers) {
+      // We have access to the new post as an argument inside of the callback function
+      res.json(dbPlaylistsUsers);
+     console.log(PlaylistsUsers);
+    }).catch(function (e) {
+      res.json({ error: "error!" });
+    });
+
+  });
 
 
-
-  // app.get("/html/test", (req, res) =>{
-  //  db.User.findAll({}).then(function (data) {
-  //       // We have access to the posts as an argument inside of the callback function
-  //       // res.json(dbUser);
-  //   // cat.all(function(data) {
-  //     var hbsObject = {
-  //       users: data[0].datavalues,
-  //       layout: "ajax1"
-  //     };
-  //     console.log(hbsObject);
-
-  //     res.render("test1", hbsObject);
-  //   });
-  // })
   app.get("/html/test", (req, res) => {
     db.User.findAll({}).then(function (data) {
       // We have access to the posts as an argument inside of the callback function
       // res.json(dbUser);
       // cat.all(function(data) {
+        // console.log(data);
       var hbsObject = {
-        users: data[0],
+        users: data,
         layout: "ajax1"
+
       };
-      console.log(hbsObject);
+      for(  i=0; i<data.length;i++){
+        let userId =data[i].dataValues.id;
+        let userUsername =data[i].dataValues.username;
+        let userEmail =data[i].dataValues.email;
+        // console.log("userJa");
+        // console.log(userId, userUsername, userEmail);
+
+      }
+      // console.log("hbsObject");
+      // console.log(hbsObject);
 
       res.render("usertable", hbsObject);
     });

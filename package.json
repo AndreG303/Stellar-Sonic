@@ -36,7 +36,10 @@
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
   },
-  "repository": "git+https://github.com/AndreG303/project-2-.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreG303/project-2-.git"
+  },
   "bugs": {
     "url": "https://github.com/AndreG303/project-2-/issues"
   },

@@ -1,8 +1,34 @@
+body {
+  background-image: url(https://media.giphy.com/media/PlsjFmJ0iLW9I3C1lw/giphy.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+img {
+  padding-top:15px;
+  padding-bottom:80px;
+}
+
 h2 {
   color: white;
   text-align: center;
 }
 
+h4{
+  text-align: center;
+  padding-bottom: 50px;
+  font-size:26px;
+  color:#323042;
+  font-weight: bold;
+}
+.title{
+  color:#8c9cb0;
+  padding-top: 50px;
+  font-weight: bold;
+  font-size:50px;
+  text-align: center;
+}
 .form-control {
   margin: 20px;
 }
@@ -24,15 +50,9 @@ form.login {
   max-height: 85%;
 }
 
-body {
-  background-image: url(https://media.giphy.com/media/PlsjFmJ0iLW9I3C1lw/giphy.gif);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
-  background-color: #555;
+  background-color: #323042;
   color: white;
   padding: 16px 20px;
   border: none;
@@ -113,19 +133,21 @@ body {
 }
 
 .tooltip {
-  background-color: black;
+  background-color: transparent;
   padding: 5px;
   border: solid;
   border-width: 1px;
   border-radius: 5px;
-  color: white;
+  color: #e3e7ea;
   width: 400px;
   text-align: center;
   font-size: 16px;
   position: absolute;
-  /* display: block; */
 }
 
+svg{
+  padding-bottom:70px;
+}
 .node:hover {
   stroke-width: 4px !important;
   opacity: 1 !important;
@@ -142,7 +164,7 @@ body {
   background-color:  transparent;
   box-shadow: 1px 1px #323042;
   padding-top:10px;
-  padding-bottom:30px;
+  padding-bottom:10px;
 }
 
 .user {
@@ -156,7 +178,7 @@ body {
 .member-name,
 .member-name1,
 .play{
-  color: white;
+  color: #8c9cb0;
   align-content: center;
 }
 
@@ -260,6 +282,16 @@ a:hover:after {
   position:relative;
 }
 
+#musicdata3{
+  display:block;
+  position:relative;
+}
+
+#musicdata4{
+  display:block;
+  position:relative;
+}
+
 
 @media (max-width: 600px) { 
   .form-control {
@@ -306,4 +338,20 @@ a:hover:after {
 
   @media (min-width: 576px) {
 
+  }
+
+  #search-results-card {
+    padding: 0px;
+    width:320px;
+    font-size:14px;
+    color: lightslategray;
+  }
+  .username_holder{
+    font-size: 16px;
+    color: lightslategray;
+  }
+  .username_holder_h2{
+    text-align: center;
+    font-size: 18px;
+    color: lightslategray;
   }

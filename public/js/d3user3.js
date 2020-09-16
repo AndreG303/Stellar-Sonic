@@ -51,7 +51,7 @@ $.ajax({
 
         // Color palette for genre?
         var color = d3.scaleOrdinal()
-            .domain(["rock", "jazz rap", "hip hop", "salsa", "post-grunge", "ska"])
+            .domain(["rock", "jazz rap", "hip hop", "salsa", "post-grunge", "ska","dance rock","punk","blues-rock"])
             .range(d3.schemeCategory10);
 
         // Size scale for genres
@@ -71,21 +71,13 @@ $.ajax({
                 .style("opacity", 1)
         }
         var mousemove = function (d) {
-            //$.ajax( ... something ..).then( data => {
-            //  ... tooltip stuff here ...
-            //})
-
+        
             Tooltip
                 .html('<u>' + d.genre.toUpperCase()+ '</u>' + "<br>" + "No of songs" + d.number + "<br>" + "SONGS" + "<br>" + d.songs + "<br>" + "ARTISTS" + "<br>" + d.artists)
                 // .style("left", (d3.mouse(this)[0] + 20) + "px")
                 // .style("top", (d3.mouse(this)[1]) + "px")
                 .style("left", "0px")
                 .style("bottom", "0px")
-            // .style("z-index", "1")
-            // .style("top", "100%")
-            // .style("position", "absolute")
-            // .style("left","50%")
-            // .style("margin-left","-60px")
 
         }
         var mouseleave = function (d) {

@@ -1,15 +1,12 @@
-// var express = require("express");
-//let username; // globally keeps track of the current user that is logged in\
-// songSearch = require("../../server");
 // const axios = require("axios");
-
-
 
 $(document).ready(() => {
   var availableTags = [];
   //global variables
   var userBtn = $(".btn-userBtn");
   let username; // globally keeps track of the current user that is logged in
+  let userId; // globally keeps track of the current user's id in users that is logged in
+
   var searchString = "";
 
   const openForm = function (event) {
@@ -39,6 +36,8 @@ $(document).ready(() => {
     $(".member-name").text(data.username);
     console.log("1st get at members.js");
     username = data.username;
+    userId = data.id;
+
     userBtn.text(username + "'s list");
 
   });
@@ -56,7 +55,7 @@ $(document).ready(() => {
           $("#post-area").html('');
           for (var i = 0; i < data.length; i++) {
             var row = $("<div>");
-            row.addClass("chirp");
+            row.addClass("post");
             // moment('01/12/2016', 'DD/MM/YYYY', true).format()
             console.log(data[i].createdAt);
             row.append("<p> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
@@ -200,63 +199,14 @@ $(document).ready(() => {
     console.log(title);
     songSearch1(title);
 
-
-    // $.get("/api/mainlists", function (data) {
-    //   if (data.length !== 0) {
-    //     for (var i = 0; i < data.length; i++) {
-    //       var row = $("<div>");
-    //       row.addClass("mainlists");
-    //       row.append("<p>" + data[i].artist + " release: " + data[i].release + "genre: " + data[i].genre + "title:" + data[i].title + " year" + data[i].year + "</p>");
-    //       $("#main-music-area").prepend(row);
-    //     }
-    //   }
-    // });
   });
 
-  // const songSearch = function (title, singer) {
-
-  // var settings = {
-  //   "async": true,
-  //   "crossDomain": true,
-  //   "url": "https://theaudiodb.p.rapidapi.com/searchtrack.php?t=" + title + "&s=" + singer + "",
-  //   "method": "GET",
-  //   "headers": {
-  //     "x-rapidapi-host": "theaudiodb.p.rapidapi.com",
-  //     "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
-  //   }
-  // }
-
-  //   $.ajax(settings).done(function (response) {
-  //     console.log(response);
-  //     var row = $("<div>");
-  //     row.addClass("search-results");
-  //     row.append("<p>" + response.track[0].strDescriptionEN + "</p>");
-  //     $("#search-music-area").prepend(row);
-
-  //     var row = $("<div>");
-  //     row.addClass("search-results");
-  //     row.append("<a href=" + response.track[0].strMusicVid + ">" + response.track[0].strMusicVid + "</a>");
-  //     $("#search-music-area").append(row);
-  //   });
-  // };
-
-
-
-
-
-
+  
   //===========================add song trigger
   $(function () {
     $(".btn-addSong").on("click", function (event) {
 
       var artist = $(this.data[i].artist) + " release: " + data[i].release + " genre: " + data[i].genre + " title:" + data[i].title + " year" + data[i].year
-
-
-
-
-
-
-
 
 
       var id = $(this).data("id");
@@ -347,18 +297,7 @@ $(document).ready(() => {
       console.log(response);
       let shazamSongId = response.tracks.hits[0].track.key
       checkSong2(shazamSongId);
-      // let newSong = {
-      //   artist: response.artists.hits[0].artist.name,
-      //   song:response.tracks.hits[0].track.title,
-      //   genre:response.artists.hits[0].artist.name,
-      //   year:response.artists.hits[0].artist.name,
-      //   userID: username,
-      //   coverArt:
-      //   youtubeVideo:
 
-
-
-      // }
     });
 
   };
@@ -387,55 +326,64 @@ $(document).ready(() => {
         title: response.title,
         genre: response.genres.primary,
         year: response.sections[0].metadata[2].text,
-        // userID: username,
-        coverArt: response.sections[0].metapages[1].image,
-        youtubeVideo: response.sections[2].youtubeurl.actions[0].uri
+        coverArt: response.sections[0].metapages[response.sections[0].metapages.length - 1].image,
+        youtubeVideo: response.sections[response.sections.length-3].youtubeurl.actions[0].uri,
+        username: username,
+        userId:userId
 
       }
-      console.log(newSong);
-      // creating a box for the newfound song
-      var row3 = $("<div class='search-results-card users'>");
-      var row3a =$('<div class="card-header"></div>');
-      var row3b =$('<h2 class="result-box">searched title</h2></div>');
-      var row3c =$('<div class="card-body" id="search-display1">');
-      var row3d =$("<p> Artist: " + newSong.artist+" title:  " +newSong.title +" year:  "+ newSong.year+"</p>");
-      var row3e =$("<a href=" + newSong.coverArt+ ">" +newSong.coverArt+ "</a>");
-      var row3f =$("<a href=" + newSong.youtubeVideo+ ">" +newSong.youtubeVideo+ "</a>");
+      
+       // create a card for the searched song with an option to add to the users playlist
+      $("#search-music-area").html("");
+      var row3 = $('<div id="show-search-div" class="search-results-card users">');
+      var row3a = $('<div class="card-header"></div>');
+      var row3b = $('<h4 class="result-box">searched title</h4>');
+      var row3c = $('<div class="card-body" id="search-display1">');
+      var row3d = $('<p> Artist: ' + newSong.artist + ' title:  ' + newSong.title + ' year:  ' + newSong.year + '</p>');
+      var row3e = $('<img src=' + newSong.coverArt + ' alt= ' + newSong.title + ' width="120" height="120" </img>');
+      var row3f = $('<a href=' + newSong.youtubeVideo + ' target="_blank" >youtube ' + newSong.title + '</a>');
+      var row3i = $('<button type="button" class="btn btn-shazamAdd" >Add to playlist</button>');
       // var row3e =$(newSong.title);
 
-      var row3g =$('</div></div>');
-    
+      var row3g = $('</div>');
+
       row3.append(row3a);
-      row3a.append(row3b);
-      row3b.append(row3c);
+      row3.append(row3b);
+      row3.append(row3c);
       row3c.append(row3d);
-      row3d.append(row3e);
-      row3e.append(row3f);
-      row3f.append(row3g);
-      
-      
+      row3.append(row3e);
+      row3c.append(row3f);
+      row3c.append(row3i);
+
+      row3.append(row3g);
+
+
       $("#search-music-area").prepend(row3);
 
-      // var row2 = $("<div>");
-      // row2.addClass("search-results card users");
-      // row2.append("<a href=" + response.track[0].strMusicVid + ">" + response.track[0].strMusicVid + "</a>");
-      // $("#search-music-area").append(row);
 
 
-      //      <div class="card search-result-card users"> xxxxx
-      // <div class="card-header">xxxxxx
-      // <h2 class="member-name1">Chris123 Playlist</h2>xxxxxxxxxxxxxx
-      // </div>
-      // <div class="card-body" id="musicdata2"></div>
-      // </div>
+      $(".btn-shazamAdd").on("click", function (event) {
+        event.preventDefault();
+        console.log("newSong for the post call"); 
+        console.log(newSong);
+
+        $.ajax("/api/shazam-add", {
+          type: "POST",
+          data: newSong
+
+        })
+          .then(() => {
+            // location.reload(); // <-- refresh page
+            console.log("added successfully");
+          });
+
+      });
 
 
 
-
-      // create a card for the searched song with an option to add to the users playlist
+     
 
     });
 
-  };
-
+  }
 });

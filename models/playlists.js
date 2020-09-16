@@ -55,7 +55,7 @@ module.exports = function(sequelize, DataTypes) {
   Playlists.associate = function(models){
     Playlists.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false // makes sure that the post always has an author
+        allowNull: false // makes sure that the list always has an owner
       }
     });
   }

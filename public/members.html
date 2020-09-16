@@ -20,24 +20,24 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Vast+Shadow&family=Monoton&family=VT323&family=Raleway:ital,wght@1,200&display=swap"
     rel="stylesheet">
-    <link
+  <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Vast+Shadow&family=Monoton&family=VT323&family=Raleway:ital,wght@1,200&display=swap"
     rel="stylesheet">
-    <link href="./assets/css/style.css" rel="stylesheet">
+  <link href="./assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <header>
-        <ul class="links">
-            <li><a href="/api/login">Logout</a></li>
-        </ul>
-    </header>
+  <header>
+    <ul class="links">
+      <li><a href="/api/login">Logout</a></li>
+    </ul>
+  </header>
 
 
-<section >
-  <img class="brand-name" src = "./assets/images/stellar-sonic.png" alt="stellar-sonic">
-</section>
+  <section>
+    <img class="brand-name" src="./assets/images/stellar-sonic.png" alt="stellar-sonic">
+  </section>
 
   <div class="container">
     <div class="row">
@@ -63,7 +63,7 @@
 
     <br>
     <hr>
-   <!-- the  search card should show here -->
+    <!-- the  search card should show here -->
     <div id="search-music-area"></div>
     <form>
       <div class="form-group">
@@ -109,7 +109,8 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6 col-md-offset-3">
-              <h2>YOUR SONIC SOUND</h2>
+              <h2 class="title">YOUR SONIC SOUND</h2>
+              <h4>Checkout your music taste by genre</h4>
             </div>
           </div>
         </div>
@@ -117,22 +118,35 @@
           <div class="user-area col-12 d-flex justify-content-center">
             <div class="card employee-card user">
               <div class="card-header">
-                <h2 class="play"><span class="member-name"></span>Playlist</h2>
+                <h2 class="play"><span class="member-name"></span> Playlist</h2>
               </div>
               <div class="card-body" id="musicdata"></div>
             </div>
             <div class="container">
               <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                  <h2>EXPLORE OUT SPACE</h2>
+                  <h2 class="title">EXPLORE OUT SPACE</h2>
+                  <h4>Browse other users music taste in their interactive genre chart</h4>
                 </div>
               </div>
             </div>
             <div class="card employee-card users">
               <div class="card-header">
-                <h2 class="member-name1">AndrewDA'lba Playlist</h2>
+                <h2 class="member-name1">Blondie202 Playlist</h2>
+              </div>
+              <div class="card-body" id="musicdata4"></div>
+            </div>
+            <div class="card employee-card users">
+              <div class="card-header">
+                <h2 class="member-name1">AndrewD'Alba Playlist</h2>
               </div>
               <div class="card-body" id="musicdata1"></div>
+            </div>
+            <div class="card employee-card users">
+              <div class="card-header">
+                <h2 class="member-name1">Slash Playlist</h2>
+              </div>
+              <div class="card-body" id="musicdata3"></div>
             </div>
             <div class="card employee-card users">
               <div class="card-header">
@@ -193,6 +207,8 @@
   <script src="js/d3user1.js"></script>
   <script src="js/d3user2.js"></script>
   <script src="js/d3user3.js"></script>
+  <script src="js/d3user4.js"></script>
+  <script src="js/d3user5.js"></script>
 
 
 </body>

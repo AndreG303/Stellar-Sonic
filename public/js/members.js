@@ -327,7 +327,7 @@ $(document).ready(() => {
         genre: response.genres.primary,
         year: response.sections[0].metadata[2].text,
         coverArt: response.sections[0].metapages[response.sections[0].metapages.length - 1].image,
-        youtubeVideo: response.sections[2].youtubeurl.actions[0].uri,
+        youtubeVideo: response.sections[response.sections.length-3].youtubeurl.actions[0].uri,
         username: username,
         userId:userId
 

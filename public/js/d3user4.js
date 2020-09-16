@@ -1,8 +1,5 @@
 // set the dimensions and margins of the graph
-
-var wWidth = window.innerWidth;
-
-var width4 = 600
+var width4 = 450
 var height = 500
 
 // // Small devices (landscape phones, 576px and up)
@@ -31,9 +28,9 @@ else if(wWidth < 992){
     width4 = 970 - 50;
  }
  else{
-     width4 = 1170 -50;
+     width4 = 1170 -10;
  }
-
+ width4=width4/2;
 // append the svg object to the body of the page
 var svg3 = d3.select("#musicdata3")
     .append("svg")

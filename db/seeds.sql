@@ -34,7 +34,6 @@ INSERT INTO playlist_andrewdalba (artist, song, genre, year) values ("Pete Rock 
 INSERT INTO playlist_andrewdalba (artist, song, genre, year) values ("Eminem", "The Way I Am", "hip hop", "2000");
 INSERT INTO playlist_andrewdalba (artist, song, genre, year) values ("Eminem", "Just Don't Give A Fuck", "hip hop", "1998");
 
-
 INSERT INTO playlist_chris123 (artist, song, genre, year) values ("Auf Der Maur", "Taste You", "post-grunge", "2004");
 INSERT INTO playlist_chris123 (artist, song, genre, year) values ("Blue October", "Blue Skies", "post-grunge", "2009");
 INSERT INTO playlist_chris123 (artist, song, genre, year) values ("Cake", "Arco Arena", "post-grunge", "2001");
@@ -67,7 +66,6 @@ INSERT INTO playlist_chris123 (artist, song, genre, year) values ('Spooky Tooth'
 INSERT INTO playlist_chris123 (artist, song, genre, year) values ('Taste', "On The Boards", "blues-rock", "1970");
 INSERT INTO playlist_chris123 (artist, song, genre, year) values ('The Black Crowes', "Nonfiction", "blues-rock", "1994");
 INSERT INTO playlist_chris123 (artist, song, genre, year) values ('The Jeff Healey Band', "See The Light", "blues-rock", "1988");
-
 
 INSERT INTO playlist_slash (artist, song, genre, year) values ("Gorillaz", "Rock The House (Explicit)", "hip hop", "2001");
 INSERT INTO playlist_slash (artist, song, genre, year) values ("Kanye West", "Street Lights", "hip hop", "2008");

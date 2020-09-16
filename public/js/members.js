@@ -1,9 +1,4 @@
-// var express = require("express");
-//let username; // globally keeps track of the current user that is logged in\
-// songSearch = require("../../server");
 // const axios = require("axios");
-
-
 
 $(document).ready(() => {
   var availableTags = [];
@@ -60,7 +55,7 @@ $(document).ready(() => {
           $("#post-area").html('');
           for (var i = 0; i < data.length; i++) {
             var row = $("<div>");
-            row.addClass("chirp");
+            row.addClass("post");
             // moment('01/12/2016', 'DD/MM/YYYY', true).format()
             console.log(data[i].createdAt);
             row.append("<p> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
@@ -204,63 +199,14 @@ $(document).ready(() => {
     console.log(title);
     songSearch1(title);
 
-
-    // $.get("/api/mainlists", function (data) {
-    //   if (data.length !== 0) {
-    //     for (var i = 0; i < data.length; i++) {
-    //       var row = $("<div>");
-    //       row.addClass("mainlists");
-    //       row.append("<p>" + data[i].artist + " release: " + data[i].release + "genre: " + data[i].genre + "title:" + data[i].title + " year" + data[i].year + "</p>");
-    //       $("#main-music-area").prepend(row);
-    //     }
-    //   }
-    // });
   });
 
-  // const songSearch = function (title, singer) {
-
-  // var settings = {
-  //   "async": true,
-  //   "crossDomain": true,
-  //   "url": "https://theaudiodb.p.rapidapi.com/searchtrack.php?t=" + title + "&s=" + singer + "",
-  //   "method": "GET",
-  //   "headers": {
-  //     "x-rapidapi-host": "theaudiodb.p.rapidapi.com",
-  //     "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
-  //   }
-  // }
-
-  //   $.ajax(settings).done(function (response) {
-  //     console.log(response);
-  //     var row = $("<div>");
-  //     row.addClass("search-results");
-  //     row.append("<p>" + response.track[0].strDescriptionEN + "</p>");
-  //     $("#search-music-area").prepend(row);
-
-  //     var row = $("<div>");
-  //     row.addClass("search-results");
-  //     row.append("<a href=" + response.track[0].strMusicVid + ">" + response.track[0].strMusicVid + "</a>");
-  //     $("#search-music-area").append(row);
-  //   });
-  // };
-
-
-
-
-
-
+  
   //===========================add song trigger
   $(function () {
     $(".btn-addSong").on("click", function (event) {
 
       var artist = $(this.data[i].artist) + " release: " + data[i].release + " genre: " + data[i].genre + " title:" + data[i].title + " year" + data[i].year
-
-
-
-
-
-
-
 
 
       var id = $(this).data("id");
@@ -351,18 +297,7 @@ $(document).ready(() => {
       console.log(response);
       let shazamSongId = response.tracks.hits[0].track.key
       checkSong2(shazamSongId);
-      // let newSong = {
-      //   artist: response.artists.hits[0].artist.name,
-      //   song:response.tracks.hits[0].track.title,
-      //   genre:response.artists.hits[0].artist.name,
-      //   year:response.artists.hits[0].artist.name,
-      //   userID: username,
-      //   coverArt:
-      //   youtubeVideo:
 
-
-
-      // }
     });
 
   };
@@ -398,7 +333,7 @@ $(document).ready(() => {
 
       }
       
-      // creating a box for the newfound song
+       // create a card for the searched song with an option to add to the users playlist
       $("#search-music-area").html("");
       var row3 = $('<div id="show-search-div" class="search-results-card users">');
       var row3a = $('<div class="card-header"></div>');
@@ -446,7 +381,7 @@ $(document).ready(() => {
 
 
 
-      // create a card for the searched song with an option to add to the users playlist
+     
 
     });
 

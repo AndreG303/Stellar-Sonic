@@ -69,7 +69,6 @@ module.exports = function (app) {
   /// =========================== added from Jivko
 
   app.get("/api/mainlists", (req, res) => {
-
     db.MainList.findAll({}).then(function (dbMainList) {
       // We have access to the todos as an argument inside of the callback function
       res.json(dbMainList);
@@ -77,7 +76,6 @@ module.exports = function (app) {
 
   });
   app.get("/api/playlists", (req, res) => {
-
     db.MainList.findAll({}).then(function (dbMainList) {
       // We have access to the todos as an argument inside of the callback function
       res.json(dbMainList);
@@ -197,30 +195,28 @@ module.exports = function (app) {
 
   });
 
-  // app.get("/html/test", (req, res) =>{
-  //  db.User.findAll({}).then(function (data) {
-  //       // We have access to the posts as an argument inside of the callback function
-  //       // res.json(dbUser);
-  //   // cat.all(function(data) {
-  //     var hbsObject = {
-  //       users: data[0].datavalues,
-  //       layout: "ajax1"
-  //     };
-  //     console.log(hbsObject);
 
-  //     res.render("test1", hbsObject);
-  //   });
-  // })
   app.get("/html/test", (req, res) => {
     db.User.findAll({}).then(function (data) {
       // We have access to the posts as an argument inside of the callback function
       // res.json(dbUser);
       // cat.all(function(data) {
+        // console.log(data);
       var hbsObject = {
-        users: data[0],
+        users: data,
         layout: "ajax1"
+
       };
-      console.log(hbsObject);
+      for(  i=0; i<data.length;i++){
+        let userId =data[i].dataValues.id;
+        let userUsername =data[i].dataValues.username;
+        let userEmail =data[i].dataValues.email;
+        // console.log("userJa");
+        // console.log(userId, userUsername, userEmail);
+
+      }
+      // console.log("hbsObject");
+      // console.log(hbsObject);
 
       res.render("usertable", hbsObject);
     });

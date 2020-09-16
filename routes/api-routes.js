@@ -173,8 +173,29 @@ module.exports = function (app) {
 
   });
 
+  // "/api/shazam-add"
+  app.post("/api/shazam-add", function (req, res) {
+    // create takes an argument of an object describing the item we want to insert
+    // into our table. In this case we just we pass in an object with a text and
+    // complete property
+    db.PlaylistsUsers.create({
+      artist: req.body.artist,
+      coverArt: req.body.coverArt,
+      genre: req.body.genre,
+      title: req.body.title,
+      year: req.body.year,
+      youtubeVideo: req.body.youtubeVideo,
+      username:req.body.username,
+      UserId:req.body.userId
+          }).then(function (dbPlaylistsUsers) {
+      // We have access to the new post as an argument inside of the callback function
+      res.json(dbPlaylistsUsers);
+     console.log(PlaylistsUsers);
+    }).catch(function (e) {
+      res.json({ error: "error!" });
+    });
 
-
+  });
 
   // app.get("/html/test", (req, res) =>{
   //  db.User.findAll({}).then(function (data) {

@@ -339,3 +339,10 @@ a:hover:after {
   @media (min-width: 576px) {
 
   }
+
+  #search-results-card {
+    padding: 0px;
+    width:320px;
+    font-size:14px;
+    color: lightslategray;
+  }

@@ -30,9 +30,12 @@ h4{
   text-align: center;
 }
 .form-control {
-  margin: 20px;
   background-color:#323042;
+  opacity: 0.8;
+  font-size:18px;
+  font-weight:bold;
 }
+
 .btn-allMusic{
   background-color:#323042;
   color:whitesmoke;

@@ -60,9 +60,11 @@ form.login {
   margin-top: 50px;
 }
 
-.login-png {
-  margin: auto;
-  display: block;
+.login-png,
+.sign-up-png {
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
   width: 90%;
 }
 
@@ -367,8 +369,11 @@ label,
   .login-png,
   .sign-up-png {
     max-width: 300px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
   }
   
   .links {

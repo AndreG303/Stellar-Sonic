@@ -32,8 +32,9 @@ h4{
 .form-control {
   background-color:#323042;
   opacity: 0.8;
-  font-size:18px;
+  font-size:20px;
   font-weight:bold;
+  color:black;
 }
 
 .btn-allMusic{

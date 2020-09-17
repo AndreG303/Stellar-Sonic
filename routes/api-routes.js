@@ -94,6 +94,20 @@ module.exports = function (app) {
 
   });
 // SELECT genre FROM playlist_users GROUP BY genre
+app.get("/api/test0", async function (req, res) {
+  console.log("Got you")
+  const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(title) as `title`, GROUP_CONCAT(artist) as `artist` FROM PlaylistsUsers WHERE UserId = 1 GROUP BY genre", {
+    nest: true,
+    type: QueryTypes.SELECT,
+    raw: true,
+    plain: false
+  });
+  res.json(results);
+  console.log (results);
+})
+
+
+
   app.get("/api/test", async function (req, res) {
     console.log("Got you")
     const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(song) as `songs`, GROUP_CONCAT(artist) as `artists` FROM playlist_joe101 GROUP BY genre;", {

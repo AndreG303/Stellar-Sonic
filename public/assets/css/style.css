@@ -60,14 +60,16 @@ form.login {
   margin-top: 50px;
 }
 
-.login-png {
-  margin: auto;
-  display: block;
+.login-png,
+.sign-up-png {
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
   width: 90%;
 }
 
 #popupChatBox {
-  max-width: 30%;
+  max-width: 40%;
   overflow: auto;
   max-height: 85%;
 }
@@ -83,23 +85,25 @@ form.login {
   position: fixed;
   bottom: 23px;
   right: 28px;
-  width: 280px;
+  width: 380px;
 }
 
 /* The popup chat - hidden by default */
 .chat-popup {
   display: none;
   position: fixed;
+  width:20%;
   bottom: 0;
   right: 15px;
   border: 3px solid #f1f1f1;
   z-index: 9;
+  background-color: #323042;
 }
 
 /* Add styles to the form container */
 .form-container {
   padding: 10px;
-  background-color: white;
+  background-color: #323042
 }
 
 /* Full-width textarea */
@@ -118,22 +122,33 @@ form.login {
   padding: 15px;
   margin: 5px 0 22px 0;
   border: none;
-  background: #f1f1f1;
+  background: #8c9cb0;
+  color:black;
   resize: none;
   max-height: 200px;
   overflow: auto;
   /* min-height: 200px; */
 }
 
+#post-box{
+  background: #8c9cb0;
+  color:black;
+}
+
+#post-box::placeholder{
+  color:#696969
+}
+
 /* When the textarea gets focus, do something */
 .form-container textarea:focus {
   background-color: #ddd;
   outline: none;
+  
 }
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #4caf50;
+  background-color: #00AF33;
   color: white;
   padding: 16px 20px;
   border: none;
@@ -145,7 +160,7 @@ form.login {
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: red;
+  background-color: #D84141;
 }
 
 /* Add some hover effects to buttons */
@@ -367,8 +382,11 @@ label,
   .login-png,
   .sign-up-png {
     max-width: 300px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
   }
   
   .links {

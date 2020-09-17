@@ -4,19 +4,19 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
-/* 
-img {
-  padding-top:15px;
-  padding-bottom:80px;
-} */
 
+#stellar-sonic-logo {
+  max-width: 70px;
+  padding: 5px 10px;
+}
 
 
 h2 {
-  color: white;
+  color:#8c9cb0;
   text-align: center;
-  font-family: 'Six Caps', sans-serif;
-  font-size: 35px;
+  font-family: 'Abel', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 h4{
@@ -27,13 +27,13 @@ h4{
   font-weight: bold;
 
 }
-.title{
+h2.title{
   color:#8c9cb0;
   padding-top: 50px;
   font-weight: bold;
   font-size:50px;
   text-align: center;
-  font-family: 'Teko', sans-serif;
+  font-family: 'Abel', sans-serif;
 }
 .form-control {
   background-color:#323042;
@@ -373,7 +373,8 @@ label,
   
   .brand-name {
     display: block;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     min-width: 300px;
   }
   
@@ -402,6 +403,8 @@ label,
     display: flex;
     align-content: center;
   }
+
+
   }
 
   @media (min-width: 576px) {
@@ -460,5 +463,6 @@ label,
     background: #555; 
   }
   .member-icon{
-    align:center;
+    
+    align-content: center;
   }

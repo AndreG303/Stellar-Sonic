@@ -139,77 +139,86 @@ $.ajax({
 // }
     });
 }
-function setWidthHeight(){
-
-this.width = 600
-this.height = 500
-
-// // Small devices (landscape phones, 576px and up)
-// @media (min-width: 576px) { ... }
-var wWidth = window.innerWidth;
-if(wWidth < 576){
-    this.width = wWidth - 10;
-}
-
-// // Medium devices (tablets, 768px and up)
-// @media (min-width: 768px) { ... }
-else if(wWidth < 768){
-   this.width = wWidth - 10;
-}
-
-
-// // Large devices (desktops, 992px and up)
-// @media (min-width: 992px) { ... }
-else if(wWidth < 992){
-    this.width = 750 - 10;
- }
-// // Extra large devices (large desktops, 1200px and up)
-// @media (min-width: 1200px) { ... }
-
-else if(wWidth < 992){
-    this.width = 970 - 50;
- }
- else{
-    this.width = 1170 -50;
- }
-
-}
-
-function setWidthHeightHalf(){
+function setWidthHeight() {
 
     this.width = 600
     this.height = 500
-    
+
     // // Small devices (landscape phones, 576px and up)
     // @media (min-width: 576px) { ... }
     var wWidth = window.innerWidth;
-    if(wWidth < 576){
+    if (wWidth < 576) {
         this.width = wWidth - 10;
     }
-    
+
     // // Medium devices (tablets, 768px and up)
     // @media (min-width: 768px) { ... }
-    else if(wWidth < 768){
-       this.width = wWidth/2 - 10;
+    else if (wWidth < 768) {
+        this.width = wWidth - 10;
     }
-    
-    
+
+
     // // Large devices (desktops, 992px and up)
     // @media (min-width: 992px) { ... }
-    else if(wWidth < 992){
-        this.width = 750/2 - 10;
-     }
+    else if (wWidth < 992) {
+        this.width = 750 - 10;
+    }
     // // Extra large devices (large desktops, 1200px and up)
     // @media (min-width: 1200px) { ... }
-    
-    else if(wWidth < 992){
-        this.width = 970/2 - 50;
-     }
-     else{
-        this.width = 1170/2 -50;
-     }
-    
+
+    else if (wWidth < 992) {
+        this.width = 970 - 50;
     }
+    else {
+        this.width = 1170 - 50;
+    }
+
+}
+
+function setWidthHeightHalf() {
+
+    this.width = 600
+    this.height = 500
+
+    // // Small devices (landscape phones, 576px and up)
+    // @media (min-width: 576px) { ... }
+    var wWidth = window.innerWidth;
+    if (wWidth < 576) {
+        this.width = wWidth - 10;
+    }
+
+    // // Medium devices (tablets, 768px and up)
+    // @media (min-width: 768px) { ... }
+    else if (wWidth < 768) {
+        this.width = wWidth / 2 - 10;
+    }
+
+
+    // // Large devices (desktops, 992px and up)
+    // @media (min-width: 992px) { ... }
+    else if (wWidth < 992) {
+        this.width = 750 / 2 - 10;
+    }
+    // // Extra large devices (large desktops, 1200px and up)
+    // @media (min-width: 1200px) { ... }
+
+    else if (wWidth < 992) {
+        this.width = 970 / 2 - 50;
+    }
+    else {
+        this.width = 1170 / 2 - 50;
+    }
+
+}
+var userArray = [];
+
+$.get("/api/user_data").then[data => {
+    for (i = 0; i < data.length; i++) {
+        userArray.push(data[i].username);
+    }
+    console.log(userArray);
+}];
+
 var bubble1 = {
     width: 500,
     height: 700,

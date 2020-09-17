@@ -58,7 +58,8 @@ module.exports = function (app) {
       res.json({
         email: req.user.email,
         id: req.user.id,
-        username: req.user.username
+        username: req.user.username,
+        profilePicture:req.user.profilePicture
       });
     }
   });
@@ -93,18 +94,18 @@ module.exports = function (app) {
     });
 
   });
-// SELECT genre FROM playlist_users GROUP BY genre
-app.get("/api/test0", async function (req, res) {
-  console.log("Got you")
-  const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(title) as `title`, GROUP_CONCAT(artist) as `artist` FROM PlaylistsUsers WHERE UserId = 1 GROUP BY genre", {
-    nest: true,
-    type: QueryTypes.SELECT,
-    raw: true,
-    plain: false
-  });
-  res.json(results);
-  console.log (results);
-})
+  // SELECT genre FROM playlist_users GROUP BY genre
+  app.get("/api/test0", async function (req, res) {
+    console.log("Got you")
+    const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(title) as `title`, GROUP_CONCAT(artist) as `artist` FROM PlaylistsUsers WHERE UserId = 1 GROUP BY genre", {
+      nest: true,
+      type: QueryTypes.SELECT,
+      raw: true,
+      plain: false
+    });
+    res.json(results);
+    console.log(results);
+  })
 
 
 
@@ -117,7 +118,7 @@ app.get("/api/test0", async function (req, res) {
       plain: false
     });
     res.json(results);
-    console.log (results);
+    console.log(results);
   })
 
   app.get("/api/test1", async function (req, res) {
@@ -129,7 +130,7 @@ app.get("/api/test0", async function (req, res) {
       plain: false
     });
     res.json(results);
-    console.log (results);
+    console.log(results);
   })
 
   app.get("/api/test2", async function (req, res) {
@@ -141,7 +142,7 @@ app.get("/api/test0", async function (req, res) {
       plain: false
     });
     res.json(results);
-    console.log (results);
+    console.log(results);
   })
 
   app.get("/api/test3", async function (req, res) {
@@ -153,9 +154,9 @@ app.get("/api/test0", async function (req, res) {
       plain: false
     });
     res.json(results);
-    console.log (results);
+    console.log(results);
   })
-  
+
   app.get("/api/test4", async function (req, res) {
     console.log("Got you")
     const results = await sequelize.query("SELECT genre, COUNT(*) as `number`,GROUP_CONCAT(song) as `songs`, GROUP_CONCAT(artist) as `artists` FROM playlist_blondie202 GROUP BY genre;", {
@@ -165,7 +166,7 @@ app.get("/api/test0", async function (req, res) {
       plain: false
     });
     res.json(results);
-    console.log (results);
+    console.log(results);
   })
 
   // POST route for saving a new post
@@ -197,12 +198,12 @@ app.get("/api/test0", async function (req, res) {
       title: req.body.title,
       year: req.body.year,
       youtubeVideo: req.body.youtubeVideo,
-      username:req.body.username,
-      UserId:req.body.userId
-          }).then(function (dbPlaylistsUsers) {
+      username: req.body.username,
+      UserId: req.body.userId
+    }).then(function (dbPlaylistsUsers) {
       // We have access to the new post as an argument inside of the callback function
       res.json(dbPlaylistsUsers);
-     console.log(PlaylistsUsers);
+      console.log(PlaylistsUsers);
     }).catch(function (e) {
       res.json({ error: "error!" });
     });
@@ -215,16 +216,16 @@ app.get("/api/test0", async function (req, res) {
       // We have access to the posts as an argument inside of the callback function
       // res.json(dbUser);
       // cat.all(function(data) {
-        // console.log(data);
+      // console.log(data);
       var hbsObject = {
         users: data,
         layout: "ajax1"
 
       };
-      for(  i=0; i<data.length;i++){
-        let userId =data[i].dataValues.id;
-        let userUsername =data[i].dataValues.username;
-        let userEmail =data[i].dataValues.email;
+      for (i = 0; i < data.length; i++) {
+        let userId = data[i].dataValues.id;
+        let userUsername = data[i].dataValues.username;
+        let userEmail = data[i].dataValues.email;
         // console.log("userJa");
         // console.log(userId, userUsername, userEmail);
 
@@ -240,7 +241,56 @@ app.get("/api/test0", async function (req, res) {
 
 
   ///=======================================
+  // route for uploading a picture
+  app.put("/api/user_data", (req, res) => {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    }
+    else {
+      // Otherwise send back the user's email and id
+      // Sending back a password, even a hashed password, isn't a good idea
+      const id = req.user.id;
+      db.User.update({
+        profilePicture: req.body.profilePicture
+      },
+        {
+          where: {
+            id: id
+          }
+        })
+        .then(data => {
+          res.json(data);
 
- 
+        })
+        .catch(err => {
+          res.json({ err });
+
+        });
+    }
+  });
+  // db.User.update({
+  //   profilePicture: "TEST,TEST",
+  // },
+  //   {
+  //     where: {
+  //       id: 1
+  //     }
+  //   }
+  // );
+
+
+  //   db.User.update({
+  //     profilePicture: "TEST,TEST"
+  //   },
+  //     {
+  //       where: {
+  //         id: 1
+  //       }
+  //     }
+  // });
+
+
+
 
 };

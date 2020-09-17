@@ -34,6 +34,9 @@ $(document).ready(() => {
   //api functions
   $.get("/api/user_data").then(data => {
     $(".member-name").text(data.username);
+    $(".member-icon").attr("src",data.profilePicture);
+    $(".member-icon").attr("width", "120");
+
     console.log("1st get at members.js");
     username = data.username;
     userId = data.id;
@@ -201,7 +204,7 @@ $(document).ready(() => {
 
   });
 
-  
+
   //===========================add song trigger
   $(function () {
     $(".btn-addSong").on("click", function (event) {
@@ -274,7 +277,9 @@ $(document).ready(() => {
     $("#input-title-ja").css("background-color", "lavender");
   });
 
-
+  // $("#input-title-ja").click    (function () {
+  //   $("#input-title-ja").text()  = "";
+  // });
 
 
 
@@ -327,13 +332,13 @@ $(document).ready(() => {
         genre: response.genres.primary,
         year: response.sections[0].metadata[2].text,
         coverArt: response.sections[0].metapages[response.sections[0].metapages.length - 1].image,
-        youtubeVideo: response.sections[response.sections.length-3].youtubeurl.actions[0].uri,
+        youtubeVideo: response.sections[response.sections.length - 3].youtubeurl.actions[0].uri,
         username: username,
-        userId:userId
+        userId: userId
 
       }
-      
-       // create a card for the searched song with an option to add to the users playlist
+
+      // create a card for the searched song with an option to add to the users playlist
       $("#search-music-area").html("");
       var row3 = $('<div id="show-search-div" class="search-results-card users">');
       var row3a = $('<div class="card-header"></div>');
@@ -364,7 +369,7 @@ $(document).ready(() => {
 
       $(".btn-shazamAdd").on("click", function (event) {
         event.preventDefault();
-        console.log("newSong for the post call"); 
+        console.log("newSong for the post call");
         console.log(newSong);
 
         $.ajax("/api/shazam-add", {
@@ -381,9 +386,19 @@ $(document).ready(() => {
 
 
 
-     
+
 
     });
 
   }
+
+  var realConsoleLog = console.log;
+        console.log = function () {
+            var message = [].join.call(arguments, " ");
+            var newLine=$('<li class="replConsole">')
+            $("#log").append(newLine);
+            newLine.text(message);
+            realConsoleLog.apply(console, arguments);
+        };
+        console.log("Welcome "+ username);
 });

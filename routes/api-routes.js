@@ -2,7 +2,9 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const { sequelize } = require("../models");
-
+require('dotenv').config();
+console.log("CLAUDINARY", process.env.CLAUDINARY_CLOUDNAME);
+console.log("CLAUDINARY", process.env.CLAUDINARY_PRESET);
 const { QueryTypes } = db.Sequelize;
 // const records = await sequelize.query('select 1 as `foo.bar.baz`', {
 //   nest: true,
@@ -59,7 +61,9 @@ module.exports = function (app) {
         email: req.user.email,
         id: req.user.id,
         username: req.user.username,
-        profilePicture:req.user.profilePicture
+        profilePicture:req.user.profilePicture,
+        cloudUploadName:process.env.CLAUDINARY_CLOUDNAME,
+        cloudUploadPreset:process.env.CLAUDINARY_PRESET
       });
     }
   });

@@ -6,7 +6,7 @@ $(document).ready(() => {
   var userBtn = $(".btn-userBtn");
   let username; // globally keeps track of the current user that is logged in
   let userId; // globally keeps track of the current user's id in users that is logged in
-
+  let username1 = username;
   var searchString = "";
 
   const openForm = function (event) {
@@ -34,13 +34,17 @@ $(document).ready(() => {
   //api functions
   $.get("/api/user_data").then(data => {
     $(".member-name").text(data.username);
-    $(".member-icon").attr("src",data.profilePicture);
+    $(".member-icon").attr("src", data.profilePicture);
     $(".member-icon").attr("width", "120");
 
-    console.log("1st get at members.js");
+    
+    
+    
     username = data.username;
     userId = data.id;
-
+    
+    console.log("1st get at members.js");
+    console.log(username);
     userBtn.text(username + "'s list");
 
   });
@@ -60,7 +64,7 @@ $(document).ready(() => {
             var row = $("<div>");
             row.addClass("post");
             // moment('01/12/2016', 'DD/MM/YYYY', true).format()
-            console.log(data[i].createdAt);
+            // console.log(data[i].createdAt);
             row.append("<p> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
             $("#post-area").append(row);
           }
@@ -325,6 +329,7 @@ $(document).ready(() => {
     $.ajax(settings).done(function (response) {
       console.log("song details-final");
       console.log(response);
+      // switch needed here
 
       let newSong = {
         artist: response.subtitle,
@@ -345,8 +350,8 @@ $(document).ready(() => {
       var row3b = $('<h4 class="result-box">searched title</h4>');
       var row3c = $('<div class="card-body" id="search-display1">');
       var row3d = $('<p> Artist: ' + newSong.artist + ' title:  ' + newSong.title + ' year:  ' + newSong.year + '</p>');
-      var row3e = $('<img src=' + newSong.coverArt + ' alt= ' + newSong.title + ' width="120" height="120" </img>');
-      var row3f = $('<a href=' + newSong.youtubeVideo + ' target="_blank" >youtube ' + newSong.title + '</a>');
+      var row3e = $('<img src=' + newSong.coverArt + ' alt= ' + newSong.title + ' width="120" height="120" </img> <video width="160" height="120" controls><source src='+newSong.youtubeVideo +' type="video/mp4"> Your browser does not support the video tag.    </video> ');
+      var row3f = $('<a href=' + newSong.youtubeVideo + ' target="_blank" >youtube ' + newSong.title + '</a> ');
       var row3i = $('<button type="button" class="btn btn-shazamAdd" >Add to playlist</button>');
       // var row3e =$(newSong.title);
 
@@ -393,12 +398,27 @@ $(document).ready(() => {
   }
 
   var realConsoleLog = console.log;
-        console.log = function () {
-            var message = [].join.call(arguments, " ");
-            var newLine=$('<li class="replConsole">')
-            $("#log").append(newLine);
-            newLine.text(message);
-            realConsoleLog.apply(console, arguments);
-        };
-        console.log("Welcome "+ username);
-});
+  console.log = function () {
+    // var message = [].join.call(arguments, " ");
+    for (var i = 0; i < arguments.length; i++) {
+    if (typeof arguments[i] == 'object') {
+      var newLine = $('<li class="replConsole">')
+      $("#log").append(newLine);
+      newLine.html(JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]+ '<br />');
+      realConsoleLog.apply(console, arguments[i]);
+
+      // logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
+    } else {
+      // logger.innerHTML += arguments  + '<br />';
+
+      var newLine = $('<li class="replConsole">')
+      $("#log").append(newLine);
+      newLine.html(arguments[i] + '<br />');
+      realConsoleLog.apply(console, arguments);
+      return
+     
+    };
+  }
+    console.log(username1);
+  }
+  });

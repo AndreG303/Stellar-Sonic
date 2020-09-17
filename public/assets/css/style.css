@@ -453,5 +453,5 @@ label,
     background: #555; 
   }
   .member-icon{
-    align:center;
+    align-content:center;
   }

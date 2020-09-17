@@ -18,7 +18,7 @@ $.ajax({
     method: "GET"
 })
     .then(data => {
-        console.log(data);
+        // console.log(data); // Ja- commented this console lod as it shows repetitive objects-sorry for the inconvenience
         window._debugVar = data;
     //     // Filter a bit the data
     //     //data = data.filter(function(d){ return d.value = genre })

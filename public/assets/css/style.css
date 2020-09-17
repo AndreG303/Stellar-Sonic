@@ -4,11 +4,11 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
-
+/* 
 img {
   padding-top:15px;
   padding-bottom:80px;
-}
+} */
 
 h2 {
   color: white;
@@ -414,4 +414,43 @@ label,
     text-align: center;
     font-size: 18px;
     color: lightslategray;
+  }
+  #log{
+    border: 1px lightslategray;
+    border-radius: 3px;
+    color:gray;
+    width: 180px;
+    height:820px;
+    font-size:10px;
+    position: fixed;
+    overflow: auto;
+   
+  }
+
+   
+
+  .replConsole{
+    list-style-type: none;
+    font-family: "consolas",  sans-serif;
+  }
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background:gray; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+  .member-icon{
+    align:center;
   }

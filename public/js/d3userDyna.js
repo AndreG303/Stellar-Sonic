@@ -47,10 +47,10 @@ var svg = d3.select("#musicdata")
 
 // // Read data
 
-d3.selection.data([data[,key]])
+// d3.selection.data([data[,key]])
 
 $.ajax({
-    url: ,
+    // url: ,
     method: "GET"
 
 })

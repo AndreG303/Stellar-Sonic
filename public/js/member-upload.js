@@ -1,6 +1,14 @@
+
+
+
+
+$.get("/api/user_data").then(cloudData =>{
+   
+
+
 var myWidget = cloudinary.createUploadWidget({
-    cloudName: 'dt6ie2v0k', //my cloud name
-    uploadPreset: 'bloggdvc'}, (error, result) => {   // my_preset
+    cloudName: cloudData.cloudUploadName,
+      uploadPreset: cloudData.cloudUploadPreset}, (error, result) => {   // my_preset
       if (!error && result && result.event === "success") { 
         console.log('Done! Here is the image info: ', result.info); 
         var imageUrl= result.info.secure_url;
@@ -19,3 +27,4 @@ data:{profilePicture:imageUrl}
   document.getElementById("upload_widget").addEventListener("click", function(){
       myWidget.open();
     }, false);
+});

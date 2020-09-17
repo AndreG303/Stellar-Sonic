@@ -314,7 +314,8 @@ a:hover:after {
 }
 
 /* login/signup form */
-.login-png {
+.login-png,
+.sign-up-png{
   max-width: 500px;
   margin-bottom: 20px;
   padding: 30px;
@@ -362,7 +363,8 @@ label,
     max-width: 75px;
   }
   
-  .login-png {
+  .login-png,
+  .sign-up-png {
     max-width: 300px;
     margin-bottom: 30px;
     padding: 30px;

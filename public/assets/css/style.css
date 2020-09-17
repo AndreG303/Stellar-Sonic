@@ -24,6 +24,7 @@ h4{
   font-size:26px;
   color:#323042;
   font-weight: bold;
+
 }
 .title{
   color:#8c9cb0;
@@ -31,6 +32,7 @@ h4{
   font-weight: bold;
   font-size:50px;
   text-align: center;
+  font-family: 'VT323', monospace;
 }
 .form-control {
   background-color:#323042;

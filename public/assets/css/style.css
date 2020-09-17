@@ -5,14 +5,17 @@ body {
   background-attachment: fixed;
 }
 
-img {
-  padding-top:15px;
-  padding-bottom:80px;
+#stellar-sonic-logo {
+  max-width: 70px;
+  padding: 5px 10px;
 }
+
+
 
 h2 {
   color: white;
   text-align: center;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 h4{
@@ -57,7 +60,7 @@ h4{
 
 form.signup,
 form.login {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .login-png,
@@ -66,6 +69,7 @@ form.login {
   margin-right: auto;
   display:block;
   width: 90%;
+  padding: 10px;
 }
 
 #popupChatBox {

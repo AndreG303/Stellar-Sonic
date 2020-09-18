@@ -3,28 +3,28 @@ var width2 = 500
 var height = 500
 // // Small devices (landscape phones, 576px and up)
 // @media (min-width: 576px) { ... }
-if(wWidth < 576){
+if (wWidth < 576) {
     width2 = wWidth - 10;
 }
 // // Medium devices (tablets, 768px and up)
 // @media (min-width: 768px) { ... }
-else if(wWidth < 768){
-   width2 = wWidth - 10;
+else if (wWidth < 768) {
+    width2 = wWidth - 10;
 }
 // // Large devices (desktops, 992px and up)
 // @media (min-width: 992px) { ... }
-else if(wWidth < 992){
+else if (wWidth < 992) {
     width2 = 750 - 10;
- }
+}
 // // Extra large devices (large desktops, 1200px and up)
 // @media (min-width: 1200px) { ... }
-else if(wWidth < 992){
+else if (wWidth < 992) {
     width2 = 970 - 10;
- }
- else{
-     width2 = 1170 -10;
- }
- width2=width2/2;
+}
+else {
+    width2 = 1170 - 10;
+}
+width2 = width2 / 2;
 // append the svg object to the body of the page
 var svg1 = d3.select("#musicdata1")
     .append("svg")

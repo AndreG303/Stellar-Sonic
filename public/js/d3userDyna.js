@@ -2,12 +2,6 @@ var userArray = "";
 
 function bubbleChart() {
 
-
-
-
-
-
-
     // // set the dimensions and margins of the graph
 
     // var wWidth = window.innerWidth;
@@ -243,8 +237,7 @@ var userArrayUsername = [];
 
 var replacement1 = 0;
 $.get("/api/user_data1", function (req, res) {
-
-
+    
 }).then(res => {
     userArray.length = 0;
     // console.log(res);

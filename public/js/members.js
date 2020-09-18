@@ -38,12 +38,12 @@ $(document).ready(() => {
     $(".member-icon").attr("src", data.profilePicture);
     $(".member-icon").attr("width", "120");
 
-    
-    
-    
+
+
+
     username = data.username;
     userId = data.id;
-    
+
     console.log("1st get at members.js");
     console.log(username);
     userBtn.text(username + "'s list");
@@ -333,20 +333,20 @@ $(document).ready(() => {
       console.log(response);
       // switch needed here
 
-let rawLink =response.sections[response.sections.length - 3].youtubeurl.actions[0].uri
-console.log(rawLink);
-//  var string = 'GeeksForGeeks'; 
+      let rawLink = response.sections[response.sections.length - 3].youtubeurl.actions[0].uri
+      console.log(rawLink);
+      //  var string = 'GeeksForGeeks'; 
 
-let re1= /youtu.be/;
-console.log(re1);
-let newre1="www.youtube.com/embed";
-let re3=/\?autoplay=1/;
-var fixedlink0 = rawLink.replace(re1, newre1);  
-console.log(fixedlink0);
-var fixedlink1 = fixedlink0.replace(re3, '');  
+      let re1 = /youtu.be/;
+      console.log(re1);
+      let newre1 = "www.youtube.com/embed";
+      let re3 = /\?autoplay=1/;
+      var fixedlink0 = rawLink.replace(re1, newre1);
+      console.log(fixedlink0);
+      var fixedlink1 = fixedlink0.replace(re3, '');
 
-console.log(fixedlink1);
-console.log("fixedlink1");
+      console.log(fixedlink1);
+      console.log("fixedlink1");
 
 
 
@@ -359,7 +359,7 @@ console.log("fixedlink1");
         youtubeVideo: response.sections[response.sections.length - 3].youtubeurl.actions[0].uri,
         username: username,
         userId: userId,
-        playableLink:fixedlink1 
+        playableLink: fixedlink1
 
       }
 
@@ -370,17 +370,9 @@ console.log("fixedlink1");
       var row3b = $('<h4 class="result-box">searched title</h4>');
       var row3c = $('<div class="card-body" id="search-display1">');
       var row3d = $('<p> Artist: ' + newSong.artist + ' title:  ' + newSong.title + ' year:  ' + newSong.year + '</p>');
-      var row3e = $('<p><img src=' + newSong.coverArt + ' alt= ' + newSong.title + ' width="120" height="120" /><iframe width="160" height="120" src='+ newSong.playableLink +' >g</iframe> </p>');
+      var row3e = $('<p class="albumart"><img src=' + newSong.coverArt + ' alt= ' + newSong.title + ' width="120" height="120" /><iframe class="jvideo" width="160" height="120" src=' + newSong.playableLink + ' >g</iframe> </p>');
       var row3f = $('<a href=' + newSong.youtubeVideo + ' target="_blank" >youtube ' + newSong.title + '</a> ');
       var row3i = $('<button type="button" class="btn btn-shazamAdd" onkeyup="document.location.reload(true)">Add to playlist</button>');
-//       <iframe width="420" height="315"
-// src="https://www.youtube.com/embed/tgbNymZ7vqY">
-// </iframe>
-      // var row3e =$(newSong.title);
-     // https://www.youtube.com/watch?v=AY9blLYMKnI
-     //https://www.youtube.com/watch?v=AY9blLYMKnI
-     //'+newSong.youtubeVideo +'
-
       var row3g = $('</div>');
 
       row3.append(row3a);
@@ -427,24 +419,24 @@ console.log("fixedlink1");
   console.log = function () {
     // var message = [].join.call(arguments, " ");
     for (var i = 0; i < arguments.length; i++) {
-    if (typeof arguments[i] == 'object') {
-      var newLine = $('<li class="replConsole">')
-      $("#log").append(newLine);
-      newLine.html(JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]+ '<br />');
-      realConsoleLog.apply(console, arguments[i]);
+      if (typeof arguments[i] == 'object') {
+        var newLine = $('<li class="replConsole">')
+        $("#log").append(newLine);
+        newLine.html(JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i] + '<br />');
+        realConsoleLog.apply(console, arguments[i]);
 
-      // logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
-    } else {
-      // logger.innerHTML += arguments  + '<br />';
+        // logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
+      } else {
+        // logger.innerHTML += arguments  + '<br />';
 
-      var newLine = $('<li class="replConsole">')
-      $("#log").append(newLine);
-      newLine.html(arguments[i] + '<br />');
-      realConsoleLog.apply(console, arguments);
-      return
-     
-    };
-  }
+        var newLine = $('<li class="replConsole">')
+        $("#log").append(newLine);
+        newLine.html(arguments[i] + '<br />');
+        realConsoleLog.apply(console, arguments);
+        return
+
+      };
+    }
     // console.log(username1);
   }
-  });
+});

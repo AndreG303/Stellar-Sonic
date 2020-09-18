@@ -1,8 +1,8 @@
 {
-  "name": "1-Passport-Example",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "name": "y",
+  "version": "y",
+  "description": "y",
+  "main": "y",
   "scripts": {
     "test": "npm run lint",
     "start": "node server.js",
@@ -12,7 +12,7 @@
   },
   "keywords": [],
   "author": "Katelynn <ktlnn.nguyen@gmail.com>",
-  "license": "ISC",
+  "license": "y",
   "dependencies": {
     "axios": "^0.20.0",
     "bcryptjs": "2.4.3",
@@ -25,7 +25,8 @@
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.8.6",
+    "yarn": "^1.22.5"
   },
   "devDependencies": {
     "chai": "^4.1.2",
@@ -37,12 +38,10 @@
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AndreG303/project-2-.git"
-  },
+  "repository": "y",
   "bugs": {
     "url": "https://github.com/AndreG303/project-2-/issues"
   },
-  "homepage": "https://github.com/AndreG303/project-2-#readme"
+  "homepage": "https://github.com/AndreG303/project-2-#readme",
+  "private": true
 }

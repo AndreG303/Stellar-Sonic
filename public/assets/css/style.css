@@ -404,7 +404,7 @@ label,
     font-family: "consolas",  sans-serif;
   }
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 12px;
   }
   
   /* Track */

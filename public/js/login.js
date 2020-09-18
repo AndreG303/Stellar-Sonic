@@ -27,7 +27,7 @@ $(document).ready(() => {
     $.post("/api/login", {
       email: email,
       password: password,
-      // username: username,
+      username: username
     })
       .then(() => {
         window.location.replace("/members");
@@ -35,6 +35,8 @@ $(document).ready(() => {
       })
       .catch(err => {
         console.log(err);
-      });
+      })
   }
+  
 });
+

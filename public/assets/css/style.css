@@ -48,11 +48,25 @@ h4{
   opacity: 0.8;
 }
 
+.cloudinary-button{
+  background-color:#323042!important;
+  color:whitesmoke;
+  opacity: 0.8;
+  height:37px;
+  font-size:12px!important;
+  line-height: 0px!important;
+  font-weight: bold!important;
+}
+
 .btn-searchSong{
   background-color:#323042;
   color:whitesmoke;
   opacity: 0.8;
-  
+  height:38px;
+  border: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  color: #e3e7ea;
 }
 
 

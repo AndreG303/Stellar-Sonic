@@ -207,6 +207,7 @@ $(document).ready(() => {
     let title = titleInput.val().trim();
     console.log(title);
     songSearch1(title);
+    
 
   });
 
@@ -388,7 +389,9 @@ $(document).ready(() => {
 
       $("#search-music-area").prepend(row3);
 
-
+      $([document.documentElement, document.body]).animate({
+        scrollTop: $("#memberName").offset().top
+      }, 2000);
 
       $(".btn-shazamAdd").on("click", function (event) {
         event.preventDefault();

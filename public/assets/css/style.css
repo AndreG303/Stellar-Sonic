@@ -3,6 +3,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-family: 'Abel', sans-serif;
 }
 
 #stellar-sonic-logo {
@@ -22,11 +23,11 @@ h2 {
 h4{
   text-align: center;
   padding-bottom: 50px;
-  font-size:26px;
+  font-size:30px;
   color:#323042;
-  font-weight: bold;
-
+  font-weight: bolder;
 }
+
 h2.title{
   color:#8c9cb0;
   padding-top: 50px;

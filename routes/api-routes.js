@@ -137,9 +137,13 @@ const { QueryTypes } = db.Sequelize;
       
 
     }).then(data => {
+<<<<<<< HEAD
+        console.log(data);
+=======
         // console.log(data);
         
 
+>>>>>>> b8f798719bc42053b7a74de365823c67a254b887
         res.json(data);
 
       })

@@ -1,5 +1,3 @@
-// const axios = require("axios");
-// var userPopulate = require("../js/d3userDyna");
 $(document).ready(() => {
   var availableTags = [];
   //global variables
@@ -50,8 +48,6 @@ $(document).ready(() => {
           for (var i = 0; i < data.length; i++) {
             var row = $("<div>");
             row.addClass("post");
-            // moment('01/12/2016', 'DD/MM/YYYY', true).format()
-            // console.log(data[i].createdAt);
             row.append("<p> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
             $("#post-area").append(row);
           }
@@ -59,7 +55,6 @@ $(document).ready(() => {
         chatScrollToBottom();
       }
       window.__lastChatLength = data.length;
-      // userPopulate(userArray);
     });
   }, 2000, moment, chatScrollToBottom);
   $("#chatBtn").on("click", openForm);
@@ -89,16 +84,13 @@ $(document).ready(() => {
   const searchHints = function (evKey) {
     searchString = $("#input-title-ja").val();
     if ((searchString === 0) || (searchString.length < 6)) {
-      // searchString = searchString += evKey;
       console.log(evKey);
       console.log(searchString);
       console.log("no call , string is too short");
     }
     else if ((searchString.length === 6) || (searchString.length === 10) || (searchString.length === 14) || (searchString.length === 20)) {
-      // searchString = searchString += evKey;
       console.log(evKey);
       console.log(searchString);
-      // console.log($("#input-title-ja").val());
       console.log("doing the call");
       availableTags.length = 0;
       var settings = {
@@ -205,7 +197,6 @@ $(document).ready(() => {
       // switch needed here
       let rawLink = response.sections[response.sections.length - 3].youtubeurl.actions[0].uri
       console.log(rawLink);
-      //  var string = 'GeeksForGeeks'; 
       let re1 = /youtu.be/;
       console.log(re1);
       let newre1 = "www.youtube.com/embed";
@@ -266,16 +257,13 @@ $(document).ready(() => {
   }
   var realConsoleLog = console.log;
   console.log = function () {
-    // var message = [].join.call(arguments, " ");
     for (var i = 0; i < arguments.length; i++) {
       if (typeof arguments[i] == 'object') {
         var newLine = $('<li class="replConsole">')
         $("#log").append(newLine);
         newLine.html(JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i] + '<br />');
         realConsoleLog.apply(console, arguments[i]);
-        // logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />';
       } else {
-        // logger.innerHTML += arguments  + '<br />';
         var newLine = $('<li class="replConsole">')
         $("#log").append(newLine);
         newLine.html(arguments[i] + '<br />');

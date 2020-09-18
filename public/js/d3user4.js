@@ -1,98 +1,70 @@
 // set the dimensions and margins of the graph
 var width4 = 450
 var height = 500
-
 // // Small devices (landscape phones, 576px and up)
 // @media (min-width: 576px) { ... }
-
-if(wWidth < 576){
+if (wWidth < 576) {
     width4 = wWidth - 10;
 }
-
 // // Medium devices (tablets, 768px and up)
 // @media (min-width: 768px) { ... }
-else if(wWidth < 768){
-   width4 = wWidth - 10;
+else if (wWidth < 768) {
+    width4 = wWidth - 10;
 }
-
-
 // // Large devices (desktops, 992px and up)
 // @media (min-width: 992px) { ... }
-else if(wWidth < 992){
+else if (wWidth < 992) {
     width4 = 750 - 10;
- }
+}
 // // Extra large devices (large desktops, 1200px and up)
 // @media (min-width: 1200px) { ... }
-
-else if(wWidth < 992){
+else if (wWidth < 992) {
     width4 = 970 - 50;
- }
- else{
-     width4 = 1170 -10;
- }
- width4=width4/2;
+}
+else {
+    width4 = 1170 - 10;
+}
+width4 = width4 / 2;
 // append the svg object to the body of the page
 var svg3 = d3.select("#musicdata3")
     .append("svg")
     .attr("width", width4)
     .attr("height", height)
-
 // Read data
-
 $.ajax({
     url: "/api/test3",
     method: "GET"
-
 })
     .then(data => {
         // Filter a bit the data
         //data = data.filter(function(d){ return d.value = genre })
-
-
         // Color palette for genre?
         var color = d3.scaleOrdinal()
             .domain(["rock", "jazz rap", "hip hop", "salsa", "post-grunge", "ska"])
             .range(d3.schemeCategory20);
-
         // Size scale for genres
         var size = d3.scaleLinear()
             .domain([0, 50])
             .range([8, 150])  // circle will be between 8 and 55 px wide
-
         // create a tooltip
         var Tooltip = d3.select("#musicdata3")
             .append("div")
             .attr("class", "tooltip")
-
-
         // Three function that change the tooltip when user hover / move / leave a cell
         var mouseover = function (d) {
             Tooltip
                 .style("opacity", 1)
         }
         var mousemove = function (d) {
-            //$.ajax( ... something ..).then( data => {
-            //  ... tooltip stuff here ...
-            //})
-
             Tooltip
                 .html('<u>' + d.genre.toUpperCase() + '</u>' + "<br>" + "No of songs" + d.number + "<br>" + "SONGS" + "<br>" + d.songs + "<br>" + "ARTISTS" + "<br>" + d.artists)
-                // .style("left", (d3.mouse(this)[0] + 20) + "px")
-                // .style("top", (d3.mouse(this)[1]) + "px")
                 .style("left", "0px")
                 .style("bottom", "0px")
-            // .style("z-index", "1")
-            // .style("top", "100%")
-            // .style("position", "absolute")
-            // .style("left","50%")
-            // .style("margin-left","-60px")
-
         }
         var mouseleave = function (d) {
             // Tooltip
             //   .style("opacity", 0)
         }
-
         // Initialize the circle: all located at the center of the svg area
         var node = svg3.append("g")
             .selectAll("circle")
@@ -113,13 +85,11 @@ $.ajax({
                 .on("start", dragstarted)
                 .on("drag", dragged)
                 .on("end", dragended));
-
         // Features of the forces applied to the nodes:
         var simulation = d3.forceSimulation()
             .force("center", d3.forceCenter().x(width4 / 2).y(height / 2)) // Attraction to the center of the svg area
             .force("charge", d3.forceManyBody().strength(.1)) // Nodes are attracted one each other of value is > 0
             .force("collide", d3.forceCollide().strength(.2).radius(function (d) { return (size(parseInt(d.number)) + 3) }).iterations(1)) // Force that avoids circle overlapping
-
         // Apply these forces to the nodes and update their positions.
         // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
         simulation
@@ -129,7 +99,6 @@ $.ajax({
                     .attr("cx", function (d) { return d.x; })
                     .attr("cy", function (d) { return d.y; })
             });
-
         // What happens when a circle is dragged?
         function dragstarted(d) {
             if (!d3.event.active) simulation.alphaTarget(.15).restart();
@@ -145,6 +114,4 @@ $.ajax({
             d.fx = null;
             d.fy = null;
         }
-
     })
-

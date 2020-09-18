@@ -35,14 +35,13 @@
     </nav>
   </header>
   <section>
+    <!-- Welcome user name -->
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <h2><img src="" alt="member-icon" class="member-icon"></img>Welcome <span class="member-name"
               id="memberName"></span></h2>
-          <div id="memberName1"></div>
-          <div id="main-music-area">
-          </div>
+          <div id="main-music-area"></div>
         </div>
       </div>
       <div class="container">
@@ -54,7 +53,7 @@
       <!-- the  search card should show here -->
       <form>
         <div id="search-music-area"></div>
-        <h2>SEARCH FOR A SONG</h2>
+        <h2>search for a song</h2>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="input-title-ja" onfocus="this.value=''"
             placeholder="Please enter the song title here" aria-label="Recipient's username"
@@ -70,9 +69,8 @@
           </div>
         </div>
       </form>
-
     </div>
-
+  </section>
     <!-- D3 starts here -->
     <!-- Create a div where the graph will take place -->
     <div class="container">
@@ -156,20 +154,6 @@
 
 
     <div id="content"></div>
-    <script>
-
-      $.ajax({
-        url: "/html/test",
-        method: "GET"
-      })
-        .then(data => {
-          $("#content").html(data);
-        })
-
-
-
-    </script>
-
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script src="https://widget.cloudinary.com/v2.0/global/all.js " type="text/javascript" defer></script>

@@ -22,193 +22,164 @@
 <body>
 
   <header>
-    <ul class="links">
-      <li><img id="stellar-sonic-logo" src="assets/images/stellar-sonic-logo.png" alt="stellar-sonic-logo"></li>
-      <li><a class="header-links" href="/logout">Logout</a></li>
-    </ul>
-    <aside>
-      <div id="log"></div>
-    </aside>
+    <!-- Nav bar -->
+    <nav>
+      <ul class="links">
+        <li><img id="stellar-sonic-logo" src="assets/images/stellar-sonic-logo.png" alt="stellar-sonic-logo"></li>
+        <li><a class="header-links" href="/logout">Logout</a></li>
+      </ul>
+      <aside>
+        <div id="log"></div>
+      </aside>
       <img class="brand-name" id="brandName" src="./assets/images/stellar-sonic.png" alt="stellar-sonic">
+    </nav>
   </header>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-
-        <h2><img src="" alt="member-icon" class="member-icon"></img>Welcome <span class="member-name" id="memberName"></span></h2>
-      </div>
-    </div>
-  </div>
-  <div id="memberName1"></div>
-  
-  <!-- test area Jivko -->
-  <div id="main-music-area">
-
-  </div>
-
-  <div class="container">
-
-
-    <button type="button" class="btn btn-allMusic">All Music</button>
-    <button type="button" class="btn btn-userBtn">Jivkos List </button>
-    <button id="upload_widget" class="btn cloudinary-button">Upload files</button>
-
-    <br>
-    <hr>
-    <!-- the  search card should show here -->
-    <div id="search-music-area"></div>
-    <!-- <form>
-      <div class="form-group">
-        <h2>Search for a song</h2>
-        <input type="text" class="form-control" id="input-title" placeholder="Please enter the title">
-        <button type="button" class="btn btn-searchSong">Search</button>
-      </div>
-    </form> -->
-    <h2>Search for a song</h2>
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" id="input-title-ja" onfocus="this.value=''"
-        placeholder="Please enter the song title here" aria-label="Recipient's username"
-        aria-describedby="basic-addon2">
-      <div class="input-group-btn">
-        <button class="btn btn-outline-secondary btn-searchSong btn-shazamAdd" type="button" onkeyup="document.location.reload(true)">Search</button>
-      </div>
-    </div>
-
-
-
-    <div class="user-playlist">
-      <div id="user-music-area">
-
-      </div>
-      <!-- Shoutbox -->
-      <!-- <div id="shoutbox"> -->
-      <!-- <div class="row"> -->
-      <!-- <div class="col-sm-8 col-sm-offset-2"> -->
-      <!-- <div class="col-sm-8 col-sm-offset-2"> -->
-      <!-- <h2>posts</h2> -->
-      <!-- <hr>
-          <div id="post-area"></div>
-        </div>
-      </div>
-
+  <section>
+    <div class="container">
       <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-          <p class="cool-font">Post in the Shoutbox!</p>
-          <textarea class="form-control" rows="3" id="post-box" placeholder="Enter Post Here!"></textarea>
-          <button id="post-submit" class="btn btn-lg pull-right">Submit!</button>
+        <div class="col-md-6 col-md-offset-3">
+          <h2><img src="" alt="member-icon" class="member-icon"></img>Welcome <span class="member-name"
+              id="memberName"></span></h2>
+          <div id="memberName1"></div>
+          <div id="main-music-area">
+          </div>
         </div>
       </div>
-    </div> -->
-      <!-- End of Shoutbox -->
-
-      <!-- D3 starts here -->
-      <!-- Create a div where the graph will take place -->
       <div class="container">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-              <h2 class="title">YOUR SONIC SOUND</h2>
-              <h4>Check out your music taste by genre</h4>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="user-area col-12 d-flex justify-content-center">
-            <div class="card employee-card user">
-              <div class="card-header">
-                <h2 class="play"><span class="member-name"></span> Playlist</h2>
-              </div>
-              <div class="card-body" id="musicdata"></div>
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                  <h2 class="title">EXPLORE OUTERSPACE</h2>
-                  <h4>Browse other users' music taste in their interactive genre chart</h4>
-                </div>
-              </div>
-            </div>
-            <div class="card employee-card users">
-              <div class="card-header">
-                <h2 class="member-name1">Blondie202 Playlist</h2>
-              </div>
-              <div class="card-body" id="musicdata1"></div>
-            </div>
-            <div class="card employee-card users">
-              <div class="card-header">
-                <h2 class="member-name1">AndrewD'Alba Playlist</h2>
-              </div>
-              <div class="card-body" id="musicdata2"></div>
-            </div>
-            <div class="card employee-card users">
-              <div class="card-header">
-                <h2 class="member-name1">Mr Doobles Playlist</h2>
-              </div>
-              <div class="card-body" id="musicdata3"></div>
-            </div>
-            <div class="card employee-card users">
-              <div class="card-header">
-                <h2 class="member-name1">Chris123 Playlist</h2>
-              </div>
-              <div class="card-body" id="musicdata4"></div>
-            </div>
-          </div>
-        </div>
-        <!-- d3 ends here  -->
-
-        <!-- Popup Chat Here -->
-        <button id="chatBtn" class="open-button">Chat</button>
-        <div class="chat-popup" id="popupChatBox">
-          <form class="form-container">
-            <h2>Shoutbox</h2>
-            <div>
-              <!-- <h2>posts</h2> -->
-              <hr>
-              <div id="post-area"></div>
-            </div>
-            <label for="msg"><b>Message</b></label>
-            <textarea name="msg" id="post-box" class="form-control" placeholder="Enter Post Here!" required></textarea>
-            <!-- in the example i found this button has type=submit but I am leaving it out -->
-            <button id="post-submit" class="btn">Send</button>
-            <button type="button" class="btn cancel" id="closeChatBtn">Close</button>
-
-          </form>
-        </div>
-        <!-- End of Popup Chat -->
-
+        <button type="button" class="btn btn-userBtn">Jivkos List </button>
+        <button id="upload_widget" class="btn cloudinary-button">Upload profile pic</button>
       </div>
+      <br>
+      <hr>
+      <!-- the  search card should show here -->
+      <form>
+        <div id="search-music-area"></div>
+        <h2>SEARCH FOR A SONG</h2>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="input-title-ja" onfocus="this.value=''"
+            placeholder="Please enter the song title here" aria-label="Recipient's username"
+            aria-describedby="basic-addon2">
+          </input>
+          <div class="input-group-btn">
+            <button class="btn btn-outline-secondary btn-searchSong btn-shazamAdd" type="button"
+              onkeyup="document.location.reload(true)">Search</button>
+          </div>
+        </div>
+        <div class="user-playlist">
+          <div id="user-music-area">
+          </div>
+        </div>
+      </form>
+
     </div>
-  </div>
 
-  <!-- test area Jivko -->
+    <!-- D3 starts here -->
+    <!-- Create a div where the graph will take place -->
+    <div class="container">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <h2 class="title">YOUR SONIC SOUND</h2>
+            <h4>Check out your music taste by genre</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="user-area col-12 d-flex justify-content-center">
+          <div class="card employee-card user">
+            <div class="card-header">
+              <h2 class="play"><span class="member-name"></span> Playlist</h2>
+            </div>
+            <div class="card-body" id="musicdata"></div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <h2 class="title">EXPLORE OUTERSPACE</h2>
+                <h4>Browse other users' music taste in their interactive genre chart</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card employee-card users">
+            <div class="card-header">
+              <h2 class="member-name1">Jivko Playlist</h2>
+            </div>
+            <div class="card-body" id="musicdata1"></div>
+          </div>
+          <div class="card employee-card users">
+            <div class="card-header">
+              <h2 class="member-name1">AndrewD'Alba Playlist</h2>
+            </div>
+            <div class="card-body" id="musicdata2"></div>
+          </div>
+          <div class="card employee-card users">
+            <div class="card-header">
+              <h2 class="member-name1">Mr Doobles Playlist</h2>
+            </div>
+            <div class="card-body" id="musicdata3"></div>
+          </div>
+          <div class="card employee-card users">
+            <div class="card-header">
+              <h2 class="member-name1">Blondie202 Playlist</h2>
+            </div>
+            <div class="card-body" id="musicdata4"></div>
+          </div>
+        </div>
+      </div>
+      <!-- d3 ends here  -->
+
+      <!-- Popup Chat Here -->
+      <button id="chatBtn" class="open-button">Chat</button>
+      <div class="chat-popup" id="popupChatBox">
+        <form class="form-container">
+          <h2>Shoutbox</h2>
+          <div>
+            <!-- <h2>posts</h2> -->
+            <hr>
+            <div id="post-area"></div>
+          </div>
+          <label for="msg"><b>Message</b></label>
+          <textarea name="msg" id="post-box" class="form-control" placeholder="Enter Post Here!" required></textarea>
+          <!-- in the example i found this button has type=submit but I am leaving it out -->
+          <button id="post-submit" class="btn">Send</button>
+          <button type="button" class="btn cancel" id="closeChatBtn">Close</button>
+
+        </form>
+      </div>
+      <!-- End of Popup Chat -->
+
+    </div>
+    </div>
+    </div>
+
+    <!-- test area Jivko -->
 
 
-  <div id="content"></div>
-  <script>
+    <div id="content"></div>
+    <script>
 
-    $.ajax({
-      url: "/html/test",
-      method: "GET"
-    })
-      .then(data => {
-        $("#content").html(data);
+      $.ajax({
+        url: "/html/test",
+        method: "GET"
       })
+        .then(data => {
+          $("#content").html(data);
+        })
 
 
 
-  </script>
+    </script>
 
 
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-  <script src="https://widget.cloudinary.com/v2.0/global/all.js " type="text/javascript" defer></script>
-  <!-- Load d3.js -->
-  <script src="https://d3js.org/d3.v4.js"></script>
-  <!-- Color palette -->
-  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-  <script type="text/javascript" src="js/members.js"></script>
-  <script type="text/javascript" src="js/member-upload.js">  </script>
-  <script src="js/d3userDyna.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js " type="text/javascript" defer></script>
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <!-- Color palette -->
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script type="text/javascript" src="js/members.js"></script>
+    <script type="text/javascript" src="js/member-upload.js">  </script>
+    <script src="js/d3userDyna.js"></script>
 
 
 

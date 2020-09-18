@@ -90,6 +90,14 @@ form.login {
   padding: 10px;
 }
 
+img.member-icon{
+  border-radius: 50%;
+  max-width: 70px;
+  max-height: 100px;
+  display: inline-block;
+  margin: 20px;
+}
+
 #popupChatBox {
   max-width: 40%;
   overflow: auto;

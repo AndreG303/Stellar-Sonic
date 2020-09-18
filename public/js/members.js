@@ -207,77 +207,10 @@ $(document).ready(() => {
     let title = titleInput.val().trim();
     console.log(title);
     songSearch1(title);
-    
-
   });
-
-
-  //===========================add song trigger
-  $(function () {
-    $(".btn-addSong").on("click", function (event) {
-
-      var artist = $(this.data[i].artist) + " release: " + data[i].release + " genre: " + data[i].genre + " title:" + data[i].title + " year" + data[i].year
-
-
-      var id = $(this).data("id");
-      var newSleep = $(this).data("newsleep");
-
-      var newSleepState = {
-        sleepy: newSleep
-      };
-
-      // Send the PUT request.
-      $.ajax("/api/cats/" + id, {
-        type: "PUT",
-        data: newSleepState
-      }).then(
-        function () {
-          console.log("changed sleep to", newSleep);
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
-    });
-
-    $(".create-form").on("submit", function (event) {
-      // Make sure to preventDefault on a submit event.
-      event.preventDefault();
-
-      var newCat = {
-        name: $("#ca").val().trim(),
-        sleepy: parseInt($("[name=sleepy]:checked").val().trim())
-      };
-
-      // Send the POST request.
-      $.ajax("/api/cats", {
-        type: "POST",
-        data: newCat
-      })
-        .then(() => {
-          location.reload(); // <-- refresh page
-        })
-
-      // $.ajax("/api/cats", {
-      //   type: "POST",
-      //   data: newCat
-      // }).then(
-      //   function() {
-      //     console.log("created new cat");
-      //     // Reload the page to get the updated list
-      //     location.reload();
-      //   }
-      // );
-    });
-  });
-
-  //===========================
-
-
   $("#input-title-ja").text("krokodil");
-
   $("#input-title-ja").keydown(function () {
     searchHints(event.key);
-
     $("#input-title-ja").css("background-color", "lightblue");
   });
   $("#input-title-ja").keyup(function () {
@@ -287,10 +220,6 @@ $(document).ready(() => {
   // $("#input-title-ja").click    (function () {
   //   $("#input-title-ja").text()  = "";
   // });
-
-
-
-
 
   const songSearch1 = function (songString1) {
 

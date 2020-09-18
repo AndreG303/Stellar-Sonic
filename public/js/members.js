@@ -75,7 +75,7 @@ $(document).ready(() => {
         chatScrollToBottom();
       }
       window.__lastChatLength = data.length;
-      // userPopulate();
+      // userPopulate(userArray);
     });
   }, 2000, moment, chatScrollToBottom);
 
@@ -333,6 +333,23 @@ $(document).ready(() => {
       console.log(response);
       // switch needed here
 
+let rawLink =response.sections[response.sections.length - 3].youtubeurl.actions[0].uri
+console.log(rawLink);
+//  var string = 'GeeksForGeeks'; 
+
+let re1= /youtu.be/;
+console.log(re1);
+let newre1="www.youtube.com/embed";
+let re3=/\?autoplay=1/;
+var fixedlink0 = rawLink.replace(re1, newre1);  
+console.log(fixedlink0);
+var fixedlink1 = fixedlink0.replace(re3, '');  
+
+console.log(fixedlink1);
+console.log("fixedlink1");
+
+
+
       let newSong = {
         artist: response.subtitle,
         title: response.title,
@@ -341,7 +358,8 @@ $(document).ready(() => {
         coverArt: response.sections[0].metapages[response.sections[0].metapages.length - 1].image,
         youtubeVideo: response.sections[response.sections.length - 3].youtubeurl.actions[0].uri,
         username: username,
-        userId: userId
+        userId: userId,
+        playableLink:fixedlink1 
 
       }
 
@@ -352,10 +370,16 @@ $(document).ready(() => {
       var row3b = $('<h4 class="result-box">searched title</h4>');
       var row3c = $('<div class="card-body" id="search-display1">');
       var row3d = $('<p> Artist: ' + newSong.artist + ' title:  ' + newSong.title + ' year:  ' + newSong.year + '</p>');
-      var row3e = $('<img src=' + newSong.coverArt + ' alt= ' + newSong.title + ' width="120" height="120" </img> <video width="160" height="120" controls><source src='+newSong.youtubeVideo +' type="video/mp4"> Your browser does not support the video tag.    </video> ');
+      var row3e = $('<p><img src=' + newSong.coverArt + ' alt= ' + newSong.title + ' width="120" height="120" /><iframe width="160" height="120" src='+ newSong.playableLink +' >g</iframe> </p>');
       var row3f = $('<a href=' + newSong.youtubeVideo + ' target="_blank" >youtube ' + newSong.title + '</a> ');
-      var row3i = $('<button type="button" class="btn btn-shazamAdd" >Add to playlist</button>');
+      var row3i = $('<button type="button" class="btn btn-shazamAdd" onkeyup="document.location.reload(true)">Add to playlist</button>');
+//       <iframe width="420" height="315"
+// src="https://www.youtube.com/embed/tgbNymZ7vqY">
+// </iframe>
       // var row3e =$(newSong.title);
+     // https://www.youtube.com/watch?v=AY9blLYMKnI
+     //https://www.youtube.com/watch?v=AY9blLYMKnI
+     //'+newSong.youtubeVideo +'
 
       var row3g = $('</div>');
 

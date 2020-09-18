@@ -137,8 +137,8 @@ const { QueryTypes } = db.Sequelize;
       
 
     }).then(data => {
-        console.log(data);
-        console.log("jiki e genii");
+        // console.log(data);
+        
 
         res.json(data);
 

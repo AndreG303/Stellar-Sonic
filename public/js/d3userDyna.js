@@ -27,8 +27,7 @@ function bubbleChart() {
         method: "GET",
         data: this.param // added data for the param - ja
     })
-
-     .then(data => {
+        .then(data => {
             // console.log(data); // Ja- commented this console lod as it shows repetitive objects-sorry for the inconvenience
             window._debugVar = data;
             //     // Filter a bit the data
@@ -222,6 +221,8 @@ function setWidthHeightHalf() {
 
 }
 var userArray = [];
+var userArrayPic = [];
+var userArrayUsername = [];
 
 // $.get("/api/user_data").then(data => {
 //     for (let i = 0; i < data.length; i++) {
@@ -250,6 +251,8 @@ $.get("/api/user_data1", function (req, res) {
     console.log("user_data");
     for (let i = 0; i < res.length; i++) {
         userArray.push(res[i].id);
+        userArrayPic.push(res[i].id);
+        userArrayUsername.push(res[i].id);
         // console.log(res[i].id);
     }
     console.log(userArray);
@@ -257,14 +260,14 @@ $.get("/api/user_data1", function (req, res) {
 });
 
 // data: {    paramInBody: 2}
-  
 
-function  userPopulate(userArray) {
+
+function userPopulate(userArray) {
     var bubble1 = {
         width: 500,
         height: 700,
         url: "/api/testU1",
-        param: { replacement1: userArray[0]},
+        param: { replacement1: userArray[0] },
         divTarget: "#musicdata",
         setWidthHeight: setWidthHeight,
         bubbleChart: bubbleChart
@@ -279,7 +282,7 @@ function  userPopulate(userArray) {
         width: 500,
         height: 700,
         url: "/api/testU1",
-        param: { replacement1: userArray[1]},
+        param: { replacement1: userArray[1] },
         divTarget: "#musicdata1",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
@@ -292,7 +295,7 @@ function  userPopulate(userArray) {
         width: 500,
         height: 700,
         url: "/api/testU1",
-        param: { replacement1: userArray[2]},
+        param: { replacement1: userArray[2] },
         divTarget: "#musicdata2",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
@@ -305,7 +308,7 @@ function  userPopulate(userArray) {
         width: 500,
         height: 700,
         url: "/api/testU1",
-        param: { replacement1: userArray[3]},
+        param: { replacement1: userArray[3] },
         divTarget: "#musicdata3",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
@@ -318,7 +321,7 @@ function  userPopulate(userArray) {
         width: 500,
         height: 700,
         url: "/api/testU1",
-        param: { replacement1: userArray[4]},
+        param: { replacement1: userArray[4] },
         divTarget: "#musicdata4",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart

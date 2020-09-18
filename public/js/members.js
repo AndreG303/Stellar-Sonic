@@ -1,4 +1,5 @@
 // const axios = require("axios");
+// var userPopulate = require("../js/d3userDyna");
 
 $(document).ready(() => {
   var availableTags = [];
@@ -47,7 +48,7 @@ $(document).ready(() => {
     console.log(username);
     userBtn.text(username + "'s list");
 
-  });
+  }).then
 
 
 
@@ -74,6 +75,7 @@ $(document).ready(() => {
         chatScrollToBottom();
       }
       window.__lastChatLength = data.length;
+      // userPopulate();
     });
   }, 2000, moment, chatScrollToBottom);
 
@@ -419,6 +421,6 @@ $(document).ready(() => {
      
     };
   }
-    console.log(username1);
+    // console.log(username1);
   }
   });

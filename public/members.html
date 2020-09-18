@@ -71,8 +71,9 @@
       </form>
     </div>
   </section>
-    <!-- D3 starts here -->
-    <!-- Create a div where the graph will take place -->
+  <!-- D3 starts here -->
+  <!-- Create a div where the graph will take place -->
+  <section>
     <div class="container">
       <div class="container">
         <div class="row">
@@ -124,46 +125,60 @@
           </div>
         </div>
       </div>
-      <!-- d3 ends here  -->
-
-      <!-- Popup Chat Here -->
-      <button id="chatBtn" class="open-button">Chat</button>
-      <div class="chat-popup" id="popupChatBox">
-        <form class="form-container">
-          <h2>Shoutbox</h2>
-          <div>
-            <!-- <h2>posts</h2> -->
-            <hr>
-            <div id="post-area"></div>
-          </div>
-          <label for="msg"><b>Message</b></label>
-          <textarea name="msg" id="post-box" class="form-control" placeholder="Enter Post Here!" required></textarea>
-          <!-- in the example i found this button has type=submit but I am leaving it out -->
-          <button id="post-submit" class="btn">Send</button>
-          <button type="button" class="btn cancel" id="closeChatBtn">Close</button>
-
-        </form>
-      </div>
-      <!-- End of Popup Chat -->
-
     </div>
+  </section>
+
+  <!-- d3 ends here  -->
+
+  <!-- Popup Chat Here -->
+  <section>
+    <button id="chatBtn" class="open-button">Chat</button>
+    <div class="chat-popup" id="popupChatBox">
+      <form class="form-container">
+        <h2>Shoutbox</h2>
+        <div>
+          <!-- <h2>posts</h2> -->
+          <hr>
+          <div id="post-area"></div>
+        </div>
+        <label for="msg"><b>Message</b></label>
+        <textarea name="msg" id="post-box" class="form-control" placeholder="Enter Post Here!" required></textarea>
+        <!-- in the example i found this button has type=submit but I am leaving it out -->
+        <button id="post-submit" class="btn">Send</button>
+        <button type="button" class="btn cancel" id="closeChatBtn">Close</button>
+      </form>
     </div>
-    </div>
+  </section>
+  <!-- End of Popup Chat -->
 
-    <!-- test area Jivko -->
+  </div>
 
 
-    <div id="content"></div>
+  <!-- test area Jivko -->
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-    <script src="https://widget.cloudinary.com/v2.0/global/all.js " type="text/javascript" defer></script>
-    <!-- Load d3.js -->
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <!-- Color palette -->
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script type="text/javascript" src="js/members.js"></script>
-    <script type="text/javascript" src="js/member-upload.js">  </script>
-    <script src="js/d3userDyna.js"></script>
+
+  <div id="content"></div>
+  <script>
+
+    $.ajax({
+      url: "/html/test",
+      method: "GET"
+    })
+      .then(data => {
+        $("#content").html(data);
+      })
+  </script>
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <script src="https://widget.cloudinary.com/v2.0/global/all.js " type="text/javascript" defer></script>
+  <!-- Load d3.js -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <!-- Color palette -->
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script type="text/javascript" src="js/members.js"></script>
+  <script type="text/javascript" src="js/member-upload.js">  </script>
+  <script src="js/d3userDyna.js"></script>
 
 
 

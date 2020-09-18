@@ -1,12 +1,10 @@
-<h2 calss="username_holder_h2">Users currently on this site!!</h2>
+<h2 class="username_holder_h2">active users</h2>
+<h2 class="username_holder_h3">say hi in the shoutbox</h2>
 
 {{!-- <h3>Users Currently on this site!</h3> --}}
 
 <ul>
   {{#each users}}
-   
-      <li class="username_holder">"  User: "{{this.dataValues.username}}  </li>
-    
-  
+      <li class="username_holder">Users: {{this.dataValues.username}}</li>
   {{/each}}
 </ul>

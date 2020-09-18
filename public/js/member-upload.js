@@ -15,8 +15,7 @@ $.get("/api/user_data").then(cloudData => {
         $('.member_icon').attr("src", imageUrl);
       })
     }
-  }
-  )
+  })
   document.getElementById("upload_widget").addEventListener("click", function () {
     myWidget.open();
   }, false);

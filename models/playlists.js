@@ -46,8 +46,6 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
           len: [1, 190]
         }
-      
-      
     },
   
   });

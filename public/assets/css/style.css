@@ -522,23 +522,48 @@ label,
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-  .card{
-    
+@media screen and (min-width: 576px) {
+  .card .user {
+    width: 90%;
+  }
+  
+  .card .users {
+    width: 90%;
   }
 
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media screen and(min-width: 768px) {
+  .user {
+    width: 90%;
+  }
+  
+  .users {
+    width: 90%;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+@media screen and(min-width: 992px) {
+  .user {
+    width: 90%;
+  }
+  
+  .users {
+    width: 45%!important;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
+  .user {
+    width: 90%;
+  }
+  
+  .users {
+    width: 45%!important;
+  }
 }
 
 @media (max-width: 640px) {

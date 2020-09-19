@@ -421,9 +421,7 @@ label,
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
-  .member-icon{
-    align-content:center;
-  }
+
 
   
 @media (max-width: 600px) { 

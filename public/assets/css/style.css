@@ -512,6 +512,32 @@ label,
   align-content: center;
 }
 
+.username_holder{
+  font-size:30px;
+  font-family: "Abel", sans-serif;
+  color: #8c9cb0;
+  text-align:center;
+  margin-bottom:30px;
+  margin-top:0px;
+}
+.username_holder_h2{
+  font-size:24px;
+  font-family: "Abel", sans-serif;
+  color: #8c9cb0;
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.username_holder_h3{
+  font-size:35px;
+  font-family: "Abel", sans-serif;
+  color: #8c9cb0;
+  text-align:center;
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+
+
 @keyframes rotate {
   0% {
     filter: hue-rotate(0deg);
@@ -530,7 +556,7 @@ label,
   .card .users {
     width: 90%;
   }
-
+  
 }
 
 /* Medium devices (tablets, 768px and up) */

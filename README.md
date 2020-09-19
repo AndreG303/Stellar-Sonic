@@ -1,6 +1,11 @@
 # STELLAR-SONIC
 
-## User Story 
+## User Story
+AS A music lover 
+I WANT to create an interactive bubble chart playlist
+SO THAT I can visualize my music taste by genre
+
+## Acceptance Criteria
 GIVEN I am trying to curate an interactive personal playlist
 SIGNUP or LOGIN in order to be able to enter homepage
 SEARCH for song title or song artist in search bar
@@ -19,13 +24,14 @@ THEN my message will be visible to all users on the site
 WHEN I click "logout"
 THEN I will be redirected to the login page
 
-
-
 ## Technologies Used
 - Shazam API 
 - D3 
 - Procreate
 - MySQL 
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Screenshots of Webpage
 ![signup-screenshot](public/assets/images/sign-up-screenshot.png)

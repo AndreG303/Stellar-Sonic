@@ -5,7 +5,7 @@
   <title>The Greatest Website of All Time</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <!-- Moment.js -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
   <!-- autocomplete -->
@@ -52,6 +52,10 @@
       <div class="container">
         <button type="button" class="btn btn-userBtn">Jivkos List </button>
         <button id="upload_widget" class="btn cloudinary-button">Upload profile pic</button>
+        <span>
+          <input type="checkbox" id="toggleConsoleBtn" name="toggleConsoleBtn" checked>
+          <label for="toggleConsoleBtn">Toggle Console</label>
+        </span>
       </div>
       <hr>
       <!-- the  search card should show here -->
@@ -81,7 +85,7 @@
     <div class="container">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-md-offset-3">
+          <div class="col-md-6 offset-md-3">
             <h2 class="title">YOUR SONIC SOUND</h2>
             <h4>Check out your music taste by genre</h4>
           </div>
@@ -96,7 +100,7 @@
             <div class="card-body" id="musicdata"></div>
           </div>
           <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-6 offset-md-3">
               <h2 class="title">EXPLORE OUTERSPACE</h2>
               <h4>Browse other users' music taste in their interactive genre chart</h4>
             </div>

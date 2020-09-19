@@ -1,5 +1,8 @@
 # STELLAR-SONIC
 
+## Links 
+- https://dry-shelf-60979.herokuapp.com/
+
 ## User Story
 AS A music lover 
 I WANT to create an interactive bubble chart playlist
@@ -44,6 +47,3 @@ THEN I will be redirected to the login page
 ![users-screenshot](public/assets/images/users-screenshot.png)
 ![shoutbox-screenshot](public/assets/images/shoutbox-screenshot.png)
 ![stellar-sonic-demo](public/assets/images/stellar-sonic-demo.gif)
-
-## Links 
-- https://dry-shelf-60979.herokuapp.com/

@@ -4,6 +4,8 @@ body {
   background-size: cover;
   background-attachment: fixed;
   font-family: "Abel", sans-serif;
+  min-width: 100vw;
+  min-height:100vh;
 }
 
 h2 {

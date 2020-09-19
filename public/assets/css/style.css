@@ -3,46 +3,46 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Abel', sans-serif;
+  font-family: "Abel", sans-serif;
 }
 
 h2 {
-  color:#8c9cb0;
+  color: #8c9cb0;
   text-align: center;
-  font-family: 'Abel', sans-serif;
+  font-family: "Abel", sans-serif;
   font-size: 50px;
   font-weight: bolder;
-  margin-top:40px ;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 
-h2.title{
-  color:#8c9cb0;
+h2.title {
+  color: #8c9cb0;
   padding-top: 50px;
   font-weight: bold;
-  font-size:50px;
+  font-size: 50px;
   text-align: center;
-  font-family: 'Abel', sans-serif;
+  font-family: "Abel", sans-serif;
 }
 
-h4{
+h4 {
   text-align: center;
   padding-bottom: 50px;
-  font-size:30px;
-  color:#323042;
+  font-size: 30px;
+  color: #323042;
   font-weight: bolder;
 }
 
 .member-name,
 .member-name1,
-.play{
+.play {
   color: #8c9cb0;
   align-content: center;
   text-align: center;
-  font-size:40px;
+  font-size: 40px;
 }
 
-img.member-icon{
+img.member-icon {
   border-radius: 50%;
   max-width: 70px;
   max-height: 100px;
@@ -50,55 +50,49 @@ img.member-icon{
   margin: 20px;
 }
 
-img.member-icon-for-chat{
-  max-width: 40px;
-  max-height: 40px;
-  display: inline-block;
-}
-
-.member-icon{
+.member-icon {
   font-size: 0px;
 }
 
-.searchtitle{
-  color:#8c9cb0;
+.searchtitle {
+  color: #8c9cb0;
   text-align: center;
-  font-size:30px;
+  font-size: 30px;
   font-weight: bold;
 }
 
-.btn-shazamAdd{
-  background-color:#323042;
-  color:whitesmoke;
+.btn-shazamAdd {
+  background-color: #323042;
+  color: whitesmoke;
   opacity: 0.8;
 }
 
-
-p.albumart{
-  display:flex;
+p.albumart {
+  display: flex;
   justify-content: space-between;
   align-content: center;
   padding: 5px 50px 50px 50px;
   margin-top: 15px;
 }
-.outer{
+.outer {
   position: relative;
   background: #111;
 }
 
-.button{
+.button {
   height: 50px;
   width: 150px;
   border-radius: 50px;
 }
 
-.outer button, .outer span{
+.outer button,
+.outer span {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.outer button{
+.outer button {
   background: #111;
   color: #f2f2f2;
   outline: none;
@@ -109,30 +103,30 @@ p.albumart{
   text-transform: uppercase;
   cursor: pointer;
 }
-.button button{
+.button button {
   height: 40px;
   width: 140px;
   border-radius: 50px;
 }
 
-.outer span{
+.outer span {
   height: 100%;
   width: 100%;
   background: inherit;
 }
-.button span{
+.button span {
   border-radius: 50px;
 }
-.circle span{
+.circle span {
   border-radius: 50%;
 }
-.outer:hover span:nth-child(1){
+.outer:hover span:nth-child(1) {
   filter: blur(7px);
 }
-.outer:hover span:nth-child(2){
+.outer:hover span:nth-child(2) {
   filter: blur(14px);
 }
-.outer:hover{
+.outer:hover {
   background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
   animation: rotate 1.5s linear infinite;
 }
@@ -144,45 +138,44 @@ p.albumart{
 }
 
 .form-control {
-  background-color:#323042;
+  background-color: #323042;
   opacity: 0.8;
-  font-size:20px;
-  font-weight:bold;
-  color:black;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
 }
 
-.btn-allMusic{
-  background-color:#323042;
-  color:whitesmoke;
+.btn-allMusic {
+  background-color: #323042;
+  color: whitesmoke;
   opacity: 0.8;
 }
-.btn-userBtn{
-  background-color:#323042;
-  color:whitesmoke;
+.btn-userBtn {
+  background-color: #323042;
+  color: whitesmoke;
   opacity: 0.8;
-}
-
-.cloudinary-button{
-  background-color:#323042!important;
-  color:whitesmoke;
-  opacity: 0.8;
-  height:37px;
-  font-size:12px!important;
-  line-height: 18px!important;
-  font-weight: bold!important;
 }
 
-.btn-searchSong{
-  background-color:#323042;
-  color:whitesmoke;
+.cloudinary-button {
+  background-color: #323042 !important;
+  color: whitesmoke;
   opacity: 0.8;
-  height:38px;
+  height: 37px;
+  font-size: 12px !important;
+  line-height: 18px !important;
+  font-weight: bold !important;
+}
+
+.btn-searchSong {
+  background-color: #323042;
+  color: whitesmoke;
+  opacity: 0.8;
+  height: 38px;
   border: solid;
   border-width: 1px;
   border-radius: 5px;
   color: #e3e7ea;
 }
-
 
 form.signup,
 form.login {
@@ -193,7 +186,7 @@ form.login {
 .sign-up-png {
   margin-left: auto;
   margin-right: auto;
-  display:block;
+  display: block;
   width: 90%;
   padding: 10px;
 }
@@ -222,7 +215,7 @@ form.login {
 .chat-popup {
   display: none;
   position: fixed;
-  width:20%;
+  width: 20%;
   bottom: 0;
   right: 15px;
   border: 3px solid #f1f1f1;
@@ -233,7 +226,7 @@ form.login {
 /* Add styles to the form container */
 .form-container {
   padding: 10px;
-  background-color: #323042
+  background-color: #323042;
 }
 
 /* Full-width textarea */
@@ -253,32 +246,31 @@ form.login {
   margin: 5px 0 22px 0;
   border: none;
   background: #8c9cb0;
-  color:black;
+  color: black;
   resize: none;
   max-height: 200px;
   overflow: auto;
   /* min-height: 200px; */
 }
 
-#post-box{
+#post-box {
   background: #8c9cb0;
-  color:black;
+  color: black;
 }
 
-#post-box::placeholder{
-  color:#696969
+#post-box::placeholder {
+  color: #696969;
 }
 
 /* When the textarea gets focus, do something */
 .form-container textarea:focus {
   background-color: #ddd;
   outline: none;
-  
 }
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #00AF33;
+  background-color: #00af33;
   color: white;
   padding: 16px 20px;
   border: none;
@@ -290,7 +282,7 @@ form.login {
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: #D84141;
+  background-color: #d84141;
 }
 
 /* Add some hover effects to buttons */
@@ -312,8 +304,8 @@ form.login {
   position: absolute;
 }
 
-svg{
-  padding-bottom:70px;
+svg {
+  padding-bottom: 70px;
 }
 .node:hover {
   stroke-width: 4px !important;
@@ -325,26 +317,24 @@ svg{
   flex-flow: row wrap;
 }
 
-.card{
-  border-color:#323042;
+.card {
+  border-color: #323042;
   margin: 10px;
-  background-color:  transparent;
+  background-color: transparent;
   box-shadow: 1px 1px #323042;
-  padding-top:10px;
-  padding-bottom:10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .user {
-  width:90%;
+  width: 90%;
 }
 
 .users {
   width: 45%;
 }
 
-
 /* nav bar styling */
-
 
 ul {
   padding: 0;
@@ -353,7 +343,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
   font-size: 30px;
   color: white;
 }
@@ -428,177 +418,135 @@ a:hover:after {
 }
 
 /* circular diagram */
-#musicdata{
-  display:block;
-  position:relative;
+#musicdata {
+  display: block;
+  position: relative;
 }
 
-#musicdata1{
-  display:block;
-  position:relative;
+#musicdata1 {
+  display: block;
+  position: relative;
 }
 
-#musicdata2{
-  display:block;
-  position:relative;
+#musicdata2 {
+  display: block;
+  position: relative;
 }
 
-#musicdata3{
-  display:block;
-  position:relative;
+#musicdata3 {
+  display: block;
+  position: relative;
 }
 
-#musicdata4{
-  display:block;
-  position:relative;
+#musicdata4 {
+  display: block;
+  position: relative;
 }
 
 /* login/signup form */
 .login-png,
-.sign-up-png{
+.sign-up-png {
   max-width: 500px;
   margin-bottom: 20px;
   padding: 30px;
 }
 
-
 label,
 .sign-up,
 .log-in {
   color: rgb(143, 149, 155);
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: "Open Sans Condensed", sans-serif;
   font-size: 18px;
 }
 /*  */
 
+#search-results-card {
+  padding: 0px;
+  width: 320px;
+  font-size: 14px;
+  color: lightslategray;
+}
+.username_holder {
+  font-size: 16px;
+  color: lightslategray;
+}
+.username_holder_h2 {
+  text-align: center;
+  font-size: 18px;
+  color: lightslategray;
+}
+#log {
+  border: 1px lightslategray;
+  border-radius: 3px;
+  color: gray;
+  width: 180px;
+  height: 820px;
+  font-size: 10px;
+  position: fixed;
+  overflow: auto;
+}
 
-  #search-results-card {
-    padding: 0px;
-    width:320px;
-    font-size:14px;
-    color: lightslategray;
-  }
-  .username_holder{
-    font-size: 16px;
-    color: lightslategray;
-  }
-  .username_holder_h2{
-    text-align: center;
-    font-size: 18px;
-    color: lightslategray;
-  }
-  #log{
-    border: 1px lightslategray;
-    border-radius: 3px;
-    color:gray;
-    width: 180px;
-    height:820px;
-    font-size:10px;
-    position: fixed;
-    overflow: auto;
-   
-  }
+.replConsole {
+  list-style-type: none;
+  font-family: "consolas", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 12px;
+}
 
-   
+/* Track */
+::-webkit-scrollbar-track {
+  background: gray;
+}
 
-  .replConsole{
-    list-style-type: none;
-    font-family: "consolas",  sans-serif;
-  }
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background:gray; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
-  .member-icon{
-    align-content:center;
-  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
 
-  @keyframes rotate {
-    0%{
-      filter: hue-rotate(0deg);
-    }
-    100%{
-      filter: hue-rotate(360deg);
-    }
-  }
-  
-@media (max-width: 600px) { 
-  
-  h2.title {
-    text-align: center;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.member-icon {
+  align-content: center;
+}
 
+@keyframes rotate {
+  0% {
+    filter: hue-rotate(0deg);
   }
-    /* The popup chat - hidden by default */
-  .chat-popup {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 15px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-    width: 40%;
+  100% {
+    filter: hue-rotate(360deg);
   }
-  
-  .brand-name {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 300px;
-  }
-  
-  #popupChatBox {
-    max-width: 40%;
-    overflow: auto;
-    max-height: 85%;
-  }
-  
-  #open-button {
-    max-width: 75px;
-  }
-  
-  .login-png,
-  .sign-up-png {
-    max-width: 300px;
-    margin-bottom: 10px;
-    padding: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    display:block;
-  }
-  
-  .links {
-    /* margin: auto; */
-    display: flex;
-    align-content: center;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .card{
+    
   }
 
+}
 
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+@media (max-width: 640px) {
+  .center {
+    flex-wrap: wrap;
+    flex-direction: column;
   }
-
-  @media (min-width: 576px) {
-
+  .outer {
+    margin: 50px 0;
   }
-
-  @media (max-width: 640px){
-    .center{
-      flex-wrap: wrap;
-      flex-direction: column;
-    }
-    .outer{
-      margin: 50px 0;
-    }
-  }
+}

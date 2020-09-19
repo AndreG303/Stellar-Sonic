@@ -38,6 +38,8 @@ h4{
 .play{
   color: #8c9cb0;
   align-content: center;
+  text-align: center;
+  font-size:40px;
 }
 
 img.member-icon{
@@ -46,6 +48,10 @@ img.member-icon{
   max-height: 100px;
   display: inline-block;
   margin: 20px;
+}
+
+.member-icon{
+  font-size: 0px;
 }
 
 .searchtitle{

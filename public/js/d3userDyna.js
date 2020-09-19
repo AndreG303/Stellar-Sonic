@@ -1,4 +1,4 @@
-var userArray = "";
+
 function bubbleChart() {
     // set the dimensions and margins of the graph
     // var wWidth = window.innerWidth;
@@ -159,17 +159,36 @@ var replacement1 = 0;
 $.get("/api/user_data1", function (req, res) {
 }).then(res => {
     userArray.length = 0;
+    userArrayPic.length = 0;
+    userArrayUsername.length = 0;
+    userArray.push(currentUserId);
+    userArrayPic.push(currentUserPic);
+    userArrayUsername.push(currentUserUsername);
+
     // console.log(res);
     console.log("user_data");
     for (let i = 0; i < res.length; i++) {
+        if(res[i].id !==userArray[0]){
+            console.log(userArray);
         userArray.push(res[i].id);
-        userArrayPic.push(res[i].id);
-        userArrayUsername.push(res[i].id);
+        userArrayPic.push(res[i].profilePicture);
+        userArrayUsername.push(res[i].username);
+      
+
+
+
+
+        } else{
+            console.log("found him");
+        }
     }
+    console.log("userArray");
     console.log(userArray);
+    console.log(userArrayPic);
+    console.log(userArrayUsername);
     userPopulate(userArray);
 });
-function userPopulate(userArray) {
+function userPopulate(userArray, userArrayPic,userArrayUsername) {
     var bubble1 = {
         width: 500,
         height: 700,

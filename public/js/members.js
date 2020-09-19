@@ -1,4 +1,9 @@
+var currentUserUsername = "";
+var currentUserPic = "";
+var currentUserId = "";
+
 $(document).ready(() => {
+
   var availableTags = [];
   //global variables
   var userBtn = $(".btn-userBtn");
@@ -10,7 +15,7 @@ $(document).ready(() => {
     event.preventDefault();
     $("#popupChatBox").attr("style", "display:block");
     $("#chatBtn").attr("style", "display:none");
-    chatScrollToBottom();
+    chatScrollToBottom();gi
   }
   const closeForm = function (event) {
     event.preventDefault();
@@ -30,9 +35,13 @@ $(document).ready(() => {
     $(".member-name").text(data.username);
     $(".member-icon").attr("src", data.profilePicture);
     $(".member-icon").attr("width", "120");
+    console.log(data);
+    currentUserId.length = 0;
     username = data.username;
     userId = data.id;
-    profilePicture = data.profilePicture;
+    currentUserId = userId;
+    currentUserUsername = username;
+    currentUserPic = data.profilePicture;
     console.log("1st get at members.js");
     console.log(username);
     userBtn.text(username + "'s list");

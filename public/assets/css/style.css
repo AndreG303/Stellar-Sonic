@@ -274,13 +274,14 @@ img.member-icon-for-chat {
   font-size: 0px;
 }
 
-
+/* album cover */
 p.albumart {
   display: flex;
   justify-content: space-around;
   margin-top: 15px;
 }
 
+/* forms */
 .form-control {
   background-color: #323042;
   opacity: 0.8;
@@ -294,6 +295,7 @@ form.login {
   margin-top: 20px;
 }
 
+/* login - sign up images */
 .login-png,
 .sign-up-png {
   margin-left: auto;
@@ -312,21 +314,6 @@ form.login {
   border: 3px solid #f1f1f1;
   z-index: 9;
   background-color: #323042;
-}
-
-@media (min-width: 600px) {
-  .chat-popup {
-    max-width: 60%;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .chat-popup {
-    position: fixed;
-    min-width: 25vw;
-    bottom: 0;
-    right: 15px;
-  }
 }
 
 /* Add styles to the form container */
@@ -484,23 +471,7 @@ label,
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 18px;
 }
-/*  */
 
-#search-results-card {
-  padding: 0px;
-  width: 320px;
-  font-size: 14px;
-  color: lightslategray;
-}
-.username_holder {
-  font-size: 16px;
-  color: lightslategray;
-}
-.username_holder_h2 {
-  text-align: center;
-  font-size: 18px;
-  color: lightslategray;
-}
 #log {
   border: 1px lightslategray;
   border-radius: 3px;
@@ -538,6 +509,7 @@ label,
   align-content: center;
 }
 
+/* handle bars users active */
 .username_holder {
   font-size: 24px;
   font-family: "Abel", sans-serif;

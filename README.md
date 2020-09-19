@@ -6,6 +6,7 @@ I WANT to create an interactive bubble chart playlist
 SO THAT I can visualize my music taste by genre
 
 ## Acceptance Criteria
+```
 GIVEN I am trying to curate an interactive personal playlist
 SIGNUP or LOGIN in order to be able to enter homepage
 SEARCH for song title or song artist in search bar
@@ -23,10 +24,11 @@ WHEN I enter text into the chat and press send
 THEN my message will be visible to all users on the site
 WHEN I click "logout"
 THEN I will be redirected to the login page
+```
 
 ## Technologies Used
 - Shazam API 
-- D3 
+- D3.js
 - Procreate
 - MySQL 
 

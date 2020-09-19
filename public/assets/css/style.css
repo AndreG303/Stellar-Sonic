@@ -49,6 +49,11 @@ img.member-icon {
   display: inline-block;
   margin: 20px;
 }
+img.member-icon-for-chat{
+  max-width: 40px;
+  max-height: 40px;
+  display: inline-block;
+}
 
 .member-icon {
   font-size: 0px;

@@ -3,30 +3,19 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  font-family: 'Abel', sans-serif;
 }
-
-#stellar-sonic-logo {
-  max-width: 70px;
-  padding: 5px 10px;
-}
-
 
 h2 {
   color:#8c9cb0;
   text-align: center;
   font-family: 'Abel', sans-serif;
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 50px;
+  font-weight: bolder;
+  margin-top:40px ;
+  margin-bottom: 20px;
 }
 
-h4{
-  text-align: center;
-  padding-bottom: 50px;
-  font-size:26px;
-  color:#323042;
-  font-weight: bold;
-
-}
 h2.title{
   color:#8c9cb0;
   padding-top: 50px;
@@ -35,6 +24,104 @@ h2.title{
   text-align: center;
   font-family: 'Abel', sans-serif;
 }
+
+h4{
+  text-align: center;
+  padding-bottom: 50px;
+  font-size:30px;
+  color:#323042;
+  font-weight: bolder;
+}
+
+.member-name,
+.member-name1,
+.play{
+  color: #8c9cb0;
+  align-content: center;
+  text-align: center;
+  font-size:40px;
+}
+
+img.member-icon{
+  border-radius: 50%;
+  max-width: 70px;
+  max-height: 100px;
+  display: inline-block;
+  margin: 20px;
+}
+
+.member-icon{
+  font-size: 0px;
+}
+
+.searchtitle{
+  color:#8c9cb0;
+  text-align: center;
+  font-size:30px;
+  font-weight: bold;
+}
+.outer{
+  position: relative;
+  background: #111;
+}
+
+.button{
+  height: 50px;
+  width: 150px;
+  border-radius: 50px;
+}
+
+.outer button, .outer span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.outer button{
+  background: #111;
+  color: #f2f2f2;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  z-index: 9;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.button button{
+  height: 40px;
+  width: 140px;
+  border-radius: 50px;
+}
+
+.outer span{
+  height: 100%;
+  width: 100%;
+  background: inherit;
+}
+.button span{
+  border-radius: 50px;
+}
+.circle span{
+  border-radius: 50%;
+}
+.outer:hover span:nth-child(1){
+  filter: blur(7px);
+}
+.outer:hover span:nth-child(2){
+  filter: blur(14px);
+}
+.outer:hover{
+  background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+  animation: rotate 1.5s linear infinite;
+}
+
+#stellar-sonic-logo {
+  max-width: 70px;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+}
+
 .form-control {
   background-color:#323042;
   opacity: 0.8;
@@ -234,12 +321,6 @@ svg{
   width: 45%;
 }
 
-.member-name,
-.member-name1,
-.play{
-  color: #8c9cb0;
-  align-content: center;
-}
 
 /* nav bar styling */
 
@@ -404,7 +485,7 @@ label,
     font-family: "consolas",  sans-serif;
   }
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 12px;
   }
   
   /* Track */
@@ -425,6 +506,14 @@ label,
     align-content:center;
   }
 
+  @keyframes rotate {
+    0%{
+      filter: hue-rotate(0deg);
+    }
+    100%{
+      filter: hue-rotate(360deg);
+    }
+  }
   
 @media (max-width: 600px) { 
   
@@ -481,4 +570,14 @@ label,
 
   @media (min-width: 576px) {
 
+  }
+
+  @media (max-width: 640px){
+    .center{
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+    .outer{
+      margin: 50px 0;
+    }
   }

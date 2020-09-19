@@ -1,8 +1,8 @@
 {
-  "name": "y",
-  "version": "y",
-  "description": "y",
-  "main": "y",
+  "name":"sonic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
     "test": "npm run lint",
     "start": "node server.js",

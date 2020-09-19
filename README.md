@@ -35,6 +35,7 @@ THEN I will be redirected to the login page
 ![bubble-chart-screenshot](public/assets/images/bubble-chart-screenshot.png)
 ![users-screenshot](public/assets/images/users-screenshot.png)
 ![shoutbox-screenshot](public/assets/images/shoutbox-screenshot.png)
+![stellar-sonic-demo](public/assets/images/stellar-sonic-demo.gif)
 
 ## Links 
 - https://dry-shelf-60979.herokuapp.com/

@@ -59,6 +59,15 @@ p {
   font-size: 40px;
 }
 
+/* search for song h2 */
+.searchtitle {
+  color: #8c9cb0;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
 /* d3 bubbles card position */
 .music_data{
   display: block;
@@ -74,14 +83,14 @@ svg {
   opacity: 1 !important;
 }
 
-
-
 /* buttons */
-.btn-allMusic {
+
+/* .btn-allMusic {
   background-color: #323042;
   color: whitesmoke;
   opacity: 0.8;
-}
+} */
+
 .btn-userBtn {
   background-color: #323042;
   color: whitesmoke;
@@ -245,6 +254,7 @@ svg {
   padding: 5px 10px;
 }
 
+/* member profile pic */
 img.member-icon {
   border-radius: 50%;
   width: 60px;
@@ -262,13 +272,6 @@ img.member-icon-for-chat {
 
 .member-icon {
   font-size: 0px;
-}
-
-.searchtitle {
-  color: #8c9cb0;
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
 }
 
 
@@ -298,21 +301,6 @@ form.login {
   display: block;
   width: 90%;
   padding: 10px;
-}
-
-/* Button used to open the chat form - fixed at the bottom of the page */
-.open-button {
-  background-color: #323042;
-  color: white;
-  padding: 16px 20px;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 380px;
 }
 
 /* The popup chat - hidden by default */

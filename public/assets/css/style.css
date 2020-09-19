@@ -2,6 +2,8 @@ body {
   background-image: url(https://media.giphy.com/media/PlsjFmJ0iLW9I3C1lw/giphy.gif);
   background-repeat: no-repeat;
   background-size: cover;
+  min-width:100vw;
+  min-height:100vh;
   background-attachment: fixed;
   font-family: "Abel", sans-serif;
 }

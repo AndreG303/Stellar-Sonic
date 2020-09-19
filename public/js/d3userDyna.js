@@ -1,4 +1,4 @@
-var userArray = "";
+
 function bubbleChart() {
     // set the dimensions and margins of the graph
     // var wWidth = window.innerWidth;
@@ -94,6 +94,17 @@ function bubbleChart() {
                 d.fx = null;
                 d.fy = null;
             }
+
+            $(this.divTarget1).text(this.username+" 's Playlist");
+            var iconSpan0=$('<span class=iconSpan>')
+            var memberIcon0 =$('<img class="member-icon" id='+this.divSpan+'>');
+            memberIcon0.attr("src", this.profilePicture);
+            // $(".member-icon").attr("src", data.profilePicture);
+            // $(".member-icon").attr("width", "120");
+            memberIcon0.attr("width", "80");
+            iconSpan0.append(memberIcon0);
+            $(this.divTarget1).prepend(iconSpan0);
+
         });
 }
 function setWidthHeight() {
@@ -156,26 +167,52 @@ var userArray = [];
 var userArrayPic = [];
 var userArrayUsername = [];
 var replacement1 = 0;
+
+function prepareArrays(currentUserId, currentUserPic, currentUserUsername) {
 $.get("/api/user_data1", function (req, res) {
 }).then(res => {
     userArray.length = 0;
+    userArrayPic.length = 0;
+    userArrayUsername.length = 0;
+    userArray.push(currentUserId);
+    userArrayPic.push(currentUserPic);
+    userArrayUsername.push(currentUserUsername);
+
     // console.log(res);
     console.log("user_data");
     for (let i = 0; i < res.length; i++) {
-        userArray.push(res[i].id);
-        userArrayPic.push(res[i].id);
-        userArrayUsername.push(res[i].id);
+        if (res[i].id !== userArray[0]) {
+            console.log(userArray);
+            userArray.push(res[i].id);
+            userArrayPic.push(res[i].profilePicture);
+            userArrayUsername.push(res[i].username);
+
+
+
+
+
+        } else {
+            console.log("found him");
+        }
     }
+    console.log("userArray");
     console.log(userArray);
-    userPopulate(userArray);
+    console.log(userArrayPic);
+    console.log(userArrayUsername);
+    userPopulate(userArray, userArrayPic, userArrayUsername);
 });
-function userPopulate(userArray) {
+}
+function userPopulate(userArray, userArrayPic, userArrayUsername) {
     var bubble1 = {
         width: 500,
         height: 700,
         url: "/api/testU1",
-        param: { replacement1: id },
+        param: { replacement1: userArray[0] },
+        profilePicture: userArrayPic[0],
+        username: userArrayUsername[0],
         divTarget: "#musicdata",
+        divTarget1: "#member-name0",
+        divSpan:"memberIconJa0",
         setWidthHeight: setWidthHeight,
         bubbleChart: bubbleChart
     };
@@ -189,7 +226,11 @@ function userPopulate(userArray) {
         height: 700,
         url: "/api/testU1",
         param: { replacement1: userArray[1] },
+        profilePicture: userArrayPic[1],
+        username: userArrayUsername[1],
         divTarget: "#musicdata1",
+        divTarget1: "#member-name1",
+        divSpan:"#memberIconJa1",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
@@ -200,7 +241,11 @@ function userPopulate(userArray) {
         height: 700,
         url: "/api/testU1",
         param: { replacement1: userArray[2] },
+        profilePicture: userArrayPic[2],
+        username: userArrayUsername[2],
         divTarget: "#musicdata2",
+        divTarget1: "#member-name2",
+        divSpan:"#memberIconJa2",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
@@ -211,7 +256,11 @@ function userPopulate(userArray) {
         height: 700,
         url: "/api/testU1",
         param: { replacement1: userArray[3] },
+        profilePicture: userArrayPic[3],
+        username: userArrayUsername[3],
         divTarget: "#musicdata3",
+        divTarget1: "#member-name3",
+        divSpan:"#memberIconJa3",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
@@ -222,7 +271,11 @@ function userPopulate(userArray) {
         height: 700,
         url: "/api/testU1",
         param: { replacement1: userArray[4] },
+        profilePicture: userArrayPic[4],
+        username: userArrayUsername[4],
         divTarget: "#musicdata4",
+        divTarget1: "#member-name4",
+        divSpan:"#memberIconJa4",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };

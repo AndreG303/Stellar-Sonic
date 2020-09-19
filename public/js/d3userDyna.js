@@ -174,7 +174,7 @@ function userPopulate(userArray) {
         width: 500,
         height: 700,
         url: "/api/testU1",
-        param: { replacement1: username},
+        param: { replacement1: userid },
         divTarget: "#musicdata",
         setWidthHeight: setWidthHeight,
         bubbleChart: bubbleChart

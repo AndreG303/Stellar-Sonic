@@ -514,10 +514,36 @@ label,
   background: gray;
 }
 
+<<<<<<< HEAD
+  .replConsole{
+    list-style-type: none;
+    font-family: "consolas",  sans-serif;
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background:gray; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+=======
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
+>>>>>>> 9b350b3d07a0f3fe71a8d5ceb24d227caeb3a74f
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {

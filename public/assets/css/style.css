@@ -49,6 +49,7 @@ p {
   color: #323042;
 }
 
+ /* card hearder h2 */
 .member-name,
 .member-name1,
 .play {
@@ -56,6 +57,21 @@ p {
   align-content: center;
   text-align: center;
   font-size: 40px;
+}
+
+/* d3 bubbles card position */
+.music_data{
+  display: block;
+  position: relative;
+}
+
+/* d3 svg */
+svg {
+  padding-bottom: 70px;
+}
+.node:hover {
+  stroke-width: 4px !important;
+  opacity: 1 !important;
 }
 
 img.member-icon {
@@ -93,10 +109,7 @@ p.albumart {
   margin-top: 15px;
 }
 
-
-
-
-/* rainbow button */
+/* rainbow logout button */
 
 .button {
   height: 50px;
@@ -353,13 +366,7 @@ form.login {
   position: absolute;
 }
 
-svg {
-  padding-bottom: 70px;
-}
-.node:hover {
-  stroke-width: 4px !important;
-  opacity: 1 !important;
-}
+
 
 .user-area {
   display: flex;
@@ -463,31 +470,7 @@ a:hover:after {
   margin-bottom: 80px;
 }
 
-/* circular diagram */
-#musicdata {
-  display: block;
-  position: relative;
-}
 
-#musicdata1 {
-  display: block;
-  position: relative;
-}
-
-#musicdata2 {
-  display: block;
-  position: relative;
-}
-
-#musicdata3 {
-  display: block;
-  position: relative;
-}
-
-#musicdata4 {
-  display: block;
-  position: relative;
-}
 
 /* login/signup form */
 .login-png,

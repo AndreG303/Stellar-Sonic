@@ -5,7 +5,7 @@ body {
   background-attachment: fixed;
   font-family: "Abel", sans-serif;
   min-width: 100vw;
-  min-height:100vh;
+  min-height: 100vh;
 }
 
 h2 {
@@ -37,6 +37,15 @@ h4 {
 
 h4.result-box {
   padding-bottom: 10px;
+  color: #323042;
+}
+
+hr {
+  border-color: whitesmoke;
+}
+
+p {
+  font-size: 22px;
   color: #323042;
 }
 
@@ -75,12 +84,6 @@ img.member-icon-for-chat {
   font-weight: bold;
 }
 
-.btn-shazamAdd {
-  background-color: #323042;
-  color: whitesmoke;
-  opacity: 0.8;
-  font-size: 14px;
-}
 
 p.albumart {
   display: flex;
@@ -90,20 +93,19 @@ p.albumart {
   margin-top: 15px;
 }
 
-p {
-  font-size: 22px;
-  color: #323042;
-}
 
-.outer {
-  position: relative;
-  background: #111;
-}
+
+
+/* rainbow button */
 
 .button {
   height: 50px;
   width: 150px;
   border-radius: 50px;
+}
+.outer {
+  position: relative;
+  background: #111;
 }
 
 .outer button,
@@ -152,20 +154,7 @@ p {
   animation: rotate 1.5s linear infinite;
 }
 
-#stellar-sonic-logo {
-  max-width: 70px;
-  margin-bottom: 15px;
-  padding: 5px 10px;
-}
-
-.form-control {
-  background-color: #323042;
-  opacity: 0.8;
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-}
-
+/* buttons */
 .btn-allMusic {
   background-color: #323042;
   color: whitesmoke;
@@ -197,6 +186,30 @@ p {
   border-radius: 5px;
   color: #e3e7ea;
 }
+
+.btn-shazamAdd {
+  background-color: #323042;
+  color: whitesmoke;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+/* logo */
+#stellar-sonic-logo {
+  max-width: 70px;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+}
+
+.form-control {
+  background-color: #323042;
+  opacity: 0.8;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+
 
 form.signup,
 form.login {
@@ -245,7 +258,7 @@ form.login {
 }
 
 @media (min-width: 600px) {
-  .chat-popup{
+  .chat-popup {
     max-width: 60%;
   }
 }
@@ -253,12 +266,11 @@ form.login {
 @media screen and (min-width: 992px) {
   .chat-popup {
     position: fixed;
-    min-width: 40vw;
+    min-width: 25vw;
     bottom: 0;
     right: 15px;
   }
 }
-
 
 /* Add styles to the form container */
 .form-container {
@@ -359,9 +371,11 @@ svg {
   margin: 10px;
   background-color: transparent;
   box-shadow: 1px 1px #323042;
+  border: 0px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 /* nav bar styling */
 
 ul {
@@ -579,6 +593,20 @@ label,
   }
   100% {
     filter: hue-rotate(360deg);
+  }
+}
+@media (min-width: 600px) {
+  .chat-popup {
+    max-width: 60%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .chat-popup {
+    position: fixed;
+    min-width: 25vw;
+    bottom: 0;
+    right: 15px;
   }
 }
 

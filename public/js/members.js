@@ -294,6 +294,6 @@ $(document).ready(() => {
   }
   $("#toggleConsoleBtn").change(function(){
     $("#log").toggle();
-    console.log("Toggling!!");
+    console.log("Toggling!");
   })
 });

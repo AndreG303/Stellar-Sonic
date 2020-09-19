@@ -552,6 +552,9 @@ label,
   margin-bottom:10px;
 }
 
+#log{
+  display: "none";
+}
 
 @keyframes rotate {
   0% {

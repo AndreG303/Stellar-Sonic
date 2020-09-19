@@ -60,6 +60,21 @@ img.member-icon{
   font-size:30px;
   font-weight: bold;
 }
+
+.btn-shazamAdd{
+  background-color:#323042;
+  color:whitesmoke;
+  opacity: 0.8;
+}
+
+
+p.albumart{
+  display:flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 5px 50px 50px 50px;
+  margin-top: 15px;
+}
 .outer{
   position: relative;
   background: #111;

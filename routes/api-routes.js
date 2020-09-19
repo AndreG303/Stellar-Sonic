@@ -120,7 +120,8 @@ module.exports = function (app) {
     // complete property
     db.Post.create({
       author: req.body.author,
-      body: req.body.body
+      body: req.body.body,
+      profilePicture: req.body.profilePicture
     }).then(function (dbPost) {
       // We have access to the new post as an argument inside of the callback function
       res.json(dbPost);

@@ -27,10 +27,10 @@
     <nav>
       <ul class="links">
         <li><img id="stellar-sonic-logo" src="assets/images/stellar-sonic-logo.png" alt="stellar-sonic-logo"></li>
-          <div class="outer button">
-            <button><a href="/logout">Logout</a></button>
-            <span></span>
-          </div>
+        <div class="outer button">
+          <button><a href="/logout">Logout</a></button>
+          <span></span>
+        </div>
         </div>
       </ul>
       <aside>
@@ -88,44 +88,53 @@
         </div>
       </div>
       <div class="row">
-        <div class="user-area col-12 d-flex justify-content-center">
+        <div class="col-12">
           <div class="card user">
             <div class="card-header">
               <h2 class="play"><span id="member-name0" class="member-name"></span> .</h2>
             </div>
             <div class="card-body" id="musicdata"></div>
           </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 col-md-offset-3">
-                <h2 class="title">EXPLORE OUTERSPACE</h2>
-                <h4>Browse other users' music taste in their interactive genre chart</h4>
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <h2 class="title">EXPLORE OUTERSPACE</h2>
+              <h4>Browse other users' music taste in their interactive genre chart</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="card users">
+                <div class="card-header">
+                  <h2 class="member-name1">Jivko Playlist</h2>
+                </div>
+                <div class="card-body" id="musicdata1"></div>
               </div>
             </div>
-          </div>
-          <div class="card users">
-            <div class="card-header">
-              <h2 class="member-name1" id="member-name1" ></h2>
+            <div class="col-12 col-md-6">
+              <div class="card users">
+                <div class="card-header">
+                  <h2 class="member-name1">AndrewD'Alba Playlist</h2>
+                </div>
+                <div class="card-body" id="musicdata2"></div>
+              </div>
             </div>
-            <div class="card-body" id="musicdata1"></div>
-          </div>
-          <div class="card users">
-            <div class="card-header">
-              <h2 class="member-name1"id="member-name2"> </h2>
+            <div class="col-12 col-md-6">
+              <div class="card users">
+                <div class="card-header">
+                  <h2 class="member-name1">Mr Doobles Playlist</h2>
+                </div>
+                <div class="card-body" id="musicdata3"></div>
+              </div>
             </div>
-            <div class="card-body" id="musicdata2"></div>
-          </div>
-          <div class="card users">
-            <div class="card-header">
-              <h2 class="member-name1"id="member-name3">Mr Doobles Playlist</h2>
+            <div class="col-12 col-md-6">
+              <div class="card users">
+                <div class="card-header">
+                  <h2 class="member-name1">Blondie202 Playlist</h2>
+                </div>
+                <div class="card-body" id="musicdata4"></div>
+              </div>
+
             </div>
-            <div class="card-body" id="musicdata3"></div>
-          </div>
-          <div class="card users">
-            <div class="card-header">
-              <h2 class="member-name1"id="member-name4">Blondie202 Playlist</h2>
-            </div>
-            <div class="card-body" id="musicdata4"></div>
           </div>
         </div>
       </div>
@@ -156,7 +165,7 @@
   <!-- handle bars -->
   <div id="content"></div>
 
-  
+
   <script>
     $.ajax({
       url: "/html/test",
@@ -178,4 +187,5 @@
   <script type="text/javascript" src="js/member-upload.js">  </script>
   <script src="js/d3userDyna.js"></script>
 </body>
+
 </html>

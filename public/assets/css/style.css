@@ -33,6 +33,11 @@ h4 {
   font-weight: bolder;
 }
 
+h4.result-box{
+  padding-bottom: 10px;
+  color: #323042;
+}
+
 .member-name,
 .member-name1,
 .play {
@@ -65,6 +70,7 @@ img.member-icon {
   background-color: #323042;
   color: whitesmoke;
   opacity: 0.8;
+  font-size: 14px;
 }
 
 p.albumart {
@@ -74,6 +80,12 @@ p.albumart {
   padding: 5px 50px 50px 50px;
   margin-top: 15px;
 }
+
+p{
+  font-size:22px;
+  color: #323042;
+}
+
 .outer {
   position: relative;
   background: #111;
@@ -202,6 +214,7 @@ form.login {
   background-color: #323042;
   color: white;
   padding: 16px 20px;
+  font-size:20px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
@@ -325,15 +338,6 @@ svg {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-
-.user {
-  width: 90%;
-}
-
-.users {
-  width: 45%;
-}
-
 /* nav bar styling */
 
 ul {
@@ -363,6 +367,10 @@ ul li {
   text-transform: uppercase;
   margin: 0 10px;
   transition: all 0.5s;
+}
+a{
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 a:hover {
@@ -513,7 +521,7 @@ label,
 }
 
 .username_holder{
-  font-size:30px;
+  font-size:24px;
   font-family: "Abel", sans-serif;
   color: #8c9cb0;
   text-align:center;
@@ -547,50 +555,7 @@ label,
   }
 }
 
-/* Small devices (landscape phones, 576px and up) */
-@media screen and (min-width: 576px) {
-  .card .user {
-    width: 90%;
-  }
-  
-  .card .users {
-    width: 90%;
-  }
-  
-}
 
-/* Medium devices (tablets, 768px and up) */
-@media screen and(min-width: 768px) {
-  .user {
-    width: 90%;
-  }
-  
-  .users {
-    width: 90%;
-  }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media screen and(min-width: 992px) {
-  .user {
-    width: 90%;
-  }
-  
-  .users {
-    width: 45%!important;
-  }
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media screen and (min-width: 1200px) {
-  .user {
-    width: 90%;
-  }
-  
-  .users {
-    width: 45%!important;
-  }
-}
 
 @media (max-width: 640px) {
   .center {

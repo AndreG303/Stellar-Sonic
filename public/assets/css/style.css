@@ -33,7 +33,7 @@ h4 {
   font-weight: bolder;
 }
 
-h4.result-box{
+h4.result-box {
   padding-bottom: 10px;
   color: #323042;
 }
@@ -48,15 +48,15 @@ h4.result-box{
 }
 
 img.member-icon {
-  border-radius:50%;
+  border-radius: 50%;
   width: 60px;
-  height:60px;
+  height: 60px;
   display: inline-block;
   margin: 20px;
-  line-height:2;
+  line-height: 2;
 }
 
-img.member-icon-for-chat{
+img.member-icon-for-chat {
   max-width: 40px;
   max-height: 40px;
   display: inline-block;
@@ -88,8 +88,8 @@ p.albumart {
   margin-top: 15px;
 }
 
-p{
-  font-size:22px;
+p {
+  font-size: 22px;
   color: #323042;
 }
 
@@ -209,19 +209,19 @@ form.login {
   width: 90%;
   padding: 10px;
 }
-
+/* 
 #popupChatBox {
   max-width: 40%;
   overflow: auto;
   max-height: 85%;
-}
+} */
 
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
   background-color: #323042;
   color: white;
   padding: 16px 20px;
-  font-size:20px;
+  font-size: 20px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
@@ -232,16 +232,31 @@ form.login {
 }
 
 /* The popup chat - hidden by default */
+
 .chat-popup {
   display: none;
-  position: fixed;
-  width: 20%;
-  bottom: 0;
-  right: 15px;
+  margin: 2rem auto;
+  max-width: 80%;
   border: 3px solid #f1f1f1;
   z-index: 9;
   background-color: #323042;
 }
+
+@media (min-width: 600px) {
+  .chat-popup{
+    max-width: 60%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .chat-popup {
+    position: fixed;
+    min-width: 40vw;
+    bottom: 0;
+    right: 15px;
+  }
+}
+
 
 /* Add styles to the form container */
 .form-container {
@@ -375,7 +390,7 @@ ul li {
   margin: 0 10px;
   transition: all 0.5s;
 }
-a{
+a {
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -514,36 +529,10 @@ label,
   background: gray;
 }
 
-<<<<<<< HEAD
-  .replConsole{
-    list-style-type: none;
-    font-family: "consolas",  sans-serif;
-  }
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background:gray; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
-
-=======
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
->>>>>>> 9b350b3d07a0f3fe71a8d5ceb24d227caeb3a74f
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
@@ -553,32 +542,32 @@ label,
   align-content: center;
 }
 
-.username_holder{
-  font-size:24px;
+.username_holder {
+  font-size: 24px;
   font-family: "Abel", sans-serif;
   color: #8c9cb0;
-  text-align:center;
-  margin-bottom:30px;
-  margin-top:0px;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 0px;
 }
-.username_holder_h2{
-  font-size:24px;
+.username_holder_h2 {
+  font-size: 24px;
   font-family: "Abel", sans-serif;
   color: #8c9cb0;
-  text-align:center;
-  margin-bottom:10px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.username_holder_h3{
-  font-size:35px;
+.username_holder_h3 {
+  font-size: 35px;
   font-family: "Abel", sans-serif;
   color: #8c9cb0;
-  text-align:center;
+  text-align: center;
   margin-top: 10px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
-#log{
+#log {
   display: "none";
 }
 
@@ -590,8 +579,6 @@ label,
     filter: hue-rotate(360deg);
   }
 }
-
-
 
 @media (max-width: 640px) {
   .center {

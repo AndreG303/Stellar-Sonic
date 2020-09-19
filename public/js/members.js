@@ -15,7 +15,7 @@ $(document).ready(() => {
     event.preventDefault();
     $("#popupChatBox").attr("style", "display:block");
     $("#chatBtn").attr("style", "display:none");
-    chatScrollToBottom();gi
+    chatScrollToBottom();
   }
   const closeForm = function (event) {
     event.preventDefault();
@@ -33,8 +33,15 @@ $(document).ready(() => {
   //api functions
   $.get("/api/user_data").then(data => {
     $(".member-name").text(data.username);
+    // var iconSpan0=$('<span class=iconSpan>')
+  //  var memberIcon0 =$('<img class="member-icon" id="memberIconJa0">');
+    // memberIcon0.attr("src", data.profilePicture);
     $(".member-icon").attr("src", data.profilePicture);
     $(".member-icon").attr("width", "120");
+    // memberIcon0.attr("width", "80");
+    // iconSpan0.append(memberIcon0);
+    // $("#member-name0").prepend(iconSpan0);
+
     console.log(data);
     currentUserId.length = 0;
     username = data.username;
@@ -45,6 +52,7 @@ $(document).ready(() => {
     console.log("1st get at members.js");
     console.log(username);
     userBtn.text(username + "'s list");
+    prepareArrays(currentUserId, currentUserPic, currentUserUsername);
   }).then
   setInterval(function (moment, chatScrollToBottom) {
     $.get("/api/posts", function (data) {
@@ -74,7 +82,7 @@ $(document).ready(() => {
     var newPost = {
       author: username,
       body: $("#post-box").val().trim(),
-      profilePicture: profilePicture
+      profilePicture: currentUserPic
     };
     console.log(newPost);
     // Send an AJAX POST-request with jQuery

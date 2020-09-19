@@ -14,6 +14,13 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 140]
       }
     },
+    profilePicture: { 
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate: {
+        len: [1, 140]
+      }
+    },
     body: { 
       type: DataTypes.STRING,
       allowNull:false,

@@ -8,6 +8,7 @@ body {
 
 #stellar-sonic-logo {
   max-width: 70px;
+  margin-bottom: 15px;
   padding: 5px 10px;
 }
 
@@ -20,14 +21,6 @@ h2 {
   font-weight: bold;
 }
 
-h4{
-  text-align: center;
-  padding-bottom: 50px;
-  font-size:30px;
-  color:#323042;
-  font-weight: bolder;
-}
-
 h2.title{
   color:#8c9cb0;
   padding-top: 50px;
@@ -36,6 +29,80 @@ h2.title{
   text-align: center;
   font-family: 'Abel', sans-serif;
 }
+
+h4{
+  text-align: center;
+  padding-bottom: 50px;
+  font-size:30px;
+  color:#323042;
+  font-weight: bolder;
+}
+
+.outer{
+  position: relative;
+  background: #111;
+}
+
+.button{
+  height: 50px;
+  width: 150px;
+  border-radius: 50px;
+}
+
+.outer button, .outer span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.outer button{
+  background: #111;
+  color: #f2f2f2;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  z-index: 9;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.button button{
+  height: 40px;
+  width: 140px;
+  border-radius: 50px;
+}
+
+.outer span{
+  height: 100%;
+  width: 100%;
+  background: inherit;
+}
+.button span{
+  border-radius: 50px;
+}
+.circle span{
+  border-radius: 50%;
+}
+.outer:hover span:nth-child(1){
+  filter: blur(7px);
+}
+.outer:hover span:nth-child(2){
+  filter: blur(14px);
+}
+.outer:hover{
+  background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+  animation: rotate 1.5s linear infinite;
+}
+@keyframes rotate {
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }
+}
+
+
 .form-control {
   background-color:#323042;
   opacity: 0.8;
@@ -282,7 +349,7 @@ ul li {
   transition: all 0.5s;
 }
 
-a:hover {
+/* a:hover {
   background-color: rgba(23, 59, 105, 0.679);
   color: white;
 }
@@ -323,7 +390,7 @@ a:hover:after {
   opacity: 1;
   top: -7px;
   right: -7px;
-}
+} */
 
 /* name and slogan picture */
 .brand-name {
@@ -490,4 +557,14 @@ label,
 
   @media (min-width: 576px) {
 
+  }
+
+  @media (max-width: 640px){
+    .center{
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+    .outer{
+      margin: 50px 0;
+    }
   }

@@ -48,9 +48,8 @@ h4.result-box{
 }
 
 img.member-icon {
-  border-radius: 50%;
-  max-width: 70px;
-  max-height: 100px;
+  border-radius:50%;
+  width: 60px;
   display: inline-block;
   margin: 20px;
 }
@@ -82,7 +81,7 @@ p.albumart {
   display: flex;
   justify-content: space-between;
   align-content: center;
-  padding: 5px 50px 50px 50px;
+  padding: 5px 50px 0px 50px;
   margin-top: 15px;
 }
 

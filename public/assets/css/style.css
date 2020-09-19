@@ -6,19 +6,14 @@ body {
   font-family: 'Abel', sans-serif;
 }
 
-#stellar-sonic-logo {
-  max-width: 70px;
-  margin-bottom: 15px;
-  padding: 5px 10px;
-}
-
-
 h2 {
   color:#8c9cb0;
   text-align: center;
   font-family: 'Abel', sans-serif;
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 50px;
+  font-weight: bolder;
+  margin-top:40px ;
+  margin-bottom: 20px;
 }
 
 h2.title{
@@ -38,6 +33,27 @@ h4{
   font-weight: bolder;
 }
 
+.member-name,
+.member-name1,
+.play{
+  color: #8c9cb0;
+  align-content: center;
+}
+
+img.member-icon{
+  border-radius: 50%;
+  max-width: 70px;
+  max-height: 100px;
+  display: inline-block;
+  margin: 20px;
+}
+
+.searchtitle{
+  color:#8c9cb0;
+  text-align: center;
+  font-size:30px;
+  font-weight: bold;
+}
 .outer{
   position: relative;
   background: #111;
@@ -93,15 +109,12 @@ h4{
   background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
   animation: rotate 1.5s linear infinite;
 }
-@keyframes rotate {
-  0%{
-    filter: hue-rotate(0deg);
-  }
-  100%{
-    filter: hue-rotate(360deg);
-  }
-}
 
+#stellar-sonic-logo {
+  max-width: 70px;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+}
 
 .form-control {
   background-color:#323042;
@@ -156,14 +169,6 @@ form.login {
   display:block;
   width: 90%;
   padding: 10px;
-}
-
-img.member-icon{
-  border-radius: 50%;
-  max-width: 70px;
-  max-height: 100px;
-  display: inline-block;
-  margin: 20px;
 }
 
 #popupChatBox {
@@ -310,12 +315,6 @@ svg{
   width: 45%;
 }
 
-.member-name,
-.member-name1,
-.play{
-  color: #8c9cb0;
-  align-content: center;
-}
 
 /* nav bar styling */
 
@@ -349,7 +348,7 @@ ul li {
   transition: all 0.5s;
 }
 
-/* a:hover {
+a:hover {
   background-color: rgba(23, 59, 105, 0.679);
   color: white;
 }
@@ -390,7 +389,7 @@ a:hover:after {
   opacity: 1;
   top: -7px;
   right: -7px;
-} */
+}
 
 /* name and slogan picture */
 .brand-name {
@@ -501,6 +500,14 @@ label,
     align-content:center;
   }
 
+  @keyframes rotate {
+    0%{
+      filter: hue-rotate(0deg);
+    }
+    100%{
+      filter: hue-rotate(360deg);
+    }
+  }
   
 @media (max-width: 600px) { 
   

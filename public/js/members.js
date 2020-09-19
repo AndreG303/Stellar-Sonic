@@ -1,4 +1,9 @@
+var currentUserUsername = "";
+var currentUserPic = "";
+var currentUserId = "";
+
 $(document).ready(() => {
+
   var availableTags = [];
   //global variables
   var userBtn = $(".btn-userBtn");
@@ -30,8 +35,13 @@ $(document).ready(() => {
     $(".member-name").text(data.username);
     $(".member-icon").attr("src", data.profilePicture);
     $(".member-icon").attr("width", "120");
+    console.log(data);
+    currentUserId.length = 0;
     username = data.username;
     userId = data.id;
+    currentUserId = userId;
+    currentUserUsername = username;
+    currentUserPic = data.profilePicture;
     console.log("1st get at members.js");
     console.log(username);
     userBtn.text(username + "'s list");

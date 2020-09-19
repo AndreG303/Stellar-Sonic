@@ -49,7 +49,7 @@ $(document).ready(() => {
           for (var i = 0; i < data.length; i++) {
             var row = $("<div>");
             row.addClass("post");
-            row.append("<p> <img src='"+ data[i].profilePicture + "' alt='member-icon' class='member-icon'></img> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
+            row.append("<p> <img src='"+ data[i].profilePicture + "' alt='member-icon' class='member-icon-for-chat'></img> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
             $("#post-area").append(row);
           }
         }
@@ -74,7 +74,7 @@ $(document).ready(() => {
       .then(function () {
         var row = $("<div>");
         row.addClass("post");
-        row.append("<p> <img src='"+ newPost.profilePicture +"' alt='member-icon' class='member-icon'></img> [" + moment(newPost.created_at).format("h:mma") + "] <span id='chatboxUsername' style = 'font-weight: bold;'>" + newPost.author + ":</span> " + newPost.body + "</p>");
+        row.append("<p> <img src='"+ newPost.profilePicture +"' alt='member-icon' class='member-icon-for-chat'></img> [" + moment(newPost.created_at).format("h:mma") + "] <span id='chatboxUsername' style = 'font-weight: bold;'>" + newPost.author + ":</span> " + newPost.body + "</p>");
         $("#post-area").append(row);
         chatScrollToBottom();
       });

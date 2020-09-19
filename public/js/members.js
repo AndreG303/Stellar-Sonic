@@ -1,4 +1,9 @@
+var currentUserUsername = "";
+var currentUserPic = "";
+var currentUserId = "";
+
 $(document).ready(() => {
+
   var availableTags = [];
   //global variables
   var userBtn = $(".btn-userBtn");
@@ -28,13 +33,26 @@ $(document).ready(() => {
   //api functions
   $.get("/api/user_data").then(data => {
     $(".member-name").text(data.username);
+    // var iconSpan0=$('<span class=iconSpan>')
+  //  var memberIcon0 =$('<img class="member-icon" id="memberIconJa0">');
+    // memberIcon0.attr("src", data.profilePicture);
     $(".member-icon").attr("src", data.profilePicture);
     $(".member-icon").attr("width", "120");
+    // memberIcon0.attr("width", "80");
+    // iconSpan0.append(memberIcon0);
+    // $("#member-name0").prepend(iconSpan0);
+
+    console.log(data);
+    currentUserId.length = 0;
     username = data.username;
     userId = data.id;
+    currentUserId = userId;
+    currentUserUsername = username;
+    currentUserPic = data.profilePicture;
     console.log("1st get at members.js");
     console.log(username);
     userBtn.text(username + "'s list");
+    prepareArrays(currentUserId, currentUserPic, currentUserUsername);
   }).then
   setInterval(function (moment, chatScrollToBottom) {
     $.get("/api/posts", function (data) {
@@ -48,7 +66,7 @@ $(document).ready(() => {
           for (var i = 0; i < data.length; i++) {
             var row = $("<div>");
             row.addClass("post");
-            row.append("<p> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
+            row.append("<p> <img src='"+ data[i].profilePicture + "' alt='member-icon' class='member-icon-for-chat'></img> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
             $("#post-area").append(row);
           }
         }
@@ -63,7 +81,8 @@ $(document).ready(() => {
     event.preventDefault();
     var newPost = {
       author: username,
-      body: $("#post-box").val().trim()
+      body: $("#post-box").val().trim(),
+      profilePicture: currentUserPic
     };
     console.log(newPost);
     // Send an AJAX POST-request with jQuery
@@ -72,11 +91,12 @@ $(document).ready(() => {
       .then(function () {
         var row = $("<div>");
         row.addClass("post");
-        row.append("<p> [" + moment(newPost.created_at).format("h:mma") + "] <span id='chatboxUsername' style = 'font-weight: bold;'>" + newPost.author + ":</span> " + newPost.body + "</p>");
+        row.append("<p> <img src='"+ newPost.profilePicture +"' alt='member-icon' class='member-icon-for-chat'></img> [" + moment(newPost.created_at).format("h:mma") + "] <span id='chatboxUsername' style = 'font-weight: bold;'>" + newPost.author + ":</span> " + newPost.body + "</p>");
         $("#post-area").append(row);
         chatScrollToBottom();
       });
     // Empty each input box by replacing the value with an empty string
+
     $("#author").val("");
     $("#post-box").val("");
   });

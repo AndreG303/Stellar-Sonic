@@ -269,7 +269,7 @@ $(document).ready(() => {
           data: newSong
         })
           .then(() => {
-            // location.reload(); // <-- refresh page
+            location.reload(); // <-- refresh page
             console.log("added successfully");
           });
       });

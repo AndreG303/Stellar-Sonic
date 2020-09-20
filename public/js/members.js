@@ -1,10 +1,14 @@
+// const { response } = require("express");
+//these variables need to be global so they  can be populated in other functions
+
+var apiKeyC="";
 var currentUserUsername = "";
 var currentUserPic = "";
 var currentUserId = "";
 
 $(document).ready(() => {
-
-  var availableTags = [];
+  
+    var availableTags = [];
   //global variables
   var userBtn = $(".btn-userBtn");
   let username; // globally keeps track of the current user that is logged in
@@ -104,15 +108,23 @@ $(document).ready(() => {
   const searchHints = function (evKey) {
     searchString = $("#input-title-ja").val();
     if ((searchString === 0) || (searchString.length < 6)) {
-      console.log(evKey);
-      console.log(searchString);
-      console.log("no call , string is too short");
+      $.get("/api/user_data2").then(api_key => {
+        apiKeyC= api_key.apiKey;
+   
+      });
+      // console.log(evKey);
+      // console.log(searchString);
+      // console.log("no call , string is too short");
     }
     else if ((searchString.length === 6) || (searchString.length === 10) || (searchString.length === 14) || (searchString.length === 20)) {
       console.log(evKey);
       console.log(searchString);
       console.log("doing the call");
       availableTags.length = 0;
+      
+  
+      
+       
       var settings = {
         "async": true,
         "crossDomain": true,
@@ -120,11 +132,11 @@ $(document).ready(() => {
         "method": "GET",
         "headers": {
           "x-rapidapi-host": "shazam.p.rapidapi.com",
-          "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
+          "x-rapidapi-key": apiKeyC
         }
       }
       $.ajax(settings).done(function (response) {
-        console.log(response);
+        console.log(response); 
         for (var i = 0; i < response.hints.length; i++) {
           let hints = response.hints[i].term;
           availableTags.push(hints);
@@ -191,7 +203,7 @@ $(document).ready(() => {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "shazam.p.rapidapi.com",
-        "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
+        "x-rapidapi-key": apiKeyC
       }
     }
     $.ajax(settings).done(function (response) {
@@ -208,7 +220,7 @@ $(document).ready(() => {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "shazam.p.rapidapi.com",
-        "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
+        "x-rapidapi-key": apiKeyC
       }
     }
     $.ajax(settings).done(function (response) {

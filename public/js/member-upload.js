@@ -2,6 +2,7 @@ $.get("/api/user_data").then(cloudData => {
   var myWidget = cloudinary.createUploadWidget({
     cloudName: cloudData.cloudUploadName,
     uploadPreset: cloudData.cloudUploadPreset
+  
   }, (error, result) => {   // my_preset
     if (!error && result && result.event === "success") {
       console.log('Done! Here is the image info: ', result.info);

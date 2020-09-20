@@ -95,14 +95,14 @@ function bubbleChart() {
             }
 
             $(this.divTarget1).text(this.username+" 's Playlist");
-            var iconSpan0=$('<span class=iconSpan>')
-            var memberIcon0 =$('<img class="member-icon" id='+this.divSpan+'>');
+            var iconFigure0=$('<figure class=iconFigure>')
+            var memberIcon0 =$('<img class="member-icon" id='+this.divFigure+'>');
             memberIcon0.attr("src", this.profilePicture);
             // $(".member-icon").attr("src", data.profilePicture);
             // $(".member-icon").attr("width", "120");
             memberIcon0.attr("width", "80");
-            iconSpan0.append(memberIcon0);
-            $(this.divTarget1).prepend(iconSpan0);
+            iconFigure0.append(memberIcon0);
+            $(this.divTarget1).prepend(iconFigure0);
 
         });
 }
@@ -200,7 +200,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         username: userArrayUsername[0],
         divTarget: "#musicdata",
         divTarget1: "#member-name0",
-        divSpan:"memberIconJa0",
+        divFigure:"memberIconJa0",
         setWidthHeight: setWidthHeight,
         bubbleChart: bubbleChart
     };
@@ -215,7 +215,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         username: userArrayUsername[1],
         divTarget: "#musicdata1",
         divTarget1: "#member-name1",
-        divSpan:"#memberIconJa1",
+        divFigure:"#memberIconJa1",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
@@ -230,7 +230,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         username: userArrayUsername[2],
         divTarget: "#musicdata2",
         divTarget1: "#member-name2",
-        divSpan:"#memberIconJa2",
+        divFigure:"#memberIconJa2",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
@@ -245,7 +245,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         username: userArrayUsername[3],
         divTarget: "#musicdata3",
         divTarget1: "#member-name3",
-        divSpan:"#memberIconJa3",
+        divFigure:"#memberIconJa3",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
@@ -260,7 +260,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         username: userArrayUsername[5],
         divTarget: "#musicdata4",
         divTarget1: "#member-name4",
-        divSpan:"#memberIconJa4",
+        divFigure:"#memberIconJa4",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };

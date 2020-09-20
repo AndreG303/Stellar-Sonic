@@ -3,10 +3,17 @@ const db = require("../models");
 const passport = require("../config/passport");
 const { sequelize } = require("../models");
 require('dotenv').config();
+
 console.log("CLAUDINARY", process.env.CLAUDINARY_CLOUDNAME);
 console.log("CLAUDINARY", process.env.CLAUDINARY_PRESET);
+console.log("api key", process.env.API_KEY);
+
+
+
 const { QueryTypes } = db.Sequelize;
 module.exports = function (app) {
+  const API_KEY = process.env.API_KEY;
+  console.log(API_KEY);
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -62,12 +69,14 @@ module.exports = function (app) {
       res.json(dbMainList);
     });
   });
+  
   // var replacement1= require("../public/js/d3userDyna")
   /// =========================== added from Jivko
-  app.get("/api/mainlists", (req, res) => {
-    db.MainList.findAll({}).then(function (dbMainList) {
-      // We have access to the todos as an argument inside of the callback function
-      res.json(dbMainList);
+  app.get("/api/user_data2", (req, res) => {
+    db.User.findAll({}).then(function (api) {
+            res.json({
+        apiKey: process.env.API_KEY
+      });
     });
   });
   app.get("/api/playlists", (req, res) => {

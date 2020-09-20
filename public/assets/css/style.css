@@ -4,6 +4,8 @@ body {
   background-size: cover;
   background-attachment: fixed;
   font-family: "Abel", sans-serif;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 h2 {
@@ -33,11 +35,21 @@ h4 {
   font-weight: bolder;
 }
 
-h4.result-box{
+h4.result-box {
   padding-bottom: 10px;
   color: #323042;
 }
 
+hr {
+  border-color: whitesmoke;
+}
+
+p {
+  font-size: 22px;
+  color: #323042;
+}
+
+ /* card hearder h2 */
 .member-name,
 .member-name1,
 .play {
@@ -47,28 +59,63 @@ h4.result-box{
   font-size: 40px;
 }
 
-img.member-icon {
-  border-radius: 50%;
-  max-width: 70px;
-  max-height: 100px;
-  display: inline-block;
-  margin: 20px;
-}
-img.member-icon-for-chat{
-  max-width: 40px;
-  max-height: 40px;
-  display: inline-block;
-}
-
-.member-icon {
-  font-size: 0px;
-}
-
+/* search for song h2 */
 .searchtitle {
   color: #8c9cb0;
   text-align: center;
   font-size: 30px;
   font-weight: bold;
+}
+
+
+/* d3 bubbles card position */
+.music_data{
+  display: block;
+  position: relative;
+}
+
+/* d3 svg */
+svg {
+  padding-bottom: 70px;
+}
+.node:hover {
+  stroke-width: 4px !important;
+  opacity: 1 !important;
+}
+
+/* buttons */
+
+/* .btn-allMusic {
+  background-color: #323042;
+  color: whitesmoke;
+  opacity: 0.8;
+} */
+
+.btn-userBtn {
+  background-color: #323042;
+  color: whitesmoke;
+  opacity: 0.8;
+}
+
+.cloudinary-button {
+  background-color: #323042 !important;
+  color: whitesmoke;
+  opacity: 0.8;
+  height: 37px;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  font-weight: bold !important;
+}
+
+.btn-searchSong {
+  background-color: #323042;
+  color: whitesmoke;
+  opacity: 0.8;
+  height: 43px;
+  border: solid;
+  font-size: 16px;
+  border-width: 1px;
+  border-radius: 5px;
 }
 
 .btn-shazamAdd {
@@ -78,28 +125,16 @@ img.member-icon-for-chat{
   font-size: 14px;
 }
 
-p.albumart {
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  padding: 5px 50px 50px 50px;
-  margin-top: 15px;
-}
-
-p{
-  font-size:22px;
-  color: #323042;
-}
-
-.outer {
-  position: relative;
-  background: #111;
-}
+/* rainbow logout button */
 
 .button {
   height: 50px;
   width: 150px;
   border-radius: 50px;
+}
+.outer {
+  position: relative;
+  background: #111;
 }
 
 .outer button,
@@ -148,78 +183,12 @@ p{
   animation: rotate 1.5s linear infinite;
 }
 
-#stellar-sonic-logo {
-  max-width: 70px;
-  margin-bottom: 15px;
-  padding: 5px 10px;
-}
-
-.form-control {
-  background-color: #323042;
-  opacity: 0.8;
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-}
-
-.btn-allMusic {
-  background-color: #323042;
-  color: whitesmoke;
-  opacity: 0.8;
-}
-.btn-userBtn {
-  background-color: #323042;
-  color: whitesmoke;
-  opacity: 0.8;
-}
-
-.cloudinary-button {
-  background-color: #323042 !important;
-  color: whitesmoke;
-  opacity: 0.8;
-  height: 37px;
-  font-size: 12px !important;
-  line-height: 18px !important;
-  font-weight: bold !important;
-}
-
-.btn-searchSong {
-  background-color: #323042;
-  color: whitesmoke;
-  opacity: 0.8;
-  height: 38px;
-  border: solid;
-  border-width: 1px;
-  border-radius: 5px;
-  color: #e3e7ea;
-}
-
-form.signup,
-form.login {
-  margin-top: 20px;
-}
-
-.login-png,
-.sign-up-png {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  width: 90%;
-  padding: 10px;
-}
-
-#popupChatBox {
-  max-width: 40%;
-  overflow: auto;
-  max-height: 85%;
-}
-
 /* Button used to open the chat form - fixed at the bottom of the page */
 .open-button {
   background-color: #323042;
   color: white;
   padding: 16px 20px;
-  font-size:20px;
+  font-size: 20px;
   border: none;
   cursor: pointer;
   opacity: 0.8;
@@ -229,13 +198,119 @@ form.login {
   width: 380px;
 }
 
+/* log in and sign up buttons */
+.header-links{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.header-links:hover {
+  background-color: rgba(23, 59, 105, 0.679);
+  color: white;
+}
+
+.header-links:before {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid rgba(23, 59, 105, 0.679);
+  border-width: 0 0 3px 3px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.header-links:hover:before {
+  opacity: 1;
+  bottom: -7px;
+  left: -7px;
+}
+
+.header-links:after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid rgba(23, 59, 105, 0.679);
+  border-width: 3px 3px 0 0;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.header-links:hover:after {
+  opacity: 1;
+  top: -7px;
+  right: -7px;
+}
+
+/* logo */
+#stellar-sonic-logo {
+  max-width: 70px;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+}
+
+/* member profile pic */
+img.member-icon {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  margin: 20px;
+  line-height: 2;
+}
+
+img.member-icon-for-chat {
+  max-width: 40px;
+  max-height: 40px;
+  display: inline-block;
+}
+
+.member-icon {
+  font-size: 0px;
+}
+
+/* album cover */
+p.albumart {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+/* forms */
+.form-control {
+  background-color: #323042;
+  opacity: 0.8;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+form.signup,
+form.login {
+  margin-top: 20px;
+}
+
+/* login - sign up images */
+.login-png,
+.sign-up-png {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 90%;
+  padding: 10px;
+}
+
 /* The popup chat - hidden by default */
+
 .chat-popup {
   display: none;
-  position: fixed;
-  width: 20%;
-  bottom: 0;
-  right: 15px;
+  margin: 2rem auto;
+  max-width: 80%;
   border: 3px solid #f1f1f1;
   z-index: 9;
   background-color: #323042;
@@ -322,13 +397,7 @@ form.login {
   position: absolute;
 }
 
-svg {
-  padding-bottom: 70px;
-}
-.node:hover {
-  stroke-width: 4px !important;
-  opacity: 1 !important;
-}
+
 
 .user-area {
   display: flex;
@@ -340,9 +409,11 @@ svg {
   margin: 10px;
   background-color: transparent;
   box-shadow: 1px 1px #323042;
+  border: 0px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 /* nav bar styling */
 
 ul {
@@ -373,53 +444,6 @@ ul li {
   margin: 0 10px;
   transition: all 0.5s;
 }
-a{
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-a:hover {
-  background-color: rgba(23, 59, 105, 0.679);
-  color: white;
-}
-
-a:before {
-  content: "";
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  width: 12px;
-  height: 12px;
-  border: 3px solid rgba(23, 59, 105, 0.679);
-  border-width: 0 0 3px 3px;
-  opacity: 0;
-  transition: all 0.3s;
-}
-
-a:hover:before {
-  opacity: 1;
-  bottom: -7px;
-  left: -7px;
-}
-
-a:after {
-  content: "";
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 12px;
-  height: 12px;
-  border: 3px solid rgba(23, 59, 105, 0.679);
-  border-width: 3px 3px 0 0;
-  opacity: 0;
-  transition: all 0.3s;
-}
-
-a:hover:after {
-  opacity: 1;
-  top: -7px;
-  right: -7px;
-}
 
 /* name and slogan picture */
 .brand-name {
@@ -430,31 +454,7 @@ a:hover:after {
   margin-bottom: 80px;
 }
 
-/* circular diagram */
-#musicdata {
-  display: block;
-  position: relative;
-}
 
-#musicdata1 {
-  display: block;
-  position: relative;
-}
-
-#musicdata2 {
-  display: block;
-  position: relative;
-}
-
-#musicdata3 {
-  display: block;
-  position: relative;
-}
-
-#musicdata4 {
-  display: block;
-  position: relative;
-}
 
 /* login/signup form */
 .login-png,
@@ -471,23 +471,7 @@ label,
   font-family: "Open Sans Condensed", sans-serif;
   font-size: 18px;
 }
-/*  */
 
-#search-results-card {
-  padding: 0px;
-  width: 320px;
-  font-size: 14px;
-  color: lightslategray;
-}
-.username_holder {
-  font-size: 16px;
-  color: lightslategray;
-}
-.username_holder_h2 {
-  text-align: center;
-  font-size: 18px;
-  color: lightslategray;
-}
 #log {
   border: 1px lightslategray;
   border-radius: 3px;
@@ -525,31 +509,35 @@ label,
   align-content: center;
 }
 
-.username_holder{
-  font-size:24px;
+/* handle bars users active */
+.username_holder {
+  font-size: 24px;
   font-family: "Abel", sans-serif;
   color: #8c9cb0;
-  text-align:center;
-  margin-bottom:30px;
-  margin-top:0px;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 0px;
 }
-.username_holder_h2{
-  font-size:24px;
+.username_holder_h2 {
+  font-size: 24px;
   font-family: "Abel", sans-serif;
   color: #8c9cb0;
-  text-align:center;
-  margin-bottom:10px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.username_holder_h3{
-  font-size:35px;
+.username_holder_h3 {
+  font-size: 35px;
   font-family: "Abel", sans-serif;
   color: #8c9cb0;
-  text-align:center;
+  text-align: center;
   margin-top: 10px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
+#log {
+  display: "none";
+}
 
 @keyframes rotate {
   0% {
@@ -559,8 +547,20 @@ label,
     filter: hue-rotate(360deg);
   }
 }
+@media (min-width: 600px) {
+  .chat-popup {
+    max-width: 60%;
+  }
+}
 
-
+@media screen and (min-width: 992px) {
+  .chat-popup {
+    position: fixed;
+    min-width: 25vw;
+    bottom: 0;
+    right: 15px;
+  }
+}
 
 @media (max-width: 640px) {
   .center {

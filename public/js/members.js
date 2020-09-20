@@ -20,6 +20,7 @@ $(document).ready(() => {
     $("#popupChatBox").attr("style", "display:block");
     $("#chatBtn").attr("style", "display:none");
     chatScrollToBottom();
+    window.scrollTo(0,document.body.scrollHeight);
   }
   const closeForm = function (event) {
     event.preventDefault();
@@ -304,4 +305,9 @@ $(document).ready(() => {
       };
     }
   }
+  $("#toggleConsoleBtn").change(function(){
+    console.log("condition hit");
+    $("#log").toggle();
+    console.log("Toggling!");
+  })
 });

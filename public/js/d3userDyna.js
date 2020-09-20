@@ -14,8 +14,7 @@ function bubbleChart() {
         data: this.param // added data for the param - ja
     })
         .then(data => {
-            // console.log(data); // Ja- commented this console lod as it shows repetitive objects-sorry for the inconvenience
-            window._debugVar = data;
+                    window._debugVar = data;
             // Filter a bit the data
             // data = data.filter(function(d){ return d.value = genre })
             // Color palette for genre?
@@ -96,14 +95,14 @@ function bubbleChart() {
             }
 
             $(this.divTarget1).text(this.username+" 's Playlist");
-            var iconSpan0=$('<span class=iconSpan>')
-            var memberIcon0 =$('<img class="member-icon" id='+this.divSpan+'>');
+            var iconFigure0=$('<figure class=iconFigure>')
+            var memberIcon0 =$('<img class="member-icon" id='+this.divFigure+'>');
             memberIcon0.attr("src", this.profilePicture);
             // $(".member-icon").attr("src", data.profilePicture);
             // $(".member-icon").attr("width", "120");
             memberIcon0.attr("width", "80");
-            iconSpan0.append(memberIcon0);
-            $(this.divTarget1).prepend(iconSpan0);
+            iconFigure0.append(memberIcon0);
+            $(this.divTarget1).prepend(iconFigure0);
 
         });
 }
@@ -178,27 +177,16 @@ $.get("/api/user_data1", function (req, res) {
     userArrayPic.push(currentUserPic);
     userArrayUsername.push(currentUserUsername);
 
-    // console.log(res);
-    console.log("user_data");
-    for (let i = 0; i < res.length; i++) {
+        for (let i = 0; i < res.length; i++) {
         if (res[i].id !== userArray[0]) {
-            console.log(userArray);
-            userArray.push(res[i].id);
+             userArray.push(res[i].id);
             userArrayPic.push(res[i].profilePicture);
             userArrayUsername.push(res[i].username);
-
-
-
-
-
         } else {
             console.log("found him");
         }
     }
-    console.log("userArray");
-    console.log(userArray);
-    console.log(userArrayPic);
-    console.log(userArrayUsername);
+  
     userPopulate(userArray, userArrayPic, userArrayUsername);
 });
 }
@@ -212,13 +200,10 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         username: userArrayUsername[0],
         divTarget: "#musicdata",
         divTarget1: "#member-name0",
-        divSpan:"memberIconJa0",
+        divFigure:"memberIconJa0",
         setWidthHeight: setWidthHeight,
         bubbleChart: bubbleChart
     };
-    console.log(bubble1);
-    // replacement1 = bubble1.param;
-    // console.log(replacement1);
     bubble1.setWidthHeight();
     bubble1.bubbleChart();
     var bubble2 = {
@@ -230,7 +215,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         username: userArrayUsername[1],
         divTarget: "#musicdata1",
         divTarget1: "#member-name1",
-        divSpan:"#memberIconJa1",
+        divFigure:"#memberIconJa1",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
@@ -245,7 +230,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         username: userArrayUsername[2],
         divTarget: "#musicdata2",
         divTarget1: "#member-name2",
-        divSpan:"#memberIconJa2",
+        divFigure:"#memberIconJa2",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
@@ -260,7 +245,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         username: userArrayUsername[3],
         divTarget: "#musicdata3",
         divTarget1: "#member-name3",
-        divSpan:"#memberIconJa3",
+        divFigure:"#memberIconJa3",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
@@ -275,7 +260,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         username: userArrayUsername[5],
         divTarget: "#musicdata4",
         divTarget1: "#member-name4",
-        divSpan:"#memberIconJa4",
+        divFigure:"#memberIconJa4",
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };

@@ -14,8 +14,7 @@ function bubbleChart() {
         data: this.param // added data for the param - ja
     })
         .then(data => {
-            // console.log(data); // Ja- commented this console lod as it shows repetitive objects-sorry for the inconvenience
-            window._debugVar = data;
+                    window._debugVar = data;
             // Filter a bit the data
             // data = data.filter(function(d){ return d.value = genre })
             // Color palette for genre?
@@ -178,27 +177,16 @@ $.get("/api/user_data1", function (req, res) {
     userArrayPic.push(currentUserPic);
     userArrayUsername.push(currentUserUsername);
 
-    // console.log(res);
-    console.log("user_data");
-    for (let i = 0; i < res.length; i++) {
+        for (let i = 0; i < res.length; i++) {
         if (res[i].id !== userArray[0]) {
-            console.log(userArray);
-            userArray.push(res[i].id);
+             userArray.push(res[i].id);
             userArrayPic.push(res[i].profilePicture);
             userArrayUsername.push(res[i].username);
-
-
-
-
-
         } else {
             console.log("found him");
         }
     }
-    console.log("userArray");
-    console.log(userArray);
-    console.log(userArrayPic);
-    console.log(userArrayUsername);
+  
     userPopulate(userArray, userArrayPic, userArrayUsername);
 });
 }
@@ -216,9 +204,6 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         setWidthHeight: setWidthHeight,
         bubbleChart: bubbleChart
     };
-    console.log(bubble1);
-    // replacement1 = bubble1.param;
-    // console.log(replacement1);
     bubble1.setWidthHeight();
     bubble1.bubbleChart();
     var bubble2 = {

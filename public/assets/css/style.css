@@ -481,6 +481,7 @@ label,
   font-size: 10px;
   position: fixed;
   overflow: auto;
+  display: none;
 }
 
 .replConsole {
@@ -535,9 +536,7 @@ label,
   margin-bottom: 10px;
 }
 
-#log {
-  display: "none";
-}
+
 
 @keyframes rotate {
   0% {
@@ -570,4 +569,7 @@ label,
   .outer {
     margin: 50px 0;
   }
+}
+#log {
+  display: "none";
 }

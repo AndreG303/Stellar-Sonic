@@ -146,6 +146,7 @@ $(document).ready(() => {
   });
 
   function loadPlaylist(id) {
+    $(".user-list-ja").html("");
     $.get("/api/PlaylistsUsers/" + id, function (data) {
       console.log(data);
       if (data.length !== 0) {
@@ -160,6 +161,7 @@ $(document).ready(() => {
           $(".user-list-ja").prepend(row);
         }
       }
+      // $(".user-list-ja").css("display", "block");
     });
   };
 
@@ -180,6 +182,7 @@ $(document).ready(() => {
         console.log("title deleted", id);
         // Reload the page to get the updated list
         loadPlaylist();
+
 
       });
   };
@@ -235,11 +238,11 @@ $(document).ready(() => {
     }
     $.ajax(settings).done(function (response) {
       // a switch needed here fo cases when the object does not have LyRICS  action or other actions and the action array is shorter
-
+      console.log(response);
 
       // fixing the youtube link to be possible to embed
       let rawLink = response.sections[response.sections.length - 3].youtubeurl.actions[0].uri
-      let re1 = /youtu.be/;  
+      let re1 = /youtu.be/;
       let newre1 = "www.youtube.com/embed";
       let re3 = /\?autoplay=1/;
       var fixedlink0 = rawLink.replace(re1, newre1);
@@ -297,8 +300,11 @@ $(document).ready(() => {
       if (typeof arguments[i] == 'object') {
         var newLine = $('<li class="replConsole">')
         $(".console-ja").append(newLine);
-        newLine.html(JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i] + '<br />');
+        fillingCl=JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i];
+        newLine.html(fillingCl + '<br />');
         realConsoleLog.apply(console, arguments[i]);
+        realConsoleLog.apply(fillingCl);
+         
       } else {
         var newLine = $('<li class="replConsole">')
         $(".console-ja").append(newLine);
@@ -326,38 +332,38 @@ $(document).ready(() => {
 function inListPlay(event) {
   event.stopPropagation();
   var youtube1 = $(this).data("value");
-  console.log(  "youtube1: "+ youtube1);
+  console.log("youtube1: " + youtube1);
 
-let rawLink = youtube1
-let re1 = /youtu.be/;  
-let newre1 = "www.youtube.com/embed";
-let re3 = /\?autoplay=1/;
-var fixedLink0 = rawLink.replace(re1, newre1);
-var fixedlink1 = fixedLink0.replace(re3, '');
-console.log("fixedLink0"+ fixedLink0);
+  let rawLink = youtube1
+  let re1 = /youtu.be/;
+  let newre1 = "www.youtube.com/embed";
+  let re3 = /\?autoplay=1/;
+  var fixedLink0 = rawLink.replace(re1, newre1);
+  var fixedlink1 = fixedLink0.replace(re3, '');
+  console.log("fixedLink0" + fixedLink0);
 
-{/* <iframe width=”560″ height=”315″ src=” https://www.youtube.com/embed/[Video ID]I?&autoplay=1″ frameborder=”0″ allowfullscreen></iframe> */}
+  {/* <iframe width=”560″ height=”315″ src=” https://www.youtube.com/embed/[Video ID]I?&autoplay=1″ frameborder=”0″ allowfullscreen></iframe> */ }
 
-// create a card for the searched song with an option to add to the users playlist
-$("#search-music-area").html("");
-var row3 = $('<div id="play-box-div" class="search-results-card users">');
-var row3a = $('<div class="card-header"></div>');
-var row3b = $('<h4 class="play-box">play-box</h4>');
-var row3c = $('<div class="card-body" id="search-display1">');
+  // create a card for the searched song with an option to add to the users playlist
+  $("#search-music-area").html("");
+  var row3 = $('<div id="play-box-div" class="search-results-card users">');
+  var row3a = $('<div class="card-header"></div>');
+  var row3b = $('<h4 class="play-box">play-box</h4>');
+  var row3c = $('<div class="card-body" id="search-display1">');
 
-var row3e = $('<p><iframe class="jvideo" width="580" height="360" src=' + fixedLink0+ '″ frameborder=”0″ allowfullscreen>g</iframe> </p>');
+  var row3e = $('<p><iframe class="jvideo" width="580" height="360" src=' + fixedLink0 + '″ frameborder=”0″ allowfullscreen>g</iframe> </p>');
 
-var row3k = $('<button type="button" class="btn btn-close-play-box" onclick="document.location.reload(true)">close</button>');
-var row3g = $('</div>');
-row3.append(row3a);
-row3.append(row3b);
-row3.append(row3c);
-row3.append(row3e);
-row3.append(row3k);
+  var row3k = $('<button type="button" class="btn btn-close-play-box" onclick="document.location.reload(true)">close</button>');
+  var row3g = $('</div>');
+  row3.append(row3a);
+  row3.append(row3b);
+  row3.append(row3c);
+  row3.append(row3e);
+  row3.append(row3k);
 
-row3.append(row3g);
-$("#search-music-area").prepend(row3);
-$([document.documentElement, document.body]).animate({
-  scrollTop: $("#memberName").offset().top
-}, 2000);
+  row3.append(row3g);
+  $("#search-music-area").prepend(row3);
+  $([document.documentElement, document.body]).animate({
+    scrollTop: $("#memberName").offset().top
+  }, 2000);
 }

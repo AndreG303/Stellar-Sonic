@@ -9,9 +9,11 @@
  https://prezi.com/s3ycpylfgrd5/?utm_campaign=share&utm_medium=copy
 
 ## User Story
+```
 AS A music lover 
 I WANT to create an interactive bubble chart playlist
 SO THAT I can visualize my music taste by genre
+```
 
 ## Acceptance Criteria
 ```

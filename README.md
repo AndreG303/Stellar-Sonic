@@ -1,7 +1,12 @@
 # STELLAR-SONIC
 
 ## Links 
-- https://dry-shelf-60979.herokuapp.com/
+- Deployed Application:
+ https://dry-shelf-60979.herokuapp.com/
+- Proposal:
+ https://docs.google.com/document/d/1gvfCQJrKK2zBle_h-hxQwE8MCBlMBzcpo49s22J5oTU/edit
+- Presentation:
+ https://prezi.com/s3ycpylfgrd5/?utm_campaign=share&utm_medium=copy
 
 ## User Story
 AS A music lover 

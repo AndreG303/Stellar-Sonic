@@ -474,7 +474,7 @@ label,
   font-size: 18px;
 }
 
-#log {
+.log {
   border: 1px lightslategray;
   border-radius: 3px;
   color: gray;
@@ -483,10 +483,20 @@ label,
   font-size: 10px;
   position: fixed;
   overflow: auto;
+}
+.console-ja{
   display: none;
+
+}
+.user-list-ja{
+  right: 0;
+  display: none;
+  width: 400px;
+  text-align: right ;
 }
 
-.replConsole {
+.replConsole,
+.playlists {
   list-style-type: none;
   font-family: "consolas", sans-serif;
 }
@@ -572,6 +582,45 @@ label,
     margin: 50px 0;
   }
 }
-#log {
+.console-ja {
   display: "none";
+}
+.user-list-ja {
+  display: "none";
+}
+
+.inListDeleteButton{
+  height: 15px;
+  width:15px;
+  background-color: red;
+  color: #ddd;
+  font-size: 8px;
+  opacity:60%;
+  border-radius: 4px;
+}
+.inListDeleteButton:hover{
+   background-color:yellow;
+  opacity:70%;
+  
+}
+
+.inListPlayButton {
+  height: 15px;
+  width:45px;
+  background-color:blue;
+  color: #ddd;
+  font-size: 8px;
+  opacity:60%;
+  border-radius: 4px;
+}
+.inListPlayButton:hover{
+   background-color:lightblue;
+  opacity:70%;
+  
+}
+.btn-close-play-box{
+  color:lightgray
+}
+.btn-close-play-box:hover{
+  color:white
 }

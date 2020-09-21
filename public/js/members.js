@@ -344,13 +344,13 @@ var row3c = $('<div class="card-body" id="search-display1">');
 
 var row3e = $('<p><iframe class="jvideo" width="580" height="360" src=' + fixedlink1+ '>g</iframe> </p>');
 
-var row3k = $('<button type="button" class="btn btn-close-play-box" onkeyup="document.location.reload(true)">close</button>');
+var row3k = $('<button type="button" class="btn btn-close-play-box" onclick="document.location.reload(true)">close</button>');
 var row3g = $('</div>');
 row3.append(row3a);
 row3.append(row3b);
 row3.append(row3c);
 row3.append(row3e);
-row3.append(row3e);
+row3.append(row3k);
 
 row3.append(row3g);
 $("#search-music-area").prepend(row3);

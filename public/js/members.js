@@ -332,8 +332,11 @@ let rawLink = youtube1
 let re1 = /youtu.be/;  
 let newre1 = "www.youtube.com/embed";
 let re3 = /\?autoplay=1/;
-var fixedlink0 = rawLink.replace(re1, newre1);
-var fixedlink1 = fixedlink0.replace(re3, '');
+var fixedLink0 = rawLink.replace(re1, newre1);
+var fixedlink1 = fixedLink0.replace(re3, '');
+console.log("fixedLink0"+ fixedLink0);
+
+{/* <iframe width=”560″ height=”315″ src=” https://www.youtube.com/embed/[Video ID]I?&autoplay=1″ frameborder=”0″ allowfullscreen></iframe> */}
 
 // create a card for the searched song with an option to add to the users playlist
 $("#search-music-area").html("");
@@ -342,7 +345,7 @@ var row3a = $('<div class="card-header"></div>');
 var row3b = $('<h4 class="play-box">play-box</h4>');
 var row3c = $('<div class="card-body" id="search-display1">');
 
-var row3e = $('<p><iframe class="jvideo" width="580" height="360" src=' + fixedlink1+ '>g</iframe> </p>');
+var row3e = $('<p><iframe class="jvideo" width="580" height="360" src=' + fixedLink0+ '″ frameborder=”0″ allowfullscreen>g</iframe> </p>');
 
 var row3k = $('<button type="button" class="btn btn-close-play-box" onclick="document.location.reload(true)">close</button>');
 var row3g = $('</div>');

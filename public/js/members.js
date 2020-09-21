@@ -1,4 +1,3 @@
-// const { response } = require("express");
 //these variables need to be global so they  can be populated in other functions
 
 var apiKeyC = "";
@@ -46,15 +45,15 @@ $(document).ready(() => {
     // memberIcon0.attr("width", "80");
     // iconSpan0.append(memberIcon0);
     // $("#member-name0").prepend(iconSpan0);
-
-
-    currentUserId.length = 0;
     username = data.username;
     userId = data.id;
+    userBtn.text(username + "'s list");
+    // this piggybacks on the same call and refreshes the variables to place the current user in 
+    //the three arrays in d3userDyna.js that determine which users are getting bubble charts
+    currentUserId.length = 0;
     currentUserId = userId;
     currentUserUsername = username;
     currentUserPic = data.profilePicture;
-    userBtn.text(username + "'s list");
     prepareArrays(currentUserId, currentUserPic, currentUserUsername);
   }).then
   setInterval(function (moment, chatScrollToBottom) {
@@ -108,17 +107,11 @@ $(document).ready(() => {
     if ((searchString === 0) || (searchString.length < 6)) {
       $.get("/api/user_data2").then(api_key => {
         apiKeyC = api_key.apiKey;
-
       });
 
     }
     else if ((searchString.length === 6) || (searchString.length === 10) || (searchString.length === 14) || (searchString.length === 20)) {
-
       availableTags.length = 0;
-
-
-
-
       var settings = {
         "async": true,
         "crossDomain": true,
@@ -130,48 +123,71 @@ $(document).ready(() => {
         }
       }
       $.ajax(settings).done(function (response) {
-
         for (var i = 0; i < response.hints.length; i++) {
           let hints = response.hints[i].term;
           availableTags.push(hints);
         }
-
       });
     }
+    // function to use the autocomplete hints received from the shazam API
     $(function () {
       $("#input-title-ja").autocomplete({
         source: availableTags
       });
     });
   }
-  // all music api get==============================
-  //onClick functions
-  $(".btn-allMusic").on("click", function (event) {
-    event.preventDefault();
-    $.get("/api/mainlists", function (data) {
-      if (data.length !== 0) {
-        for (var i = 0; i < data.length; i++) {
-          var row = $("<div>");
-          row.addClass("mainlists");
-          row.append("<p>" + data[i].artist + " release: " + data[i].release + " genre: " + data[i].genre + " title:" + data[i].title + " year" + data[i].year + '</p><p><button type="button" class="btn btn-addSong">Add to playlist</button></p>');
-          $("#main-music-area").prepend(row);
-        }
-      }
-    });
-  });
+
+
+
+  //function to populate user  playlist
   $(".btn-userBtn").on("click", function (event) {
     event.preventDefault();
-    $.get("/api/playlists", function (data) {
+    loadPlaylist(currentUserId)
+  });
+
+  function loadPlaylist(id) {
+    $(".user-list-ja").html("");
+    $.get("/api/PlaylistsUsers/" + id, function (data) {
+      console.log(data);
       if (data.length !== 0) {
+        $(".user-list-ja").html("");
         for (var i = 0; i < data.length; i++) {
-          var row = $("<div>");
+          var row = $('<li class"playlists">');
           row.addClass("playlists");
-          row.append("<p>" + data[i].artist + " release: " + data[i].release + "genre: " + data[i].genre + "title:" + data[i].title + " year" + data[i].year + "</p>");
-          $("#user-music-area").prepend(row);
+          let linkText = data[i].artist + " : " + data[i].title;
+          let inListPlayButton = '<button type="button" class="inListPlayButton" data-value=' + data[i].youtubeVideo + ' >play</button>';
+          let inListDeleteButton = '<button type="button" class="inListDeleteButton fa fa-trash"  data-value=' + data[i].id + '>x </button>';
+          row.html(linkText + ":" + inListPlayButton + " : " + inListDeleteButton);
+          $(".user-list-ja").prepend(row);
         }
       }
+      // $(".user-list-ja").css("display", "block");
     });
-  });
+  };
+
+  // event listeners for user playlist mangement
+  $(document).on("click", "button.inListDeleteButton", deleteInList);
+  $(document).on("click", "button.inListPlayButton", inListPlay);
+
+
+  function deleteInList(event) {
+    event.stopPropagation();
+    var id = $(this).data("value");
+    console.log(id);
+
+    $.ajax("/api/PlaylistsUsers/delete/" + id, {
+      type: "DELETE"
+    }).then(
+      function () {
+        console.log("title deleted", id);
+        // Reload the page to get the updated list
+        loadPlaylist();
+
+
+      });
+  };
+
+
   // functions to handle opening and closing of the chatbox
   // theaudioDB free api trigger and function
   $(".btn-searchSong").on("click", function (event) {
@@ -188,6 +204,10 @@ $(document).ready(() => {
   $("#input-title-ja").keyup(function () {
     $("#input-title-ja").css("background-color", "lavender");
   });
+
+
+  // function for the second call of the shazam's  api to search for a particular song and get that song ID to use in the next function
+
   const songSearch1 = function (songString1) {
     var settings = {
       "async": true,
@@ -200,10 +220,11 @@ $(document).ready(() => {
       }
     }
     $.ajax(settings).done(function (response) {
-           let shazamSongId = response.tracks.hits[0].track.key
+      let shazamSongId = response.tracks.hits[0].track.key
       checkSong2(shazamSongId);
     });
   };
+  //here with the shazam ID the user can access all info on a given song
   const checkSong2 = function (shazamSongId) {
     var settings = {
       "async": true,
@@ -216,8 +237,8 @@ $(document).ready(() => {
       }
     }
     $.ajax(settings).done(function (response) {
-      // switch needed here fo cases when the object does not have LyRICS  action or other actions and the action array is shorter
-
+      // a switch needed here fo cases when the object does not have LyRICS  action or other actions and the action array is shorter
+      console.log(response);
 
       // fixing the youtube link to be possible to embed
       let rawLink = response.sections[response.sections.length - 3].youtubeurl.actions[0].uri
@@ -278,19 +299,71 @@ $(document).ready(() => {
     for (var i = 0; i < arguments.length; i++) {
       if (typeof arguments[i] == 'object') {
         var newLine = $('<li class="replConsole">')
-        $("#log").append(newLine);
-        newLine.html(JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i] + '<br />');
+        $(".console-ja").append(newLine);
+        fillingCl=JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i];
+        newLine.html(fillingCl + '<br />');
         realConsoleLog.apply(console, arguments[i]);
+        realConsoleLog.apply(fillingCl);
+         
       } else {
         var newLine = $('<li class="replConsole">')
-        $("#log").append(newLine);
+        $(".console-ja").append(newLine);
         newLine.html(arguments[i] + '<br />');
         realConsoleLog.apply(console, arguments);
         return
       };
+
     }
   }
   $("#toggleConsoleBtn").change(function () {
-        $("#log").toggle();
-  })
+    $(".console-ja").toggle();
+  });
+
+  $("#toggleUserListBtn").change(function () {
+    $(".user-list-ja").toggle();
+    loadPlaylist(currentUserId)
+  });
 });
+
+
+
+
+// create a play card for a song to be  played from the users play list
+function inListPlay(event) {
+  event.stopPropagation();
+  var youtube1 = $(this).data("value");
+  console.log("youtube1: " + youtube1);
+
+  let rawLink = youtube1
+  let re1 = /youtu.be/;
+  let newre1 = "www.youtube.com/embed";
+  let re3 = /\?autoplay=1/;
+  var fixedLink0 = rawLink.replace(re1, newre1);
+  var fixedlink1 = fixedLink0.replace(re3, '');
+  console.log("fixedLink0" + fixedLink0);
+
+  {/* <iframe width=”560″ height=”315″ src=” https://www.youtube.com/embed/[Video ID]I?&autoplay=1″ frameborder=”0″ allowfullscreen></iframe> */ }
+
+  // create a card for the searched song with an option to add to the users playlist
+  $("#search-music-area").html("");
+  var row3 = $('<div id="play-box-div" class="search-results-card users">');
+  var row3a = $('<div class="card-header"></div>');
+  var row3b = $('<h4 class="play-box">play-box</h4>');
+  var row3c = $('<div class="card-body" id="search-display1">');
+
+  var row3e = $('<p><iframe class="jvideo" width="580" height="360" src=' + fixedLink0 + '″ frameborder=”0″ allowfullscreen>g</iframe> </p>');
+
+  var row3k = $('<button type="button" class="btn btn-close-play-box" onclick="document.location.reload(true)">close</button>');
+  var row3g = $('</div>');
+  row3.append(row3a);
+  row3.append(row3b);
+  row3.append(row3c);
+  row3.append(row3e);
+  row3.append(row3k);
+
+  row3.append(row3g);
+  $("#search-music-area").prepend(row3);
+  $([document.documentElement, document.body]).animate({
+    scrollTop: $("#memberName").offset().top
+  }, 2000);
+}

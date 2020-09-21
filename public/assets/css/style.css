@@ -616,3 +616,9 @@ label,
   opacity:70%;
   
 }
+.btn-close-play-box{
+  color:lightgray
+}
+.btn-close-play-box:hover{
+  color:white
+}

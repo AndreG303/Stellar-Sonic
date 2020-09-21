@@ -1,3 +1,7 @@
+// const { response } = require("express");
+//these variables need to be global so they  can be populated in other functions
+
+var apiKeyC = "";
 var currentUserUsername = "";
 var currentUserPic = "";
 var currentUserId = "";
@@ -16,7 +20,7 @@ $(document).ready(() => {
     $("#popupChatBox").attr("style", "display:block");
     $("#chatBtn").attr("style", "display:none");
     chatScrollToBottom();
-    window.scrollTo(0,document.body.scrollHeight);
+    window.scrollTo(0, document.body.scrollHeight);
   }
   const closeForm = function (event) {
     event.preventDefault();
@@ -35,7 +39,7 @@ $(document).ready(() => {
   $.get("/api/user_data").then(data => {
     $(".member-name").text(data.username);
     // var iconSpan0=$('<span class=iconSpan>')
-  //  var memberIcon0 =$('<img class="member-icon" id="memberIconJa0">');
+    //  var memberIcon0 =$('<img class="member-icon" id="memberIconJa0">');
     // memberIcon0.attr("src", data.profilePicture);
     $(".member-icon").attr("src", data.profilePicture);
     $(".member-icon").attr("width", "120");
@@ -43,15 +47,13 @@ $(document).ready(() => {
     // iconSpan0.append(memberIcon0);
     // $("#member-name0").prepend(iconSpan0);
 
-    console.log(data);
+
     currentUserId.length = 0;
     username = data.username;
     userId = data.id;
     currentUserId = userId;
     currentUserUsername = username;
     currentUserPic = data.profilePicture;
-    console.log("1st get at members.js");
-    console.log(username);
     userBtn.text(username + "'s list");
     prepareArrays(currentUserId, currentUserPic, currentUserUsername);
   }).then
@@ -67,7 +69,7 @@ $(document).ready(() => {
           for (var i = 0; i < data.length; i++) {
             var row = $("<div>");
             row.addClass("post");
-            row.append("<p> <img src='"+ data[i].profilePicture + "' alt='member-icon' class='member-icon-for-chat'></img> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
+            row.append("<p> <img src='" + data[i].profilePicture + "' alt='member-icon' class='member-icon-for-chat'></img> [" + moment(data[i].createdAt, "YYYY-MM-DDTHH:mm:ss.SSSSZ").format("h:mma") + "] <span id= 'chatboxUsername' style = 'font-weight: bold;'>" + data[i].author + ":</span> " + data[i].body + "</p>");
             $("#post-area").append(row);
           }
         }
@@ -85,14 +87,13 @@ $(document).ready(() => {
       body: $("#post-box").val().trim(),
       profilePicture: currentUserPic
     };
-    console.log(newPost);
     // Send an AJAX POST-request with jQuery
     $.post("/api/posts", newPost)
       // On success, run the following code
       .then(function () {
         var row = $("<div>");
         row.addClass("post");
-        row.append("<p> <img src='"+ newPost.profilePicture +"' alt='member-icon' class='member-icon-for-chat'></img> [" + moment(newPost.created_at).format("h:mma") + "] <span id='chatboxUsername' style = 'font-weight: bold;'>" + newPost.author + ":</span> " + newPost.body + "</p>");
+        row.append("<p> <img src='" + newPost.profilePicture + "' alt='member-icon' class='member-icon-for-chat'></img> [" + moment(newPost.created_at).format("h:mma") + "] <span id='chatboxUsername' style = 'font-weight: bold;'>" + newPost.author + ":</span> " + newPost.body + "</p>");
         $("#post-area").append(row);
         chatScrollToBottom();
       });
@@ -105,15 +106,19 @@ $(document).ready(() => {
   const searchHints = function (evKey) {
     searchString = $("#input-title-ja").val();
     if ((searchString === 0) || (searchString.length < 6)) {
-      console.log(evKey);
-      console.log(searchString);
-      console.log("no call , string is too short");
+      $.get("/api/user_data2").then(api_key => {
+        apiKeyC = api_key.apiKey;
+
+      });
+
     }
     else if ((searchString.length === 6) || (searchString.length === 10) || (searchString.length === 14) || (searchString.length === 20)) {
-      console.log(evKey);
-      console.log(searchString);
-      console.log("doing the call");
+
       availableTags.length = 0;
+
+
+
+
       var settings = {
         "async": true,
         "crossDomain": true,
@@ -121,16 +126,16 @@ $(document).ready(() => {
         "method": "GET",
         "headers": {
           "x-rapidapi-host": "shazam.p.rapidapi.com",
-          "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
+          "x-rapidapi-key": apiKeyC
         }
       }
       $.ajax(settings).done(function (response) {
-        console.log(response);
+
         for (var i = 0; i < response.hints.length; i++) {
           let hints = response.hints[i].term;
           availableTags.push(hints);
         }
-        console.log(availableTags);
+
       });
     }
     $(function () {
@@ -173,7 +178,6 @@ $(document).ready(() => {
     event.preventDefault();
     const titleInput = $("input#input-title-ja");
     let title = titleInput.val().trim();
-    console.log(title);
     songSearch1(title);
   });
   $("#input-title-ja").text("krokodil");
@@ -192,12 +196,11 @@ $(document).ready(() => {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "shazam.p.rapidapi.com",
-        "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
+        "x-rapidapi-key": apiKeyC
       }
     }
     $.ajax(settings).done(function (response) {
-      console.log(response);
-      let shazamSongId = response.tracks.hits[0].track.key
+           let shazamSongId = response.tracks.hits[0].track.key
       checkSong2(shazamSongId);
     });
   };
@@ -209,24 +212,20 @@ $(document).ready(() => {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "shazam.p.rapidapi.com",
-        "x-rapidapi-key": "6f4c62189fmshacee60036d76b2cp101a45jsn8679c155c21e"
+        "x-rapidapi-key": apiKeyC
       }
     }
     $.ajax(settings).done(function (response) {
-      console.log("song details-final");
-      console.log(response);
-      // switch needed here
+      // switch needed here fo cases when the object does not have LyRICS  action or other actions and the action array is shorter
+
+
+      // fixing the youtube link to be possible to embed
       let rawLink = response.sections[response.sections.length - 3].youtubeurl.actions[0].uri
-      console.log(rawLink);
       let re1 = /youtu.be/;
-      console.log(re1);
       let newre1 = "www.youtube.com/embed";
       let re3 = /\?autoplay=1/;
       var fixedlink0 = rawLink.replace(re1, newre1);
-      console.log(fixedlink0);
       var fixedlink1 = fixedlink0.replace(re3, '');
-      console.log(fixedlink1);
-      console.log("fixedlink1");
       let newSong = {
         artist: response.subtitle,
         title: response.title,
@@ -263,8 +262,6 @@ $(document).ready(() => {
       }, 2000);
       $(".btn-shazamAdd").on("click", function (event) {
         event.preventDefault();
-        console.log("newSong for the post call");
-        console.log(newSong);
         $.ajax("/api/shazam-add", {
           type: "POST",
           data: newSong
@@ -293,9 +290,7 @@ $(document).ready(() => {
       };
     }
   }
-  $("#toggleConsoleBtn").change(function(){
-    console.log("condition hit");
-    $("#log").toggle();
-    console.log("Toggling!");
+  $("#toggleConsoleBtn").change(function () {
+        $("#log").toggle();
   })
 });

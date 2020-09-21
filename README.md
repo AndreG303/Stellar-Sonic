@@ -1,6 +1,6 @@
 # STELLAR-SONIC
 
-## Link to app 
+## Links 
 - https://dry-shelf-60979.herokuapp.com/
 
 ## User Story

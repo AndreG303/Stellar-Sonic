@@ -69,12 +69,12 @@ module.exports = function (app) {
       res.json(dbMainList);
     });
   });
-  
+
   // var replacement1= require("../public/js/d3userDyna")
   /// =========================== added from Jivko
   app.get("/api/user_data2", (req, res) => {
     db.User.findAll({}).then(function (api) {
-            res.json({
+      res.json({
         apiKey: process.env.API_KEY
       });
     });
@@ -122,91 +122,138 @@ module.exports = function (app) {
         res.json({ err });
       });
   });
-  // POST route for saving a new post
-  app.post("/api/posts", function (req, res) {
-    // create takes an argument of an object describing the item we want to insert
-    // into our table. In this case we just we pass in an object with a text and
-    // complete property
-    db.Post.create({
-      author: req.body.author,
-      body: req.body.body,
-      profilePicture: req.body.profilePicture
-    }).then(function (dbPost) {
-      // We have access to the new post as an argument inside of the callback function
-      res.json(dbPost);
-    }).catch(function (e) {
-      res.json({ error: "error!" });
-    });
-  });
-  // "/api/shazam-add"
-  app.post("/api/shazam-add", function (req, res) {
-    // create takes an argument of an object describing the item we want to insert
-    // into our table. In this case we just we pass in an object with a text and
-    // complete property
-    db.PlaylistsUsers.create({
-      artist: req.body.artist,
-      coverArt: req.body.coverArt,
-      genre: req.body.genre,
-      title: req.body.title,
-      year: req.body.year,
-      youtubeVideo: req.body.youtubeVideo,
-      username: req.body.username,
-      UserId: req.body.userId
-    }).then(function (dbPlaylistsUsers) {
-      // We have access to the new post as an argument inside of the callback function
-      res.json(dbPlaylistsUsers);
-      console.log(PlaylistsUsers);
-    }).catch(function (e) {
-      res.json({ error: "error!" });
-    });
-  });
-  app.get("/html/test", (req, res) => {
-    db.User.findAll({}).then(function (data) {
-      // We have access to the posts as an argument inside of the callback function
-      // res.json(dbUser);
-      // cat.all(function(data) {
-      // console.log(data);
-      var hbsObject = {
-        users: data,
-        layout: "ajax1"
-      };
-      for (i = 0; i < data.length; i++) {
-        let userId = data[i].dataValues.id;
-        let userUsername = data[i].dataValues.username;
-        let userEmail = data[i].dataValues.email;
-        // console.log("userJa");
-        // console.log(userId, userUsername, userEmail);
-      }
-      // console.log("hbsObject");
-      // console.log(hbsObject);
-      res.render("usertable", hbsObject);
-    });
-  });
-  //=======================================
-  // route for uploading a picture
-  app.put("/api/user_data", (req, res) => {
-    if (!req.user) {
-      // The user is not logged in, send back an empty object
-      res.json({});
-    }
-    else {
+
+
+
+  // rout to get a user playlist
+  app.get("/api/PlaylistsUsers/:id", async function (req, res) {
+    const results = await sequelize.query('SELECT id, youtubeVideo, genre, title, artist FROM PlaylistsUsers WHERE UserId = $replacement1 ', {
+      bind: { replacement1: req.params.id },
+      nest: true,
+      type: QueryTypes.SELECT,
+      raw: true,
+      plain: false
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
-      const id = req.user.id;
-      db.User.update({
-        profilePicture: req.body.profilePicture
-      },
-        {
-          where: {
-            id: id
-          }
-        })
-        .then(data => {
-          res.json(data);
-        })
-        .catch(err => {
-          res.json({ err });
-        });
-    }
+    }).then(data => {
+      // console.log(data);
+      res.json(data);
+    })
+      .catch(err => {
+        res.json({ err });
+      });
   });
+
+
+  // rout to delete a title from a user  a user playlist
+  app.delete("/api/PlaylistsUsers/delete/:id",  function (req, res) {
+    console.log(req.params.id);
+       db.PlaylistsUsers.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbPlayListUsers){
+      res.json(dbPlayListUsers);
+    });
+
+    // if (dbPlayListUsers.affectedRows == 0) {
+    //   // If no rows were changed, then the ID must not exist, so 404
+    //   return res.status(404).end();
+    // } else {
+    //   res.status(200).end();
+    // }
+  });
+
+
+
+
+
+
+// POST route for saving a new post
+app.post("/api/posts", function (req, res) {
+  // create takes an argument of an object describing the item we want to insert
+  // into our table. In this case we just we pass in an object with a text and
+  // complete property
+  db.Post.create({
+    author: req.body.author,
+    body: req.body.body,
+    profilePicture: req.body.profilePicture
+  }).then(function (dbPost) {
+    // We have access to the new post as an argument inside of the callback function
+    res.json(dbPost);
+  }).catch(function (e) {
+    res.json({ error: "error!" });
+  });
+});
+// "/api/shazam-add"
+app.post("/api/shazam-add", function (req, res) {
+  // create takes an argument of an object describing the item we want to insert
+  // into our table. In this case we just we pass in an object with a text and
+  // complete property
+  db.PlaylistsUsers.create({
+    artist: req.body.artist,
+    coverArt: req.body.coverArt,
+    genre: req.body.genre,
+    title: req.body.title,
+    year: req.body.year,
+    youtubeVideo: req.body.youtubeVideo,
+    username: req.body.username,
+    UserId: req.body.userId
+  }).then(function (dbPlaylistsUsers) {
+    // We have access to the new post as an argument inside of the callback function
+    res.json(dbPlaylistsUsers);
+    console.log(PlaylistsUsers);
+  }).catch(function (e) {
+    res.json({ error: "error!" });
+  });
+});
+app.get("/html/test", (req, res) => {
+  db.User.findAll({}).then(function (data) {
+    // We have access to the posts as an argument inside of the callback function
+    // res.json(dbUser);
+    // cat.all(function(data) {
+    // console.log(data);
+    var hbsObject = {
+      users: data,
+      layout: "ajax1"
+    };
+    for (i = 0; i < data.length; i++) {
+      let userId = data[i].dataValues.id;
+      let userUsername = data[i].dataValues.username;
+      let userEmail = data[i].dataValues.email;
+      // console.log("userJa");
+      // console.log(userId, userUsername, userEmail);
+    }
+    // console.log("hbsObject");
+    // console.log(hbsObject);
+    res.render("usertable", hbsObject);
+  });
+});
+//=======================================
+// route for uploading a picture
+app.put("/api/user_data", (req, res) => {
+  if (!req.user) {
+    // The user is not logged in, send back an empty object
+    res.json({});
+  }
+  else {
+    // Otherwise send back the user's email and id
+    // Sending back a password, even a hashed password, isn't a good idea
+    const id = req.user.id;
+    db.User.update({
+      profilePicture: req.body.profilePicture
+    },
+      {
+        where: {
+          id: id
+        }
+      })
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        res.json({ err });
+      });
+  }
+});
 }

@@ -607,8 +607,8 @@ label,
 .inListPlayButton {
   height: 15px;
   width:45px;
-  background-color:blue;
-  color: #ddd;
+  background-color:#323042;
+  color: white;
   font-size: 8px;
   opacity:60%;
   border-radius: 4px;

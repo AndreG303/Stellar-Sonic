@@ -6,15 +6,13 @@ body {
   min-height:100vh;
   background-attachment: fixed;
   font-family: "Abel", sans-serif;
-  min-width: 100vw;
-  min-height: 100vh;
 }
 
 h2 {
   color: #8c9cb0;
   text-align: center;
   font-family: "Abel", sans-serif;
-  font-size: 50px;
+  font-size: 45px;
   font-weight: bolder;
   margin-top: 40px;
   margin-bottom: 20px;
@@ -51,6 +49,10 @@ p {
   color: #323042;
 }
 
+.memberInfo{
+  display:inline;
+  margin-left:40%;
+}
  /* card hearder h2 */
 .member-name,
 .member-name1,
@@ -58,7 +60,7 @@ p {
   color: #8c9cb0;
   align-content: center;
   text-align: center;
-  font-size: 40px;
+  font-size: 45px;
 }
 
 /* search for song h2 */
@@ -548,47 +550,6 @@ label,
   margin-bottom: 10px;
 }
 
-
-
-@keyframes rotate {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    filter: hue-rotate(360deg);
-  }
-}
-@media (min-width: 600px) {
-  .chat-popup {
-    max-width: 60%;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .chat-popup {
-    position: fixed;
-    min-width: 25vw;
-    bottom: 0;
-    right: 15px;
-  }
-}
-
-@media (max-width: 640px) {
-  .center {
-    flex-wrap: wrap;
-    flex-direction: column;
-  }
-  .outer {
-    margin: 50px 0;
-  }
-}
-.console-ja {
-  display: "none";
-}
-.user-list-ja {
-  display: "none";
-}
-
 .inListDeleteButton{
   height: 15px;
   width:15px;
@@ -624,3 +585,44 @@ label,
 .btn-close-play-box:hover{
   color:white
 }
+.console-ja {
+  display: "none";
+}
+.user-list-ja {
+  display: "none";
+}
+
+@keyframes rotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+@media (min-width: 600px) {
+  .chat-popup {
+    max-width: 60%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .chat-popup {
+    position: fixed;
+    min-width: 25vw;
+    bottom: 0;
+    right: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  .center {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .outer {
+    margin: 50px 0;
+  }
+}
+
+

@@ -204,6 +204,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         setWidthHeight: setWidthHeight,
         bubbleChart: bubbleChart
     };
+    $(bubble1.divTarget).html('');
     bubble1.setWidthHeight();
     bubble1.bubbleChart();
     var bubble2 = {
@@ -219,6 +220,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
+    $(bubble2.divTarget).html('');
     bubble2.setWidthHeight();
     bubble2.bubbleChart();
     var bubble3 = {
@@ -234,6 +236,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
+    $(bubble3.divTarget).html('');
     bubble3.setWidthHeight();
     bubble3.bubbleChart();
     var bubble4 = {
@@ -249,6 +252,7 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
+    $(bubble4.divTarget).html('');
     bubble4.setWidthHeight();
     bubble4.bubbleChart();
     var bubble5 = {
@@ -264,6 +268,12 @@ function userPopulate(userArray, userArrayPic, userArrayUsername) {
         setWidthHeight: setWidthHeightHalf,
         bubbleChart: bubbleChart
     };
+    $(bubble5.divTarget).html('');
     bubble5.setWidthHeight();
     bubble5.bubbleChart();
 }
+
+var redraw = function(){
+    userPopulate(userArray, userArrayPic, userArrayUsername);
+}
+window.addEventListener("resize", redraw);
